@@ -1,0 +1,25 @@
+{
+  "name": "rooms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NYUeServ/rooms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NYUeServ/rooms/issues"
+  },
+  "homepage": "https://github.com/NYUeServ/rooms#readme",
+  "devDependencies": {
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.8"
+  }
+}
