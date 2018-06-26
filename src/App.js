@@ -14,7 +14,7 @@ class App extends Component {
             <Navbar.Brand>
               <Link to="/">Scratch</Link>
             </Navbar.Brand>
-            <Navbar.Toggle />
+            <Navbar.Toggle/>
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav pullRight>
