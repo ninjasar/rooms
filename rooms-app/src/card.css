@@ -1,0 +1,60 @@
+.card {
+  margin-top: calc(2rem + 30px);
+  margin-bottom: calc(3rem + 10px);
+  height: 25rem;  width: 400px;
+  top: 0;  background-color: white;
+  text-align: center;
+  border: 2px solid #5C5C5C;
+  overflow-x: hidden;  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cardPic {
+  width: 80%;
+  height: 90%;
+  margin-top: 2rem;
+}
+
+.cardDescrip {
+  font-size: 1rem;
+  text-decoration: none;
+  color: #5C5C5C;
+}
+@media (max-width: 1210px) {
+  .card {
+    width: 300px;  }
+ }
+
+@media (max-width: 920px) {
+
+  .card {
+   width: 200px;
+   }
+}
+
+@media (max-width: 332px) {
+  .card {
+  height: 20rem;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .card {
+  width: 80%;
+
+  }
+}
+
+
+
+@media (max-height: 700px) {
+  .card {    margin-top: 0rem;
+
+  }
+}
