@@ -1,24 +1,25 @@
-
-
 import React from 'react';
-import { Route } from 'react-router';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 
 
 import './index.css';
+import pic from './pic.jpeg';
 import AppName from './AppName.js';
 import Banner from './Banner.js';
 import RoomRec from './RoomRec.js';
-import pic from './pic.jpeg';
+
 //import Transparent from './Transparent.js';
 import Login from './Login.js';
 import Btn from './Btn.js';
 
 
+const pictures = [pic, pic, pic];
 
-var pics = [pic, pic, pic];
 
 const Rooms = (props) => {
+
+
+
   return(
     <div id="homeLayout">
       <div className="topBar">
@@ -30,13 +31,13 @@ const Rooms = (props) => {
         {props.loggedIn && <Banner/>}
         {!props.loggedIn && <Login loginClicked={props.login}/>}
       </div>
-      {props.loggedIn && <RoomRec loggedIn={props.loggedIn} pics={pics}/>}
+      {props.loggedIn && <RoomRec loggedIn={props.loggedIn} pics={pictures}/>}
     </div>
   )
 }
 
 
-
+export default Rooms;
 
 
 

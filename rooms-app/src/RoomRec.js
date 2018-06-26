@@ -8,10 +8,10 @@ import OptionsCard from './OptionsCard.js';
 
 const RoomRec = (props) => {
   return (
-    <div className="stuffBehind "{(this.props.loggedIn ? '' : 'blurred')}"">
-      <OptionsCard pic={this.props.pics[0]} txt='Individual'  description='Instantly reserve the closest room'/>
-      <OptionsCard pic={this.props.pics[1]} txt='Group'  description='Instantly reserve the closest room for a group of people'/>
-      <OptionsCard pic={this.props.pics[2]} txt='Search'  description='Advanced Search'/>
+    <div className="stuffBehind {(this.props.loggedIn ? '' : 'blurred')}">
+      <OptionsCard pic={props.pics[0]} txt='Individual'  description='Instantly reserve the closest room'/>
+      <OptionsCard pic={props.pics[1]} txt='Group'  description='Instantly reserve the closest room for a group of people'/>
+      <OptionsCard pic={props.pics[2]} txt='Search'  description='Advanced Search'/>
     </div>
   )
 };

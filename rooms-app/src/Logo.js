@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import './index.css';
 import torch from './torch.png';
 
@@ -10,7 +9,7 @@ const Logo = (props) => {
   return (
     <div className="logoContainer">
       <div>
-        <img src={torch} alt="torch"/>
+        <img src={torch} alt="torch" className="logo"/>
       </div>
     </div>
   )

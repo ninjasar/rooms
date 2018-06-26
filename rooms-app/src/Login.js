@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as BrowserRouter, NavLink} from 'react-router-dom';
 
 import './index.css';
-import App from './App.js';
 
 
 
