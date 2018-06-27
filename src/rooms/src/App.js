@@ -1,7 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, NavLink, Link, Router, withRouter } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
 import axios from 'axios';
-import { Nav, Navbar, NavItem } from "react-bootstrap";
+import {  Navbar } from "react-bootstrap";
 import PropTypes from 'prop-types';
 
 import './index.css';

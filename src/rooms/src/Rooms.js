@@ -1,15 +1,12 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 
 
 import './index.css';
-import AppName from './topBar/AppName.js';
 import Banner from './Banner/Banner.js';
 import RoomRec from './mainMenu/RoomRec.js';
 import pic from './mainMenu/pic.jpeg';
 //import Transparent from './Transparent.js';
 import Login from './Login.js';
-import Btn from './Btn.js';
 
 
 

@@ -1,5 +1,4 @@
 import React from "react";
-import { BrowserRouter, Switch, Route, NavLink, Router } from 'react-router-dom';
 
 import './index.css';
 import backIcon from './back.png';
