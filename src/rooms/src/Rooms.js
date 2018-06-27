@@ -16,15 +16,8 @@ import Btn from './Btn.js';
 const pict = [pic, pic, pic];
 
 const Rooms = (props) => {
-
-
   return(
-    <div id="homeLayout">
-      <div className="topBar">
-        <NavLink to="/button/" className="navLink">
-          <AppName uName={props.uName}/>
-        </NavLink>
-      </div>
+    <div>
       <div>
         {props.loggedIn && <Banner/>}
         {!props.loggedIn && <Login loginClicked={props.login}/>}
@@ -40,6 +33,11 @@ export default Rooms;
 
 
 /*
+<div className="topBar">
+  <NavLink to="/button/" className="navLink">
+    <AppName uName={props.uName}/>
+  </NavLink>
+</div>
 var pics = [__WEBPACK_IMPORTED_MODULE_7__pic_jpeg___default.a, __WEBPACK_IMPORTED_MODULE_7__pic_jpeg___default.a, __WEBPACK_IMPORTED_MODULE_7__pic_jpeg___default.a];
 
 var Rooms = function Rooms(props) {

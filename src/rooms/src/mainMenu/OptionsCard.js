@@ -9,7 +9,7 @@ import './card.css';
 
 var OptionsCard = (props) => {
   return (
-    <NavLink to="/button" className="card">
+    <NavLink to={props.url} className="card">
       <div>
         <div>
           <img src={props.pic} className="cardPic" alt="pic"/>

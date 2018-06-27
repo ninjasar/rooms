@@ -1,9 +1,20 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, NavLink, Link, Router, withRouter } from 'react-router-dom';
 import axios from 'axios';
+import { Nav, Navbar, NavItem } from "react-bootstrap";
+import PropTypes from 'prop-types';
+
 import './index.css';
+import AppName from './topBar/AppName.js';
+import Banner from './Banner/Banner.js';
+import RoomRec from './mainMenu/RoomRec.js';
+import pic from './mainMenu/pic.jpeg';
+//import Transparent from './Transparent.js';
+import Login from './Login.js';
 import Btn from './Btn.js';
 import Rooms from './Rooms.js';
+import Routes from "./Routes";
+import BackButton from './BackButton.js';
 
 class App extends React.Component {
 
@@ -12,9 +23,11 @@ class App extends React.Component {
       super(props);
       this.state = {
       loggedIn: false,
-      currentUser: ''
+      currentUser: '',
+
       }
     }
+
 
 
 
@@ -55,6 +68,8 @@ class App extends React.Component {
           console.log(error.response);
         });
       };
+      var currentRoute = window.location.pathname;
+      console.log(currentRoute);
 
       function loginFn(userNm, passWd) {
         axios({
@@ -80,13 +95,20 @@ class App extends React.Component {
       return <Rooms loggedIn={this.state.loggedIn} uName= {this.state.currentUser} login={loginFn} />
     }
     return (
-    <BrowserRouter>
-       <div className="app">
-         <Route exact path="/" component={rooms}/>
-          <Route exact path="/home" component={rooms}/>
-          <Route exact path="/button" component={btnCompnent}/>
-        </div>
-      </BrowserRouter>
+      <div id="homeLayout">
+        <Navbar className="topBar">
+          <div className="flexy">
+            <Link to="/button/" className="navLink">
+              <AppName uName={this.state.currentUser} loggedIn={this.state.loggedIn} url={currentRoute}/>
+            </Link>
+          </div>
+        </Navbar>
+        <div>
+          <Routes roomscmp={rooms} btncmp={btnCompnent}/>
+      </div>
+
+      </div>
+
     )
   }
 }
