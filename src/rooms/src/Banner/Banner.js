@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../index.css';
+import './banner.css';
 import ban from './banner.png';
 
 

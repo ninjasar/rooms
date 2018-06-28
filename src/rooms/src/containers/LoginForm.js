@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import "./Login.css";
+import "./loginForm.css";
 
-export default class Login extends Component {
+export default class LoginForm extends Component {
   constructor(props) {
     super(props);
 
@@ -10,21 +10,30 @@ export default class Login extends Component {
       email: "",
       password: ""
     };
+    this.loginClicked = this.props.loginClicked;
   }
 
   validateForm() {
     return this.state.email.length > 0 && this.state.password.length > 0;
   }
 
-  handleChange = event => {
+
+handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
     });
-  }
+}
 
-  handleSubmit = event => {
-    event.preventDefault();
+handleSubmit = async event => {
+  event.preventDefault();
+
+  try {
+    this.loginClicked(this.state.email, this.state.password);
+    
+  } catch (e) {
+    alert(e.message);
   }
+}
 
   render() {
     return (

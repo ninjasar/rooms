@@ -1,8 +1,8 @@
 import React from 'react';
 
-import '../index.css';
+import './topBar.css';
 import Logo from './Logo.js';
-import BackButton from '../BackButton.js';
+import BackButton from './BackButton.js';
 
 
 
@@ -10,7 +10,7 @@ const AppName = (props) => {
   return (
     <div id="topBar">
       <div id="appNameContainer">
-        {props.url !== "/home/"  && <BackButton/>}
+        {props.url !== "/home" && props.url !== "/home/" && <BackButton/>}
         <div>
           <Logo/>
         </div>

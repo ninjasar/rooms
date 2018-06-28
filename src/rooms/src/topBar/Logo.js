@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../index.css';
+import './topBar.css';
 import torch from './torch.png';
 
 

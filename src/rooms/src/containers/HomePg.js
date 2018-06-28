@@ -1,23 +1,21 @@
 import React from 'react';
 
-
-import './index.css';
-import Banner from './Banner/Banner.js';
-import RoomRec from './mainMenu/RoomRec.js';
-import pic from './mainMenu/pic.jpeg';
+import Banner from '../Banner/Banner.js';
+import RoomRec from '../mainMenu/RoomRec.js';
+import pic from '../mainMenu/pic.jpeg';
 //import Transparent from './Transparent.js';
-import Login from './Login.js';
+import LandingPg from './LandingPg.js';
 
 
 
 const pict = [pic, pic, pic];
 
-const Rooms = (props) => {
+const HomePg = (props) => {
   return(
     <div>
       <div>
         {props.loggedIn && <Banner/>}
-        {!props.loggedIn && <Login loginClicked={props.login}/>}
+        {!props.loggedIn && <LandingPg loginClicked={props.login}/>}
       </div>
       {props.loggedIn && <RoomRec loggedIn={props.loggedIn} pics={pict}/>}
     </div>
@@ -25,7 +23,7 @@ const Rooms = (props) => {
 }
 
 
-export default Rooms;
+export default HomePg;
 
 
 

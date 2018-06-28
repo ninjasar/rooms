@@ -10,11 +10,10 @@ import Banner from './Banner/Banner.js';
 import RoomRec from './mainMenu/RoomRec.js';
 import pic from './mainMenu/pic.jpeg';
 //import Transparent from './Transparent.js';
-import Login from './Login.js';
-import Btn from './Btn.js';
-import Rooms from './Rooms.js';
+import Btn from './containers/Btn.js';
+import HomePg from './containers/HomePg.js';
 import Routes from "./Routes";
-import BackButton from './BackButton.js';
+import LoginForm from './containers/LoginForm.js'
 
 class App extends React.Component {
 
@@ -89,10 +88,13 @@ class App extends React.Component {
         });
       };
     const btnCompnent = () => {
-    return <Btn></Btn>
+      return <Btn></Btn>
     }
-    const rooms = () => {
-      return <Rooms loggedIn={this.state.loggedIn} uName= {this.state.currentUser} login={loginFn} />
+    const homePg = () => {
+      return <HomePg loggedIn={this.state.loggedIn} uName= {this.state.currentUser} login={loginFn} />
+    }
+    const logFrm = () => {
+      return <LoginForm loginClicked={loginFn} />
     }
     return (
       <div id="homeLayout">
@@ -104,7 +106,7 @@ class App extends React.Component {
           </div>
         </Navbar>
         <div>
-          <Routes roomscmp={rooms} btncmp={btnCompnent}/>
+          <Routes homecmp={homePg} btncmp={btnCompnent} logcmp={logFrm} loggedIn={this.state.loggedIn}/>
       </div>
 
       </div>

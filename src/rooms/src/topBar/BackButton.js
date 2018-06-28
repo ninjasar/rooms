@@ -1,6 +1,6 @@
 import React from "react";
 
-import './index.css';
+import './topBar.css';
 import backIcon from './back.png';
 
 class BackButton extends React.Component {
