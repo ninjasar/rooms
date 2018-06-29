@@ -1,9 +1,10 @@
-import React from 'react';
-import { Link, } from 'react-router-dom';
-import axios from 'axios';
-import {  Navbar } from "react-bootstrap";
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { Nav, Navbar, NavItem } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
+import axios from "axios";
 
+import "./App.css";
 import './index.css';
 import AppName from './topBar/AppName.js';
 import Banner from './Banner/Banner.js';
@@ -13,7 +14,7 @@ import pic from './mainMenu/pic.jpeg';
 import Btn from './containers/Btn.js';
 import HomePg from './containers/HomePg.js';
 import Routes from "./Routes";
-import LoginForm from './containers/LoginForm.js'
+import LoginForm from './containers/LoginForm.js';
 
 class App extends React.Component {
 
@@ -107,11 +108,11 @@ class App extends React.Component {
         </Navbar>
         <div>
           <Routes homecmp={homePg} btncmp={btnCompnent} logcmp={logFrm} loggedIn={this.state.loggedIn}/>
+        </div>
       </div>
-
-      </div>
-
     )
-  }
+  };
 }
+
+
 export default App;

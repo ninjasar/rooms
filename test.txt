@@ -1,0 +1,3 @@
+secret access key aws : HMPq92XuvCuSRIbv5u+2qwb39UwJKGlcSml2ftAP
+
+normal access key aws: AKIAJS3VCZX7M5IXQJQA
