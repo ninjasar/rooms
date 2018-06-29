@@ -46,15 +46,6 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-<<<<<<< HEAD
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  color: #333;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "PT Serif", serif;
-=======
   display: block;
 }
 
@@ -148,7 +139,6 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: flex-start;
   border-top: 2px solid #5C5C5C;
   border-bottom: 2px solid #5C5C5C;
->>>>>>> master
 }
 
 select.form-control,
@@ -158,8 +148,6 @@ input.form-control {
 }
 input[type=file] {
   width: 100%;
-<<<<<<< HEAD
-=======
 }
 .logoContainer {
   order: 2;
@@ -199,5 +187,4 @@ input[type=file] {
   #transparent {
     top: calc(3rem + 160px);
   }
->>>>>>> master
 }

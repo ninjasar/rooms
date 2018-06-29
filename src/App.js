@@ -1,18 +1,10 @@
-<<<<<<< HEAD
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Nav, Navbar, NavItem } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import "./App.css";
-import Routes from "./Routes";
-=======
-import React from 'react';
-import { Link, } from 'react-router-dom';
-import axios from 'axios';
-import {  Navbar } from "react-bootstrap";
-import PropTypes from 'prop-types';
->>>>>>> master
+import axios from "axios";
 
+import "./App.css";
 import './index.css';
 import AppName from './topBar/AppName.js';
 import Banner from './Banner/Banner.js';
@@ -22,7 +14,7 @@ import pic from './mainMenu/pic.jpeg';
 import Btn from './containers/Btn.js';
 import HomePg from './containers/HomePg.js';
 import Routes from "./Routes";
-import LoginForm from './containers/LoginForm.js'
+import LoginForm from './containers/LoginForm.js';
 
 class App extends React.Component {
 
@@ -106,28 +98,6 @@ class App extends React.Component {
       return <LoginForm loginClicked={loginFn} />
     }
     return (
-<<<<<<< HEAD
-      <div className="App container">
-        <Navbar fluid collapseOnSelect>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <Link to="/">Scratch</Link>
-            </Navbar.Brand>
-            <Navbar.Toggle/>
-          </Navbar.Header>
-          <Navbar.Collapse>
-            <Nav pullRight>
-              <LinkContainer to="/signup">
-                <NavItem>Signup</NavItem>
-              </LinkContainer>
-              <LinkContainer to="/login">
-                <NavItem>Login</NavItem>
-              </LinkContainer>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
-        <Routes />
-=======
       <div id="homeLayout">
         <Navbar className="topBar">
           <div className="flexy">
@@ -138,12 +108,11 @@ class App extends React.Component {
         </Navbar>
         <div>
           <Routes homecmp={homePg} btncmp={btnCompnent} logcmp={logFrm} loggedIn={this.state.loggedIn}/>
->>>>>>> master
+        </div>
       </div>
-
-      </div>
-
     )
-  }
+  };
 }
+
+
 export default App;
