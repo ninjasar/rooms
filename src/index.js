@@ -1,8 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import { BrowserRouter as Router } from "react-router-dom";
+import Amplify from "aws-amplify";
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+import './index.css';
+import App from './App.js';
+import config from "./config";
+import registerServiceWorker from "./registerServiceWorker";
+
+
+
+ReactDOM.render (
+    <Router>
+      <App/>
+    </Router>,
+    document.getElementById('root'),
+  );
+  registerServiceWorker();
