@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Banner from '../Banner/Banner.js';
-import RoomRec from '../mainMenu/RoomRec.js';
-import pic from '../mainMenu/pic.jpeg';
+import Banner from '../components/Banner/Banner.js';
+import RoomRec from '../components/mainMenu/RoomRec.js';
+import pic from '../components/mainMenu/pic.jpeg';
 //import Transparent from './Transparent.js';
 import LandingPg from './LandingPg.js';
 

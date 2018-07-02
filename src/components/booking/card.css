@@ -1,0 +1,25 @@
+.base {
+  background-color: white;
+  radius: 4px;
+  box-shadow: 0px 2px #DEDEDE;
+  width: 80%;
+  -webkit-box-sizing: content-box;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  /*#FD599A @ 0%
+#000000 @ 100%
+#8143AC @ 100%*/
+
+  background: -webkit-linear-gradient(left, #FD599A, #000000 50%, #8143AC 100%);
+  color: white;
+  text-align: center;
+}
+
+
+.filterbx {
+  height: 100%;
+}
