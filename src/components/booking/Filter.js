@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import axios from "axios";
 
 import Card from '../booking/Card.js';
 import './card.css';
@@ -18,16 +17,26 @@ class Filter extends Card {
         location: '',
         occupants: 1,
         date: d.toString(),
-      }
+      };
     }
 
   render() {
       return (
-        <Card title="Filter" className="filterbx">
-          <div className="">jksljfljd</div>
-          <div>{this.state.date}</div>
-        </Card>
-      )
+        <div id="filterdv">
+          <Card bigTitle={true} title="Filter" >
+            <div className="line">jksljfljd</div>
+            <Card title="location" className="filterbx">
+              here is some text~
+            </Card>
+            <Card title="duration" className="filterbx">
+              jfdlksjfdlsj
+            </Card>
+            <Card title="date" className="filterbx">
+              {this.state.date}
+            </Card>
+          </Card>
+        </div>
+      );
   }
 }
 

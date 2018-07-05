@@ -7,6 +7,7 @@
   flex-direction: row;
   justify-content: space-between;
   order: 1;
+  background-color: white;
 
   }
 
@@ -14,11 +15,13 @@
   flex-direction: row;
 
   justify-content: space-between;
+  background-color: white;
 
   align-self: flex-start;
-  background: url(" + __webpack_require__(/*! ./Texture.svg */ "./Texture.svg") + "), -webkit-linear-gradient(left, #FF3CAC, #784BA0 100%);
-  background: url(" + __webpack_require__(/*! ./Texture.svg */ "./Texture.svg") + "), -o-linear-gradient(left, #FF3CAC, #784BA0 100%);
-  background: url('./Texture.svg'), linear-gradient(90deg, #FF3CAC, #784BA0 100%);
+  padding: 10px;
+  /*background: url(" + __webpack_require__( "./Texture.svg") + "), -webkit-linear-gradient(left, #FF3CAC, #784BA0 100%);
+  background: url(" + __webpack_require__( "./Texture.svg") + "), -o-linear-gradient(left, #FF3CAC, #784BA0 100%);
+  background: url('./Texture.svg'), linear-gradient(90deg, #FF3CAC, #784BA0 100%);*/
   background-blend-mode: multiply, normal;
   mix-blend-mode: multiply;
   width: 100%;
@@ -28,7 +31,7 @@
   background-color: transparent;
   font-size: 14px;
   font-family: inherit;
-  color: white;
+  color: black;
 
 }
 .backIcon {
@@ -39,12 +42,12 @@ button:focus {
 }
 
 .usersName {
-  color: white;
+  color: #5C5C5C;
   font-size: 1.3rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   width: 30%;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   text-align: right;
   margin-right: 20px;
   padding: 0;
@@ -65,10 +68,8 @@ button:focus {
   text-align: left;
   letter-spacing: 0.18em;
   font-variant: small-caps;
-  color: white;
-  margin-left: -1rem;
-  margin-top: 1.3rem;
-  margin-bottom: 0rem;
+  color: #762289;
+  margin-left: 2rem;
   z-index: 1;
   align-self: flex-start;
 }
@@ -82,6 +83,7 @@ button:focus {
 .logo {
   width: 7rem;
   -webkit-transform: rotate(0deg);
+  color: blue;
   }
 
   @media (max-width: 1200px) {
@@ -129,7 +131,7 @@ button:focus {
   }
   @media (max-width: 400px) {
     .appName {
-      margin-top: .5rem; 
+      margin-top: .5rem;
       line-height: 3rem;
       margin-left: -1.5rem;
       font-size: 35px;

@@ -12,7 +12,7 @@ const AppName = (props) => {
       <div id="appNameContainer">
         {props.url !== "/home" && props.url !== "/home/" && props.url !== "/" && props.url !== "/" && <BackButton/>}
         <div>
-          <Logo/>
+          
         </div>
         <div className="appName">
           nyu rooms

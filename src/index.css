@@ -17,7 +17,7 @@ html {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #fff;
+  background-color: white;
   font-family: 'Montserrat';
   font-size: 14px;
 }
@@ -40,7 +40,7 @@ body {
   padding: 0;
   }
 .app {
-  background-color: #eaebed;
+  background-color: white;
   height: 100%;
   font-size: 40rem;
   width: 100%;
@@ -48,8 +48,14 @@ body {
   padding: 0;
   display: block;
 }
+.rts {
+  background-color: #f2f2f2;
+  height: 100%;
+}
 
-
+.topBar {
+  background-color: white;
+}
 .navbar, .navbar-default {
     margin-bottom: 0;
     border: 0;
@@ -79,8 +85,9 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
   position: relative;
-  background-color: #fff;
-    }
+  background-color: white;
+}
+
 
 .flexy {
   width: 100%;
@@ -163,6 +170,7 @@ input[type=file] {
 .navLink {
   text-decoration: none;
   width: 100%;
+  border: none;
 }
 .helloBtn {
   width: 200px;

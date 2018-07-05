@@ -8,8 +8,8 @@ import '../index.css';
 
 const Btn = (props) => {
   return (
-    <div className="homeLayout">
-      <NavLink to="/home/">
+    <div>
+      <NavLink to="/home/" className="navLink">
         <button className="helloBtn">
           hello
         </button>

@@ -10,7 +10,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 
   // Add your own authentication on the below line.
   const isLoggedIn = rest.isLoggedIn;
-  console.log(rest);
 
   return (
     <Route
