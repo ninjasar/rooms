@@ -6,11 +6,11 @@ import axios from "axios";
 
 import "./App.css";
 import './index.css';
-import AppName from './topBar/AppName.js';
-import Banner from './Banner/Banner.js';
-import RoomRec from './mainMenu/RoomRec.js';
-import pic from './mainMenu/pic.jpeg';
-//import Transparent from './Transparent.js';
+import AppName from './components/topBar/AppName.js';
+import Banner from './components/Banner/Banner.js';
+import RoomRec from './components/mainMenu/RoomRec.js';
+import pic from './components/mainMenu/pic.jpeg';
+import SearchPg from "./containers/SearchPg";
 import Btn from './containers/Btn.js';
 import HomePg from './containers/HomePg.js';
 import Routes from "./Routes";
@@ -34,7 +34,7 @@ class App extends React.Component {
 
   render () {
 
-      const url = 'https://virtserver.swaggerhub.com/nyustit/rooms/5.0/';
+      const url = 'https://virtserver.swaggerhub.com/nyustit/rooms-api/7.0/';
 
       const login = (response, userNm) => {
         console.log(response);
@@ -42,6 +42,7 @@ class App extends React.Component {
           loggedIn: true
         });
         getUser(userNm);
+        console.log(this.state.loggedIn);
       };
 
       const setUser = (name) => {
@@ -97,6 +98,8 @@ class App extends React.Component {
     const logFrm = () => {
       return <LoginForm loginClicked={loginFn} />
     }
+    console.log(this.state.loggedIn);
+
     return (
       <div id="homeLayout">
         <Navbar className="topBar">
@@ -107,7 +110,7 @@ class App extends React.Component {
           </div>
         </Navbar>
         <div>
-          <Routes homecmp={homePg} btncmp={btnCompnent} logcmp={logFrm} loggedIn={this.state.loggedIn}/>
+          <Routes loggedIn={this.state.loggedIn} homecmp={homePg} btncmp={btnCompnent} logcmp={logFrm} />
         </div>
       </div>
     )

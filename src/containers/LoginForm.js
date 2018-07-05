@@ -29,7 +29,7 @@ handleSubmit = async event => {
 
   try {
     this.loginClicked(this.state.email, this.state.password);
-    
+
   } catch (e) {
     alert(e.message);
   }
@@ -40,7 +40,7 @@ handleSubmit = async event => {
       <div className="Login">
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="email" bsSize="large">
-            <ControlLabel>Email</ControlLabel>
+            <ControlLabel>NYU email</ControlLabel>
             <FormControl
               autoFocus
               type="email"
