@@ -2,33 +2,47 @@ import React from 'react';
 
 import './card.css';
 
-
 class Card extends React.Component {
 
   constructor(props) {
 
     const d = new Date();
 
-
-      super(props);
-      this.title = props.title;
-      this.state = {
-        duration: 2,
-        location: '',
-        occupants: 1,
-        date: d.toString(),
-        startTime: '',
-      }
-    }
+    super(props);
+    this.title = props.title;
+    this.amenity = false;
+    this.bigTitle = false;
+    this.state = {
+      duration: 2,
+      location: '',
+      occupants: 1,
+      date: d.toString(),
+      startTime: '',
+    };
+  }
 
   render() {
-      return (
-        <div className="base">
-          <div className="title">
+
+    if (this.props.bigTitle == true) {
+      this.bigTitle = true;
+    }
+    if (this.props.amenity == true) {
+      this.amenity = true;
+    }
+
+    return (
+      <div className={'base ' + (this.amenity && ' amenity' )}>
+        <div className={'title ' + (this.bigTitle && ' bigTitle' )}>
             {this.title}
-          </div>
+          {this.bigTitle && <span className="clear">Clear</span>}
         </div>
-      )
+
+
+        <div style={{width: '90%'}} className='child '>
+          {this.props.children}
+        </div>
+      </div>
+    );
   }
 }
 

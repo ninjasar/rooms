@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 import '../index.css';
 
@@ -49,7 +49,7 @@ class LandingPg extends React.Component {
         }
       }
 
-  
+
       return (
         <div id="landingPg" >
           <div className="joinTxt">
