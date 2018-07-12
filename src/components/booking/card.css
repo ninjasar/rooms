@@ -125,15 +125,19 @@
   height: 100%;
   border-radius: 4px;
   width: 90%;
+<<<<<<< HEAD
   margin: 0px;
   margin-left: -80px;
   border-bottom: 2px solid #DEDEDE;
   padding-bottom: 40px;
 
+=======
+>>>>>>> dev
 }
 
 .text {
   color: black;
+<<<<<<< HEAD
 }
 
 @media (max-width: 1000px) {
@@ -143,4 +147,6 @@
   .filterbx {
     margin-left: -35px;
   }
+=======
+>>>>>>> dev
 }

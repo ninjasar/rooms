@@ -1,11 +1,15 @@
 /** Descrip */
 import axios from 'axios';
 
+<<<<<<< HEAD
 const url = 'https://virtserver.swaggerhub.com/nyustit/rooms-api/8.0/';
 const tsDate1 = new Date(Date.UTC(2018, 7, 12, 13)).toUTCString();
 const tsDate2 = new Date(Date.UTC(2018, 7, 18, 23)).toUTCString();
 
 
+=======
+const url = 'https://virtserver.swaggerhub.com/nyustit/rooms-api/7.0/';
+>>>>>>> dev
 /** api class */
 export default class API {
   static loginUser(userNm, passWd) {

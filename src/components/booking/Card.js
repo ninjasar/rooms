@@ -29,6 +29,7 @@ class Card extends React.Component {
     if (this.props.lastItem == true) {
       this.lastItem = true;
     }
+  }
 
     return (
       <div className={'base ' + (this.lastItem && ' lastItem' )}>
