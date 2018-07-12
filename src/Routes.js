@@ -22,8 +22,8 @@ export default (props) =>
     component={props.btncmp}
     isLoggedIn={props.loggedIn}
     />
-    <PrivateRoute path='/individualReservation'
-    component={() => <SearchPg url='/individualReservation'/>}
+    <PrivateRoute path='/currentReservation'
+    component={() => <SearchPg url='/currentReservation'/>}
     isLoggedIn={props.loggedIn}
     />
     <PrivateRoute path='/groupReservation'

@@ -7,10 +7,10 @@
   display: flex;
   flex-direction: column;
   margin-top: 10px;
-  margin: 10px;
   align-items: center;
   justify-content: flex-start;
-  padding: 10px;
+  padding: 20px;
+  text-align: center;
 }
 
 .label {
@@ -24,7 +24,7 @@
     appearance: none;
     width: 100%; /* Full-width */
     height: 5px; /* Specified height */
-    background: linear-gradient(left, #C8C8C8 0%, #F7579A 15%,#979797 80%, #8944AB 100%); /* Grey background */
+    background: linear-gradient(to right, #C8C8C8 0%, #F7579A 15%,#979797 80%, #8944AB 100%); /* Grey background */
     outline: none; /* Remove outline */
     opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
     -webkit-transition: -webkit-transform 2s, transition-duration 3s; /* 0.2 seconds transition on hover */
@@ -50,16 +50,22 @@
   margin-top: 1rem;
 }
 
+.Accordion__header {
+  font-size: 10px;
+}
+
 .clear {
   font-size: 15px;
   color: #5C5C5C;
   float: right;
+  margin-top: -5px;
   margin-right: 20px;
 }
 
 .apply {
   color: white;
   align-self: center;
+  justify-self: center;
   border-radius: 2px;
   padding: 10px;
   padding-left:  40px;
@@ -73,20 +79,17 @@
   border-radius: 4px;
   width: 90%;
   font-size: 15px;
-  margin-left: -80px;
-  padding: 5px;
 }
 
 .bigTitle {
   /*background: -webkit-linear-gradient(left, #FD599A, #000000 50%, #8143AC 100%);*/
   color: #491A88;
-  text-align: center;
   border-radius: 4px;
   width: 100%;
   font-size: 20px;
-  margin: 10px;
-  padding: 5px;
-  margin-left: -70px;
+  margin-left: 20px;
+  padding: 10px;
+
 }
 
 .child .base {
@@ -94,15 +97,28 @@
   border-bottom: 2px solid #DEDEDE;
 }
 
-.child .amenity{
+.child .lastItem{
   border-bottom: none;
+  text-align: left;
 }
+
+.amenity {
+  color: #491A88;
+  text-align: left;
+  border-radius: 4px;
+  width: 90%;
+  font-size: 15px;
+  margin-left: -80px;
+  padding: 5px;
+}
+
 
 #filterdv {
   height: 100%;
   border-bottom: none;
   align-self: center;
 }
+
 
 
 .filterbx {

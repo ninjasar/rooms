@@ -18,6 +18,11 @@ class App extends React.Component {
       loggedIn: false,
       currentUser: '',
       eMessage: '',
+      newRsrve: false,
+      currRsrve: false,
+      closestIndividual: {},
+      closestGroup: {},
+      location: [0,0],
     };
   }
 
@@ -33,12 +38,32 @@ class App extends React.Component {
     const currentRoute = window.location.pathname;
 
 
+    const setNav = () => {
+      if(currentRoute == '/currentReservation') {
+        console.log(currentRoute);
+        this.setState({
+          currRsrve: true,
+        });
+      }
+    }
+    const showPosition = (position) => {
+      console.log("Latitude: " + position.coords.latitude +
+      "<br>Longitude: " + position.coords.longitude);
+      this.setState({
+        location: [position.coords.latitude, position.coords.longitude]
+      });
+      console.log(this.state.location);
+    }
+
     const loginFn = (userNm, passWd) => {
       // make login api req
+      navigator.geolocation.watchPosition(showPosition);
+
       API.loginUser(userNm, passWd)
         .then((name) => {
           // set login state and set name
           this.setLoginState(name);
+
           // redirect to hompage
         })
         .catch((error) => {
@@ -48,14 +73,17 @@ class App extends React.Component {
         });
     };
 
+
     const btnCompnent = () => <Btn />;
     const homePg = () => (
       <HomePg
         loggedIn={this.state.loggedIn}
         uName={this.state.currentUser}
         login={loginFn}
+        location={this.state.location}
       />
     );
+
     const logFrm = () => <LoginForm loginClicked={loginFn} />;
     // console.log(this.state.loggedIn);
 
@@ -63,13 +91,16 @@ class App extends React.Component {
       <div id="homeLayout">
         <Navbar className="topBar">
           <div className="flexy">
-            <Link to="/button/" className="navLink">
+
               <AppName
                 uName={this.state.currentUser}
                 loggedIn={this.state.loggedIn}
                 url={currentRoute}
+                curr={currentRoute === '/currentReservation'}
+                setNav={setNav}
+                newRs={currentRoute !== '/currentReservation'}
               />
-            </Link>
+
           </div>
         </Navbar>
         <div className="rts">

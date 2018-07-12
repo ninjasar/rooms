@@ -26,15 +26,20 @@ class Card extends React.Component {
     if (this.props.bigTitle == true) {
       this.bigTitle = true;
     }
-    if (this.props.amenity == true) {
-      this.amenity = true;
+    if (this.props.lastItem == true) {
+      this.lastItem = true;
     }
 
     return (
-      <div className={'base ' + (this.amenity && ' amenity' )}>
+      <div className={'base ' + (this.lastItem && ' lastItem' )}>
         <div className={'title ' + (this.bigTitle && ' bigTitle' )}>
             {this.title}
-          {this.bigTitle && <span className="clear">Clear</span>}
+          {this.bigTitle && this.props.clear &&
+            <span className="clear">
+            <button>
+              Clear
+            </button>
+          </span>}
         </div>
 
 

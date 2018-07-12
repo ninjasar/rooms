@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './topBar.css';
 import Logo from './Logo.js';
 import BackButton from './BackButton.js';
+
 
 
 const AppName = (props) => {
@@ -14,12 +16,16 @@ const AppName = (props) => {
           nyu rooms
         </div>
         <div className="reserveContainer">
-          <div className="reserve">
+        <Link to="/home" onClick={props.setNav} className={'reserve ' + (props.newRs && ' active' )}>
+          <div >
             Reserve New Room
           </div>
-          <div className="reserve">
-             &nbsp;&nbsp;Current Reservation
-          </div>
+        </Link>
+          <Link to="/currentReservation" onClick={props.setNav} className={'reserve ' + (props.curr && ' active' )}>
+            <div >
+               &nbsp;&nbsp;Current Reservation
+            </div>
+          </Link>
         </div>
         <div className="usersName">
           {props.uName ? 'Welcome, ' + props.uName : ''}

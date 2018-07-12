@@ -5,10 +5,10 @@ import {ReactBootstrapSlider} from 'react-bootstrap-slider';
 
 
 import Card from './Card.js';
-
+import '../../../node_modules/react-collapsy/lib/index.css';
 import './card.css';
 
-require('../../../node_modules/react-collapsy/lib/index.css');
+
 
 function log(value) {
   console.log(value); //eslint-disable-line
@@ -31,50 +31,74 @@ class Filter extends Card {
         occupants: 1,
         date: d.toString(),
         isSearch: false,
-        value: 2,
+        kimmel: false,
+        bobst: false,
       };
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
     }
-    handleChange = (event) => {
-      this.setState({value: event.target.value});
-    }
+  handleChange = (event) => {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    console.log(target.checked);
+    const name = target.name;
+    this.setState({[name]: value});
+  }
+  handleSubmit = (event) => {
+    alert('Your favorite flavor is: ' + this.state.duration);
+    event.preventDefault();
+  }
+
 
   render() {
+    //console.log(this.state.bobst);
       return (
         <div id="filterdv">
-          <Card bigTitle={true} title="Filter" style={{borderBottom: 'none'}}>
+          <Card bigTitle={true} title="Filter" clear={true} style={{}}>
             <form onSubmit={this.handleSubmit}>
               <div className="line"></div>
-              <Card title="Campus" className="filterbx">
-
-                <Accordion title="Manhattan">
-                  <input type="checkbox" value="Bobst"/>
+              <Card title="Campus" className="filterbx" style={{'.title' : {fontSize: '20px'}}}>
+                <br/>
+                <Accordion title="Manhattan" style={{fontSize: '10px'}}>
+                  <input type='checkbox' value="Bobst"
+                    name="bobst" checked={this.state.bobst}
+                    onChange={this.handleChange}
+                    />
                   <label htmlFor="Bobst" className="label">&nbsp;Bobst</label>
                   <br/>
                   <br/>
-                  <input type="checkbox" value="Kimmel"/>
+                  <input type="checkbox" value="Kimmel"
+                    name="kimmel" checked={this.state.kimmel}
+                    onChange={this.handleChange}/>
                   <label htmlFor="Kimmel" className="label">&nbsp;Kimmel</label>
                 </Accordion>
-
+                <br/>
                 <Accordion title="Brooklyn">
-                  <input type="checkbox" value="Bobst"/>
+                  <input type="checkbox" value="Bobst"
+                    name="bobst" checked={this.state.bobst}
+                    onChange={this.handleChange}/>
                   <label htmlFor="Bobst" className="label">&nbsp;Bobst</label>
                   <br/>
                   <br/>
-                  <input type="checkbox" value="Kimmel"/>
+                  <input type="checkbox" value="Kimmel"
+                    name="kimmel" checked={this.state.kimmel}
+                    onChange={this.handleChange}/>
                   <label htmlFor="Kimmel" className="label">&nbsp;Kimmel</label>
                 </Accordion>
               </Card>
               <Card title="Duration" className="filterbx">
                 <br/>
-                <div class="slidecontainer">
-                  <input type="range" min={1} max={3} defaultValue={this.state.value} class="slider" id="myRange"
+                <div className="slidecontainer">
+                  <input type="range" min={1} max={3} name="duration" defaultValue={this.state.duration} className="slider" id="myRange"
                    onChange={this.handleChange} step={1}/>
                    <br/>
-                  {this.state.value} hours
+                  {this.state.duration} hours
                 </div>
                 <br/>
               </Card>
-              <Card title="Amenities" className="filterbx" amenity={true}>
+
+              <Card className="filterbx" lastItem={true} styles={{fontSize: '15px'}}>
+                <Accordion title='Amenities' styles={{fontSize: '15px'}}>
                 <br/>
                 <input type="checkbox"/> &nbsp; Coffee
                 <br/>
@@ -86,11 +110,13 @@ class Filter extends Card {
                 <br/>
                 <br/>
                 <input type="checkbox"/>  &nbsp; Sofa
-                <br/>
-                <br/>
-                <br/>
-                <span className="apply">Apply</span>
+                </Accordion>
               </Card>
+              <br/>
+              <button type="submit" className="apply">Apply</button>
+              <br/>
+              <br/>
+              <br/>
             </form>
           </Card>
         </div>

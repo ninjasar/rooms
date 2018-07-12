@@ -8,8 +8,11 @@
   justify-content: space-between;
   order: 1;
   background-color: white;
-
   }
+
+
+
+
 
 .topBar {
   flex-direction: row;
@@ -31,11 +34,16 @@
   background-color: transparent;
   font-size: 14px;
   font-family: inherit;
-  color: black;
-
+  fill: pink;
 }
+
 .backIcon {
   width: 3rem;
+}
+.back :focus, .back :active {
+  outline: none;
+  border: none;
+
 }
 button:focus {
   outline: none;
@@ -43,26 +51,31 @@ button:focus {
 
 .reserve {
   font-size: 1.1rem;
-  padding: 5px;
+  margin: 10px 10px -22px 20px;
+  padding-bottom: 25px;
+
   align-self: center;
   color: #491A88;
+  height: 100%;
+  display: inline;
 }
 
-.reserve:active {
+.active {
   font-size: 1.2rem;
   font-weight: bold;
-  border-bottom: 1px solid #491A88;
+  border-bottom: 3px solid #491A88;
+  align-self: center;
 }
 
 .reserve:focus {
   font-size: 1.2rem;
   font-weight: bold;
-  border-bottom: 1px solid #491A88;
+  border-bottom: 3px solid #491A88;
 }
 .reserve:focus:active {
   font-size: 1.2rem;
   font-weight: bold;
-  border-bottom: 1px solid #491A88;
+  border-bottom: 3px solid #491A88;
 }
 
 .usersName {
