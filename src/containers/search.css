@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+.roomRec {
+  width: 6rem;
+  box-sizing: border-box;
+  align-self: center;
+  font-size: 14px;
+  padding: 20px;
+  margin-left: 20px;
+}
+
+.roomRecContain {
+  box-sizing: border-box;
+  width: 30rem;
+  align-self: center;
+  font-size: 14px;
+  padding: 20px;
+}
