@@ -2,7 +2,7 @@ import React from 'react';
 import { DropdownButton, MenuItem } from 'react-bootstrap';
 import Accordion from 'react-collapsy';
 
-
+import API from '../../utils';
 import Card from './Card.js';
 import '../../../node_modules/react-collapsy/lib/index.css';
 import './card.css';
@@ -20,22 +20,42 @@ function log(value) {
 class Filter extends Card {
 
   constructor(props) {
+    super(props);
 
     const d = new Date();
 
-      super(props);
       this.state = {
         duration: 2,
-        location: '',
+        locations: [],
         occupants: 1,
         date: d.toString(),
         isSearch: false,
-        kimmel: false,
-        bobst: false,
       };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+  componentDidMount() {
+    API.getLocs()
+      .then((results) => {
+        this.setState({
+          locations: results.idArray
+        });
+        if(this.state.locations) {
+          this.state.locations.forEach((loc) => {
+            this.setState({
+              [loc]: false,
+            });
+          });
+        }
+        console.log(this.state.BOBST)
+      }).catch((error) =>  {
+      this.setState({
+          eMessage: error,
+        });
+        console.log(error);
+      });
+  }
   handleChange = (event) => {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -45,6 +65,27 @@ class Filter extends Card {
   handleSubmit = (event) => {
     this.props.apply();
     event.preventDefault();
+  }
+
+  jsUcfirst(string)
+    {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    }
+
+  renderLocations = () => {
+    return (
+      this.state.locations.map((id) => (
+        <div key="divv">
+          <input type='checkbox' value={id}
+            name={id} checked={this.state.id}
+            onChange={this.handleChange} key={id}
+            />
+          <label htmlFor={id} className="label" key={id + ' label'}>&nbsp;{this.jsUcfirst(id)}</label>
+        </div>
+        )
+      )
+    )
+
   }
 
 
@@ -58,7 +99,7 @@ class Filter extends Card {
               <Card title="Campus" className="filterbx" style={{'.title' : {fontSize: '20px'}}}>
                 <br/>
                 <Accordion title="Manhattan" style={{fontSize: '10px'}}>
-                  <input type='checkbox' value="Bobst"
+                  {/* <input type='checkbox' value="Bobst"
                     name="bobst" checked={this.state.bobst}
                     onChange={this.handleChange}
                     />
@@ -68,7 +109,8 @@ class Filter extends Card {
                   <input type="checkbox" value="Kimmel"
                     name="kimmel" checked={this.state.kimmel}
                     onChange={this.handleChange}/>
-                  <label htmlFor="Kimmel" className="label">&nbsp;Kimmel</label>
+                  <label htmlFor="Kimmel" className="label">&nbsp;Kimmel</label> */}
+                  {this.renderLocations()}
                 </Accordion>
                 <br/>
                 <Accordion title="Brooklyn">

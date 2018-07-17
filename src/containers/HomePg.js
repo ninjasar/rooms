@@ -71,7 +71,9 @@ class HomePg extends React.Component {
           }
           // console.log(this.state.closestIndividual);
           // console.log(this.state.closestGroup);
-          this.state.occupants++;
+          this.setState({
+            occupants: this.state.occupants+1,
+          });
         }).catch((error) => {
           this.setState({
             eMessage: error,

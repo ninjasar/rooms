@@ -143,6 +143,81 @@ export default class API {
     });
   }
 
+  static getLocId(loc) {
+    return new Promise((resolve, reject) => {
+      axios({
+        method: 'get',
+        url: `${url}locations`,
+        headers: {
+          'accept': 'application/json',
+          'content-type': 'application/json',
+          locationId: loc,
+        }
+      }).then((response) => {
+        const results = {
+          'parseJWT(response.token)': 9,
+          data: response.data,
+        }
+        resolve(results);
+      }).catch((error) => {
+        console.log(error);
+        reject(error);
+      });
+    });
+  }
+
+  static makeReservation(userNm, passWd) {
+    return new Promise((resolve, reject) => {
+      axios({
+        method: 'post',
+        url: `${url}reservations`,
+        data: {
+          "username": "rmr478",
+          "name": "Rayat Rahman",
+          "email": "fake12@nyu.edu",
+          "id": "12315ASaf",
+          "vendorId": "ASDEAAGsd2343",
+          "roomId": "BOBST_LL2_29",
+          "vendorRoomId": "LL2_29",
+          "locationId": "BOBST",
+          "openTime": "2007-04-05T12:30-02:00",
+          "reserveTime": "2007-04-05T12:30-02:00",
+          "duration": 1.5,
+          "occupants": 2,
+          "alternates": [
+            "fake12@nyu.edu",
+            "fake23@nyu.edu"
+          ],
+          "supplementaryFields": [
+            {
+              "name": "heard",
+              "description": "Where did you hear about the CoOp?",
+              "required": true,
+              "response": "NYU Newsletter"
+            }
+          ]
+        },
+        headers: {
+          'accept': 'application/json',
+          'content-type': 'application/json',
+
+        },
+      }).then((response) => {
+        // parse jwt
+        const userInfo = {
+          'parseJWT(response.token)': 9,
+           name: 'Sarah!',
+        }
+        // return users name
+        resolve(userInfo.name);
+      }).catch((error) => {
+        console.log(error);
+        reject(error.message);
+      });
+    });
+  }
+
+
 
 
 }

@@ -74,7 +74,7 @@ class SearchPg extends React.Component {
     //       )
     //
     //   });
-      console.log(rArr);
+      //console.log(rArr);
       this.setState({
         results: rArr,
       });
