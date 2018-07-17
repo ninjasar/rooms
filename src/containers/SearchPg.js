@@ -19,42 +19,85 @@ class SearchPg extends React.Component {
       duration: 1,
       location: [2,4],
       eMessage: '',
+      srchRes: {},
+      results: [<div key="hey"></div>]
     };
+    this.displayResults = this.displayResults.bind(this);
+
   }
 
-  componentWillMount() {
-    API.closest(this.state.location)
-      .then((closestRoom) => {
-        if(this.state.occupants===1) {
+  componentDidMount() {
+    API.search()
+      .then((results) => {
           this.setState({
-            closestIndividual: closestRoom,
-            locationOfRoom: closestRoom.location.toLowerCase(),
+            srchRes: results,
+            // results: Object.entries(results).map(item => ({[item[0]]:item[1]})),
           });
-        } else {
-          this.setState({
-            closestGroup: closestRoom,
-          });
-        }
-        console.log(this.state.closestIndividual)
+        //console.log(this.state.srchRes)
       }).catch((error) => {
         this.setState({
           eMessage: error,
         });
         console.log(error);
       });
+    API.getLocs()
+      .then((results) => {
+        console.log(results.idArray);
+      }).catch((error) =>  {
+      this.setState({
+          eMessage: error,
+        });
+        console.log(error);
+      });
+  }
 
+  displayResults() {
+    var rArr = [];
+    rArr = this.state.srchRes.map((r) => (
+
+        <Card title={r.room.locationId.toLowerCase() + ' ' + r.room.name} key={r.room.name} className="roomRec">
+          Occupants: {r.room.capacity}
+          <br/>
+          Amenities: {r.room.amenities[0].name}
+          <br/>
+          Open Time: {r.times[0].openTime}
+          <br/>
+          Close Time: {r.times[0].closeTime}
+          <br/>
+          Duration: {r.times[0].duration}
+        </Card>
+      )
+    );
+    // this.setState({
+    //   results:
+    //         }
+    //       )
+    //
+    //   });
+      console.log(rArr);
+      this.setState({
+        results: rArr,
+      });
+      return rArr;
   }
 
 
 
-
   render () {
+    var x = [];
     return (
+
       <div className='container'>
-          <Filter homePg={true}/>
-          <Card title="Individual">
-            Building: {this.state.locationOfRoom}
-          </Card>
+          <Filter homePg={true} apply={this.displayResults}/>
+            <div className="roomRecContain">
+              <div>
+                {this.state.results}
+              </div>
+
+            </div>
+
+
+
       </div>
     )
 

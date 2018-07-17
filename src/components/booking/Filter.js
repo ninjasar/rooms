@@ -39,12 +39,11 @@ class Filter extends Card {
   handleChange = (event) => {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    console.log(target.checked);
     const name = target.name;
     this.setState({[name]: value});
   }
   handleSubmit = (event) => {
-    alert('Your favorite flavor is: ' + this.state.duration);
+    this.props.apply();
     event.preventDefault();
   }
 

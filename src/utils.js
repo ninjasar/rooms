@@ -21,6 +21,7 @@ export default class API {
         headers: {
           'accept': 'application/json',
           'content-type': 'application/json',
+
         },
       }).then((response) => {
         // parse jwt
@@ -52,6 +53,7 @@ export default class API {
         headers: {
           'accept': 'application/json',
           'content-type': 'application/json',
+
         }
       }).then((response) => {
         //parseJWT
@@ -81,24 +83,59 @@ export default class API {
         url: `${url}vacancies/search`,
         params: {
           openTime: tsDate1,
-          closeTime: 2,
-          duration: 3,
-          locations: ['KIMMEL', 'BOBST'],
+          closeTime: tsDate2,
+          duration: duration,
+          locations: locations,
           amenities: ['coffee'],
           occupants: 4
         },
         headers: {
           'accept': 'application/json',
           'content-type': 'application/json',
+
         }
       }).then((response) => {
+        const data = [];
+        for(var a=0; a<4; a++) {
+
+        }
         //parseJWT
         const results = {
           'parseJWT(response.token)': 9,
           data: response.data,
         }
         //data is the list of rooms
+        //console.log(results.data);
         resolve(results.data);
+      }).catch((error) => {
+        console.log(error);
+        reject(error);
+      });
+    });
+  }
+
+  static getLocs() {
+    return new Promise((resolve, reject) => {
+      axios({
+        method: 'get',
+        url: `${url}locations`,
+        headers: {
+          'accept': 'application/json',
+          'content-type': 'application/json',
+
+        }
+      }).then((response) => {
+        const idArray = [];
+        for(var a=0; a<response.data.length; a++){
+          idArray.push(response.data[a].id);
+          console.log(response.data[a].id)
+        }
+        const results = {
+          'parseJWT(response.token)': 9,
+          data: response.data,
+          idArray: idArray,
+        }
+        resolve(results);
       }).catch((error) => {
         console.log(error);
         reject(error);

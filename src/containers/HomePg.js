@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 //import { DropdownButton, MenuItem, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 //import Banner from '../components/Banner/Banner.js';
 //import RoomRec from '../components/mainMenu/RoomRec.js';
@@ -6,6 +7,7 @@ import React from 'react';
 //import Transparent from './Transparent.js';
 import '../index.css';
 import './search.css';
+import './Home.css';
 import API from '../utils';
 import Card from '../components/booking/Card';
 import Filter from '../components/booking/Filter';
@@ -67,8 +69,8 @@ class HomePg extends React.Component {
               closeTime2: closestRoom.closeTime,
             });
           }
-          console.log(this.state.closestIndividual);
-          console.log(this.state.closestGroup);
+          // console.log(this.state.closestIndividual);
+          // console.log(this.state.closestGroup);
           this.state.occupants++;
         }).catch((error) => {
           this.setState({
@@ -104,6 +106,14 @@ class HomePg extends React.Component {
             Duration: {this.state.duration2} hour(s)
             <br/>
             Number: {this.state.roomNumber2}
+          </Card>
+          <Card className="roomRec">
+            Don't like these rooms?
+            <br/>
+            <br/>
+            <NavLink to='/advancedSearch' className="srchBtn">
+              Advanced Search
+            </NavLink>
           </Card>
         </div>
           {!this.props.loggedIn && <LandingPg loginClicked={this.props.login}/>}

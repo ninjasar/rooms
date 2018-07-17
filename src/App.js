@@ -47,17 +47,17 @@ class App extends React.Component {
       }
     }
     const showPosition = (position) => {
-      console.log("Latitude: " + position.coords.latitude +
-      "<br>Longitude: " + position.coords.longitude);
+      // console.log("Latitude: " + position.coords.latitude +
+      // "<br>Longitude: " + position.coords.longitude);
       this.setState({
         location: [position.coords.latitude, position.coords.longitude]
       });
-      console.log(this.state.location);
+      //console.log(this.state.location);
     }
 
     const loginFn = (userNm, passWd) => {
       // make login api req
-      navigator.geolocation.watchPosition(showPosition);
+      navigator.geolocation.getCurrentPosition(showPosition);
 
       API.loginUser(userNm, passWd)
         .then((name) => {
@@ -69,7 +69,9 @@ class App extends React.Component {
         .catch((error) => {
           // if failed display invalid login
           console.log(error);
-          this.setState({ eMessage: error });
+          this.setState({
+            eMessage: error
+          });
         });
     };
 

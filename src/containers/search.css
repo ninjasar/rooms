@@ -4,10 +4,11 @@
   align-items: center;
   width: 100%;
   text-align: center;
+  justify-content: center;
 }
 .roomRec {
   width: 6rem;
-  box-sizing: border-box;
+  box-sizing: content-box;
   align-self: center;
   font-size: 14px;
   padding: 20px;
@@ -15,9 +16,15 @@
 }
 
 .roomRecContain {
-  box-sizing: border-box;
+  box-sizing: content-box;
   width: 30rem;
   align-self: center;
   font-size: 14px;
   padding: 20px;
+  margin: 20px;
+}
+
+.resdv {
+  text-align: center;
+  width: 90%;
 }
