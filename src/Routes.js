@@ -30,5 +30,9 @@ export default (props) =>
     component={() => <SearchPg url='/advancedSearch'/>}
     isLoggedIn={props.loggedIn}
     />
+    <PrivateRoute path='/makeReservation'
+    component={() => <SearchPg url='/makeReservation'/>}
+    isLoggedIn={props.loggedIn}
+    />
     <Route component={NotFound} />
   </Switch>;

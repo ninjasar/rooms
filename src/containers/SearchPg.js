@@ -1,4 +1,6 @@
 import React from 'react';
+import dateFormat from 'dateformat';
+import {NavLink} from 'react-router-dom';
 
 //import Transparent from './Transparent.js';
 
@@ -49,23 +51,35 @@ class SearchPg extends React.Component {
         });
         console.log(error);
       });
+      API.getLocInfo('BOBST')
+        .then((results) => {
+          console.log(results);
+        }).catch((error) => {
+          console.log(error);
+      });
+
   }
 
+
+
+/*Display results is creating a list of links that will open a modal with*/
   displayResults() {
     var rArr = [];
     rArr = this.state.srchRes.map((r) => (
-
-        <Card title={r.room.locationId.toLowerCase() + ' ' + r.room.name} key={r.room.name} className="roomRec">
-          Occupants: {r.room.capacity}
-          <br/>
-          Amenities: {r.room.amenities[0].name}
-          <br/>
-          Open Time: {r.times[0].openTime}
-          <br/>
-          Close Time: {r.times[0].closeTime}
-          <br/>
-          Duration: {r.times[0].duration}
-        </Card>
+         <NavLink to="/confirmReservation" >
+          <Card title={r.room.locationId.toLowerCase() + ' ' + r.room.name} key={r.room.name} className="roomRec">
+            <span className="rmAttribute">Occupants: </span>{r.room.capacity}
+            <br/>
+            <br/>
+            <span className="rmAttribute">Time: </span>{dateFormat(r.times[0].openTime, 'default')}
+            <br/>
+            <br/>
+            <span className="rmAttribute">Duration: </span>{r.times[0].duration} hour(s)
+            <br/>
+            <br/>
+            <span className="rmAttribute">Amenities: </span>{r.room.amenities[0].name}
+          </Card>
+        </NavLink>
       )
     );
     // this.setState({

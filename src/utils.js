@@ -143,7 +143,7 @@ export default class API {
     });
   }
 
-  static getLocId(loc) {
+  static getLocInfo(loc) {
     return new Promise((resolve, reject) => {
       axios({
         method: 'get',
@@ -166,17 +166,18 @@ export default class API {
     });
   }
 
-  static makeReservation(userNm, passWd) {
+  static makeReservation(username, name, email, id,
+    vendorId, roomId, vendorRoomId, locationId, openTime, reserveTime, duration, occupants, alternates, supplementaryFields) {
     return new Promise((resolve, reject) => {
       axios({
         method: 'post',
         url: `${url}reservations`,
         data: {
-          "username": "rmr478",
-          "name": "Rayat Rahman",
-          "email": "fake12@nyu.edu",
-          "id": "12315ASaf",
-          "vendorId": "ASDEAAGsd2343",
+          "username": "sarah",
+          "name": "noelle",
+          "email": "pierce@nyu.edu",
+          "id": "sjddlfjlsdjfs",
+          "vendorId": "AJDFSLDC",
           "roomId": "BOBST_LL2_29",
           "vendorRoomId": "LL2_29",
           "locationId": "BOBST",
@@ -204,12 +205,13 @@ export default class API {
         },
       }).then((response) => {
         // parse jwt
-        const userInfo = {
+        const results = {
           'parseJWT(response.token)': 9,
-           name: 'Sarah!',
+           data: response.data,
         }
-        // return users name
-        resolve(userInfo.name);
+        // return reservation data
+        console.log(response);
+        resolve(response.data);
       }).catch((error) => {
         console.log(error);
         reject(error.message);

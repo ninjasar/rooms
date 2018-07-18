@@ -1,5 +1,5 @@
 import React from 'react';
-import { DropdownButton, MenuItem } from 'react-bootstrap';
+import { DropdownButton, MenuItem, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import Accordion from 'react-collapsy';
 
 import API from '../../utils';
@@ -61,6 +61,7 @@ class Filter extends Card {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
     this.setState({[name]: value});
+    console.log(this.state.duration);
   }
   handleSubmit = (event) => {
     this.props.apply();
@@ -128,9 +129,19 @@ class Filter extends Card {
               </Card>
               <Card title="Duration" className="filterbx">
                 <br/>
-                <div className="slidecontainer">
-                  <input type="range" min={1} max={3} name="duration" defaultValue={this.state.duration} className="slider" id="myRange"
-                   onChange={this.handleChange} step={1}/>
+                <div className="ddcontainer">
+                  <FormGroup controlId="formControlsSelect">
+                   <FormControl componentClass="select" placeholder="select" defaultValue={2}>
+                     <option value=".5">0.5 hours</option>
+                     <option value="1">1 hour</option>
+                     <option value="1.5">1.5 hours</option>
+                     <option value="2">2 hours</option>
+                     <option value="2.5">2.5 hours</option>
+                     <option value="3">3 hours</option>
+                   </FormControl>
+                 </FormGroup>
+                  {/* <input type="range" min={1} max={3} name="duration" defaultValue={this.state.duration} className="slider" id="myRange"
+                   onChange={this.handleChange} step={1}/> */}
                    <br/>
                   {this.state.duration} hours
                 </div>
