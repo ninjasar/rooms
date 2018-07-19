@@ -1,6 +1,7 @@
 import React from 'react';
 import dateFormat from 'dateformat';
 import {NavLink} from 'react-router-dom';
+import Accordion from 'react-collapsy';
 
 //import Transparent from './Transparent.js';
 
@@ -8,6 +9,7 @@ import API from '../utils';
 import Card from '../components/booking/Card';
 import Filter from '../components/booking/Filter';
 import './search.css';
+import '../../node_modules/react-collapsy/lib/index.css';
 
 
 
@@ -28,6 +30,8 @@ class SearchPg extends React.Component {
 
   }
 
+
+
   componentDidMount() {
     API.search()
       .then((results) => {
@@ -42,15 +46,15 @@ class SearchPg extends React.Component {
         });
         console.log(error);
       });
-    API.getLocs()
-      .then((results) => {
-        console.log(results.idArray);
-      }).catch((error) =>  {
-      this.setState({
-          eMessage: error,
-        });
-        console.log(error);
-      });
+    // API.getLocs()
+    //   .then((results) => {
+    //     console.log(results.idArray);
+    //   }).catch((error) =>  {
+    //   this.setState({
+    //       eMessage: error,
+    //     });
+    //     console.log(error);
+    //   });
       API.getLocInfo('BOBST')
         .then((results) => {
           console.log(results);
@@ -61,13 +65,19 @@ class SearchPg extends React.Component {
   }
 
 
+  confirm() {
+    console.log('yay');
+  }
+
+
 
 /*Display results is creating a list of links that will open a modal with*/
   displayResults() {
     var rArr = [];
     rArr = this.state.srchRes.map((r) => (
-         <NavLink to="/confirmReservation" >
-          <Card title={r.room.locationId.toLowerCase() + ' ' + r.room.name} key={r.room.name} className="roomRec">
+
+          <Card title={r.room.locationId.toLowerCase() + ' ' + r.room.name}
+            key={r.room.name} onClick={this.confirm}>
             <span className="rmAttribute">Occupants: </span>{r.room.capacity}
             <br/>
             <br/>
@@ -78,34 +88,55 @@ class SearchPg extends React.Component {
             <br/>
             <br/>
             <span className="rmAttribute">Amenities: </span>{r.room.amenities[0].name}
+            {/* <div>
+              <Accordion title="Reserve" onClick={this.showQuestions.bind(this)}>
+
+              </Accordion>
+            </div> */}
+
           </Card>
-        </NavLink>
+
       )
     );
-    // this.setState({
-    //   results:
-    //         }
-    //       )
-    //
-    //   });
-      //console.log(rArr);
+    console.log(this.state.srchRes)
       this.setState({
-        results: rArr,
+        srchResultsComponents: rArr,
       });
       return rArr;
   }
+
+  //  showQuestions() {
+  //   var suppQ = [];
+  //   console.log(this.state.srchRes)
+  //   //console.log(this.state.srchRes);
+  //   // suppQ = this.state.srchRes.map((r) => (
+  //   //   API.getLocInfo('BOBST')
+  //   //     .then((results) => {
+  //   //       console.log(results);
+  //   //     }).catch((error) => {
+  //   //       console.log(error);
+  //   //     })
+  //   //   )
+  //   // )
+  //
+  // }
+
+
+
 
 
 
   render () {
     var x = [];
+
+
     return (
 
       <div className='container'>
           <Filter homePg={true} apply={this.displayResults}/>
             <div className="roomRecContain">
               <div>
-                {this.state.results}
+                {this.state.srchResultsComponents}
               </div>
 
             </div>

@@ -27,12 +27,18 @@ class Filter extends Card {
       this.state = {
         duration: 2,
         locations: [],
-        occupants: 1,
+        occupants: 3,
         date: d.toString(),
         isSearch: false,
+        amensCoffee: false,
+        amensPrinter: false,
+        amensProjector: false,
+        amensSofa: false,
+
       };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.wrapper = 'old';
     }
 
   componentDidMount() {
@@ -48,7 +54,7 @@ class Filter extends Card {
             });
           });
         }
-        console.log(this.state.BOBST)
+        //console.log(this.state.BOBST)
       }).catch((error) =>  {
       this.setState({
           eMessage: error,
@@ -62,9 +68,11 @@ class Filter extends Card {
     const name = target.name;
     this.setState({[name]: value});
     console.log(this.state.duration);
+    console.log(this.state.BOBST)
+    console.log(this.state.amensCoffee)
   }
   handleSubmit = (event) => {
-    this.props.apply();
+    this.props.apply(event, this.state.duration, this.state.occupants);
     event.preventDefault();
   }
 
@@ -77,6 +85,7 @@ class Filter extends Card {
     return (
       this.state.locations.map((id) => (
         <div key="divv">
+          &nbsp; &nbsp;
           <input type='checkbox' value={id}
             name={id} checked={this.state.id}
             onChange={this.handleChange} key={id}
@@ -89,12 +98,28 @@ class Filter extends Card {
 
   }
 
+  resetFilter() {
+    const d = new Date();
+    this.wrapper = 'new';
+    this.state.locations.forEach((loc) => {
+      this.setState({
+        [loc.id]: false
+      });
+    }
+  )
+    this.setState({
+      duration: 2,
+      occupants: 1,
+      date: d.toString(),
+    });
+  }
+
 
   render() {
     //console.log(this.state.bobst);
       return (
-        <div id="filterdv">
-          <Card bigTitle={true} title="Filter" clear={true} style={{}}>
+        <div id="filterdv" key={this.wrapper}>
+          <Card bigTitle={true} title="Filter" clear={true} clrFilter={this.resetFilter.bind(this)} style={{}}>
             <form onSubmit={this.handleSubmit}>
               <div className="line"></div>
               <Card title="Campus" className="filterbx" style={{'.title' : {fontSize: '20px'}}}>
@@ -115,52 +140,51 @@ class Filter extends Card {
                 </Accordion>
                 <br/>
                 <Accordion title="Brooklyn">
-                  <input type="checkbox" value="Bobst"
-                    name="bobst" checked={this.state.bobst}
-                    onChange={this.handleChange}/>
-                  <label htmlFor="Bobst" className="label">&nbsp;Bobst</label>
-                  <br/>
-                  <br/>
-                  <input type="checkbox" value="Kimmel"
-                    name="kimmel" checked={this.state.kimmel}
-                    onChange={this.handleChange}/>
-                  <label htmlFor="Kimmel" className="label">&nbsp;Kimmel</label>
+                  {this.renderLocations()}
                 </Accordion>
               </Card>
               <Card title="Duration" className="filterbx">
                 <br/>
                 <div className="ddcontainer">
                   <FormGroup controlId="formControlsSelect">
-                   <FormControl componentClass="select" placeholder="select" defaultValue={2}>
-                     <option value=".5">0.5 hours</option>
-                     <option value="1">1 hour</option>
-                     <option value="1.5">1.5 hours</option>
-                     <option value="2">2 hours</option>
-                     <option value="2.5">2.5 hours</option>
-                     <option value="3">3 hours</option>
+                   <FormControl componentClass="select" placeholder="select" defaultValue={2} name="duration" onChange={this.handleChange}>
+                     <option value=".5" name=".5" onChange={this.handleChange}>0.5 hours</option>
+                     <option value="1" name="1" onChange={this.handleChange}>1 hour</option>
+                     <option value="1.5" name="1.5" onChange={this.handleChange}>1.5 hours</option>
+                     <option value="2" name="2" onChange={this.handleChange}>2 hours</option>
+                     <option value="2.5" name="2.5" onChange={this.handleChange}>2.5 hours</option>
+                     <option value="3" name="3" onChange={this.handleChange}>3 hours</option>
                    </FormControl>
                  </FormGroup>
                   {/* <input type="range" min={1} max={3} name="duration" defaultValue={this.state.duration} className="slider" id="myRange"
                    onChange={this.handleChange} step={1}/> */}
-                   <br/>
-                  {this.state.duration} hours
                 </div>
                 <br/>
               </Card>
 
               <Card className="filterbx" lastItem={true} styles={{fontSize: '15px'}}>
                 <Accordion title='Amenities' styles={{fontSize: '15px'}}>
-                <br/>
-                <input type="checkbox"/> &nbsp; Coffee
-                <br/>
-                <br/>
-                <input type="checkbox"/>  &nbsp; Printer
-                <br/>
-                <br/>
-                <input type="checkbox"/>  &nbsp; Projector
-                <br/>
-                <br/>
-                <input type="checkbox"/>  &nbsp; Sofa
+                  <br/>
+                  <div>
+                    <input type="checkbox"
+                      name='amensCoffee' checked={this.state.amensCoffee}
+                      onChange={this.handleChange}/> &nbsp; Coffee
+                    <br/>
+                    <br/>
+                    <input type="checkbox"
+                      name='amensPrinter' checked={this.state.amensPrinter}
+                      onChange={this.handleChange}/>  &nbsp; Printer
+                    <br/>
+                    <br/>
+                    <input type="checkbox"
+                      name='amensProjector' checked={this.state.amensProjector}
+                      onChange={this.handleChange}/>  &nbsp; Projector
+                    <br/>
+                    <br/>
+                    <input type="checkbox"
+                      name='amensSofa' checked={this.state.amensSofa}
+                      onChange={this.handleChange}/>  &nbsp; Sofa
+                  </div>
                 </Accordion>
               </Card>
               <br/>

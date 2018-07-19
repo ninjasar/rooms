@@ -7,12 +7,13 @@
   justify-content: center;
 }
 .roomRec {
-  width: 6rem;
+  /* width: 2rem;
   box-sizing: content-box;
   align-self: center;
   font-size: 14px;
   padding: 20px;
   margin-left: 20px;
+  cursor: pointer; */
 }
 
 .roomRecContain {
@@ -22,6 +23,7 @@
   font-size: 14px;
   padding-left: 20px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .resdv {

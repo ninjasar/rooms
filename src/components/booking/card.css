@@ -119,6 +119,9 @@
   align-self: center;
 }
 
+.roomRec {
+  cursor: pointer;
+}
 
 
 .filterbx {

@@ -82,7 +82,41 @@ class HomePg extends React.Component {
         });
 
     }
+  }
 
+  filterRecs(event, duration, occupants) {
+    event.preventDefault();
+      API.closest(this.state.userLocation, duration, occupants)
+        .then((closestRoom) => {
+           if(this.state.occupants == 1){
+             this.setState({
+               closestIndividual: closestRoom,
+               locationOfRoom1: closestRoom.location.toLowerCase(),
+               roomNumber1: closestRoom.roomNumber,
+               capacity1: closestRoom.capacity,
+               openTime1: closestRoom.openTime,
+               duration1: closestRoom.duration,
+               closeTime1: closestRoom.closeTime,
+             });
+           } else {
+            this.setState({
+              closestGroup: closestRoom,
+              locationOfRoom2: closestRoom.location.toLowerCase(),
+              capacity2: closestRoom.capacity,
+              roomNumber2: closestRoom.roomNumber,
+              openTime2: closestRoom.openTime,
+              duration2: closestRoom.duration,
+              closeTime2: closestRoom.closeTime,
+            });
+          }
+          // console.log(this.state.closestIndividual);
+          // console.log(this.state.closestGroup);
+        }).catch((error) => {
+          this.setState({
+            eMessage: error,
+          });
+          console.log(error);
+        });
 
 
   }
@@ -93,7 +127,7 @@ class HomePg extends React.Component {
   render () {
     return (
       <div className='container'>
-        <Filter homePg={true}/>
+        <Filter homePg={true} apply={this.filterRecs.bind(this)}/>
         <div className="roomRecContain">
           <Card title="Individual" bigTitle={true} className="roomRec">
             Building: {this.state.locationOfRoom1}

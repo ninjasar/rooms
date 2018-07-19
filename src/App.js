@@ -23,6 +23,7 @@ class App extends React.Component {
       closestIndividual: {},
       closestGroup: {},
       location: [0,0],
+      showModal: false,
     };
   }
 
