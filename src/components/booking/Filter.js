@@ -27,7 +27,7 @@ class Filter extends Card {
       this.state = {
         duration: 2,
         locations: [],
-        occupants: 3,
+        occupants: 1,
         date: d.toString(),
         isSearch: false,
         amensCoffee: false,
@@ -38,6 +38,8 @@ class Filter extends Card {
       };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.apply = this.props.apply;
+      this.reserve = this.props.reserve;
       this.wrapper = 'old';
     }
 
@@ -67,12 +69,10 @@ class Filter extends Card {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
     this.setState({[name]: value});
-    console.log(this.state.duration);
-    console.log(this.state.BOBST)
-    console.log(this.state.amensCoffee)
+    //console.log(this.state.occupants);
   }
   handleSubmit = (event) => {
-    this.props.apply(event, this.state.duration, this.state.occupants);
+    this.apply(event, this.state.duration, this.state.occupants);
     event.preventDefault();
   }
 
@@ -122,27 +122,30 @@ class Filter extends Card {
           <Card bigTitle={true} title="Filter" clear={true} clrFilter={this.resetFilter.bind(this)} style={{}}>
             <form onSubmit={this.handleSubmit}>
               <div className="line"></div>
-              <Card title="Campus" className="filterbx" style={{'.title' : {fontSize: '20px'}}}>
-                <br/>
-                <Accordion title="Manhattan" style={{fontSize: '10px'}}>
-                  {/* <input type='checkbox' value="Bobst"
-                    name="bobst" checked={this.state.bobst}
-                    onChange={this.handleChange}
-                    />
-                  <label htmlFor="Bobst" className="label">&nbsp;Bobst</label>
+              {this.props.search && (
+                <Card title="Campus" className="filterbx" style={{'.title' : {fontSize: '20px'}}}>
                   <br/>
+                  <Accordion title="Manhattan" style={{fontSize: '10px'}}>
+                    {/* <input type='checkbox' value="Bobst"
+                      name="bobst" checked={this.state.bobst}
+                      onChange={this.handleChange}
+                      />
+                    <label htmlFor="Bobst" className="label">&nbsp;Bobst</label>
+                    <br/>
+                    <br/>
+                    <input type="checkbox" value="Kimmel"
+                      name="kimmel" checked={this.state.kimmel}
+                      onChange={this.handleChange}/>
+                    <label htmlFor="Kimmel" className="label">&nbsp;Kimmel</label> */}
+                    {this.renderLocations()}
+                  </Accordion>
                   <br/>
-                  <input type="checkbox" value="Kimmel"
-                    name="kimmel" checked={this.state.kimmel}
-                    onChange={this.handleChange}/>
-                  <label htmlFor="Kimmel" className="label">&nbsp;Kimmel</label> */}
-                  {this.renderLocations()}
-                </Accordion>
-                <br/>
-                <Accordion title="Brooklyn">
-                  {this.renderLocations()}
-                </Accordion>
-              </Card>
+                  <Accordion title="Brooklyn">
+                    {this.renderLocations()}
+                  </Accordion>
+                </Card>
+              )}
+
               <Card title="Duration" className="filterbx">
                 <br/>
                 <div className="ddcontainer">
@@ -161,6 +164,51 @@ class Filter extends Card {
                 </div>
                 <br/>
               </Card>
+
+            {this.props.search &&  (
+              <Card title="Occupants" className="filterbx">
+                <br/>
+                <div className="ddcontainer">
+                  <FormGroup controlId="formControlsSelect">
+                   <FormControl componentClass="select" placeholder="select" defaultValue={1} name="occupants" onChange={this.handleChange}>
+                     <option value="1" name="1" onChange={this.handleChange}>1 person</option>
+                     <option value="2" name="2" onChange={this.handleChange}>2 people</option>
+                     <option value="3" name="3" onChange={this.handleChange}>3 people</option>
+                     <option value="4" name="4" onChange={this.handleChange}>4 people</option>
+                     <option value="5" name="5" onChange={this.handleChange}>5 people</option>
+                     <option value="6" name="6" onChange={this.handleChange}>6 people</option>
+                     <option value="7" name="7" onChange={this.handleChange}>7 people</option>
+                     <option value="8+" name="8+" onChange={this.handleChange}>8+ people</option>
+                   </FormControl>
+                 </FormGroup>
+                  {/* <input type="range" min={1} max={3} name="duration" defaultValue={this.state.duration} className="slider" id="myRange"
+                   onChange={this.handleChange} step={1}/> */}
+                </div>
+                <br/>
+              </Card>
+            )}
+
+            {this.props.search &&  (
+              <Card title="Start time" className="filterbx">
+                <br/>
+                <div className="ddcontainer">
+                  <FormGroup controlId="formControlsSelect">
+                   <FormControl componentClass="select" placeholder="select" defaultValue={1} name="occupants" onChange={this.handleChange}>
+                     <option value="1" name="1" onChange={this.handleChange}>1 person</option>
+                     <option value="2" name="2" onChange={this.handleChange}>2 people</option>
+                     <option value="3" name="3" onChange={this.handleChange}>3 people</option>
+                     <option value="4" name="4" onChange={this.handleChange}>4 people</option>
+                     <option value="5" name="5" onChange={this.handleChange}>5 people</option>
+                     <option value="6" name="6" onChange={this.handleChange}>6 people</option>
+                     <option value="7" name="7" onChange={this.handleChange}>7 people</option>
+                     <option value="8+" name="8+" onChange={this.handleChange}>8+ people</option>
+                   </FormControl>
+                 </FormGroup>
+                </div>
+                <br/>
+              </Card>
+            )}
+
 
               <Card className="filterbx" lastItem={true} styles={{fontSize: '15px'}}>
                 <Accordion title='Amenities' styles={{fontSize: '15px'}}>

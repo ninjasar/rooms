@@ -32,7 +32,7 @@ const getLocation = () => {
   return location;
 };
 
-class HomePg extends React.Component {
+class currentReservePg extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -177,7 +177,7 @@ class HomePg extends React.Component {
 
 }
 
-export default HomePg;
+export default currentReservePg;
 
 
 /*

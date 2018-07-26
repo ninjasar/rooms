@@ -116,7 +116,7 @@
 #filterdv {
   height: 100%;
   border-bottom: none;
-  align-self: center;
+  align-self: flex-start;
 }
 
 .roomRec {

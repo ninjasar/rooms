@@ -24,7 +24,9 @@ class SearchPg extends React.Component {
       location: [2,4],
       eMessage: '',
       srchRes: {},
-      results: [<div key="hey"></div>]
+      questions: [],
+      key: ';myname',
+      reserve: () => {console.log('hello')},
     };
     this.displayResults = this.displayResults.bind(this);
 
@@ -65,9 +67,9 @@ class SearchPg extends React.Component {
   }
 
 
-  confirm() {
-    console.log('yay');
-  }
+  // confirm() {
+  //   console.log('yay');
+  // }
 
 
 
@@ -77,7 +79,7 @@ class SearchPg extends React.Component {
     rArr = this.state.srchRes.map((r) => (
 
           <Card title={r.room.locationId.toLowerCase() + ' ' + r.room.name}
-            key={r.room.name} onClick={this.confirm}>
+            key={this.state.key}  suppQ={this.state.questions}>
             <span className="rmAttribute">Occupants: </span>{r.room.capacity}
             <br/>
             <br/>
@@ -88,11 +90,12 @@ class SearchPg extends React.Component {
             <br/>
             <br/>
             <span className="rmAttribute">Amenities: </span>{r.room.amenities[0].name}
-            {/* <div>
-              <Accordion title="Reserve" onClick={this.showQuestions.bind(this)}>
-
+            <div onClick={this.showQuestions.bind(this)} >
+              <Accordion title="Reserve">
+                {this.state.questions[0]}
+                {console.log(this.state.questions)}
               </Accordion>
-            </div> */}
+            </div>
 
           </Card>
 
@@ -105,21 +108,41 @@ class SearchPg extends React.Component {
       return rArr;
   }
 
-  //  showQuestions() {
-  //   var suppQ = [];
-  //   console.log(this.state.srchRes)
-  //   //console.log(this.state.srchRes);
-  //   // suppQ = this.state.srchRes.map((r) => (
-  //   //   API.getLocInfo('BOBST')
-  //   //     .then((results) => {
-  //   //       console.log(results);
-  //   //     }).catch((error) => {
-  //   //       console.log(error);
-  //   //     })
-  //   //   )
-  //   // )
-  //
-  // }
+  getQsObj(qs, name) {
+
+  }
+
+   showQuestions = ()  => {
+    //event.preventDefault();
+    var suppQ = [];
+    var qs = [];
+    // console.log(this.state.srchRes)
+    // console.log(this.state.srchRes);
+    this.state.srchRes.forEach((r) => {
+      API.getLocInfo(r.locationId)
+        .then((results) => {
+          console.log(results);
+          qs = results.data[0].supplementaryFields.map((q) => {
+            return (<div key={q.name}>
+              {q.description}
+            </div>)
+          }
+
+          )
+          this.setState({
+            questions: qs,
+            key: 'yourname'
+          });
+
+        }).catch((error) => {
+          console.log(error);
+        });
+      }
+    );
+
+
+
+  }
 
 
 
@@ -132,8 +155,8 @@ class SearchPg extends React.Component {
 
     return (
 
-      <div className='container'>
-          <Filter homePg={true} apply={this.displayResults}/>
+      <div className='container' >
+          <Filter homePg={true} apply={this.displayResults} search={true}/>
             <div className="roomRecContain">
               <div>
                 {this.state.srchResultsComponents}
