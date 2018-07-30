@@ -1,11 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import dateFormat from 'dateformat';
-//import { DropdownButton, MenuItem, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
-//import Banner from '../components/Banner/Banner.js';
-//import RoomRec from '../components/mainMenu/RoomRec.js';
-//import pic from '../components/mainMenu/pic.jpeg';
-//import Transparent from './Transparent.js';
+
 import '../index.css';
 import './search.css';
 import './Home.css';
@@ -46,10 +42,58 @@ class HomePg extends React.Component {
   }
 
   componentWillMount() {
+    this.filterRecs(1, this.state.duration, this.state.occupants);
+    // for(var a = 0; a<2; a++) {
+    //   API.closest(this.state.userLocation, this.state.duration, this.state.occupants)
+    //     .then((closestRoom) => {
+    //        if(this.state.occupants === 1){
+    //          this.setState({
+    //            closestIndividual: closestRoom,
+    //            locationOfRoom1: closestRoom.location.toLowerCase(),
+    //            roomNumber1: closestRoom.roomNumber,
+    //            capacity1: closestRoom.capacity,
+    //            openTime1: closestRoom.openTime,
+    //            duration1: closestRoom.duration,
+    //            closeTime1: closestRoom.closeTime,
+    //          });
+    //        } else {
+    //         this.setState({
+    //           closestGroup: closestRoom,
+    //           locationOfRoom2: closestRoom.location.toLowerCase(),
+    //           capacity2: closestRoom.capacity,
+    //           roomNumber2: closestRoom.roomNumber,
+    //           openTime2: closestRoom.openTime,
+    //           duration2: closestRoom.duration,
+    //           closeTime2: closestRoom.closeTime,
+    //         });
+    //       }
+    //       // console.log(this.state.closestIndividual);
+    //       // console.log(this.state.closestGroup);
+    //       this.setState({
+    //         occupants: this.state.occupants+1,
+    //       });
+    //     }).catch((error) => {
+    //       this.setState({
+    //         eMessage: error,
+    //       });
+    //       console.log(error);
+    //     });
+    //
+    // }
+  }
+  //on filter change, recall the api with updated parameters for both individual and
+  //group rooms
+  filterRecs(event, duration) {
+    console.log('works');
+
+    if(event !== 1)
+      event.preventDefault();
+      //must call twice because closest only returns one room at a time
+      //call once for individual and make occupants 1
     for(var a = 0; a<2; a++) {
-      API.closest(this.state.userLocation, this.state.duration, this.state.occupants)
+      API.closest(this.state.userLocation, duration, this.state.occupants)
         .then((closestRoom) => {
-           if(this.state.occupants == 1){
+           if(this.state.occupants === 1){
              this.setState({
                closestIndividual: closestRoom,
                locationOfRoom1: closestRoom.location.toLowerCase(),
@@ -59,6 +103,7 @@ class HomePg extends React.Component {
                duration1: closestRoom.duration,
                closeTime1: closestRoom.closeTime,
              });
+             //console.log(closestRoom);
            } else {
             this.setState({
               closestGroup: closestRoom,
@@ -70,53 +115,11 @@ class HomePg extends React.Component {
               closeTime2: closestRoom.closeTime,
             });
           }
-          // console.log(this.state.closestIndividual);
-          // console.log(this.state.closestGroup);
+          //add one to occupants so we get a group response then loop
+          console.log(closestRoom);
           this.setState({
             occupants: this.state.occupants+1,
           });
-        }).catch((error) => {
-          this.setState({
-            eMessage: error,
-          });
-          console.log(error);
-        });
-
-    }
-  }
-
-  filterRecs(event, duration, occupants) {
-    console.log('works');
-    event.preventDefault();
-    for(var a = 0; a<2; a++) {
-      var occupants = a+1;
-      API.closest(this.state.userLocation, duration, occupants)
-        .then((closestRoom) => {
-           if(occupants == 1){
-             this.setState({
-               closestIndividual: closestRoom,
-               locationOfRoom1: closestRoom.location.toLowerCase(),
-               roomNumber1: closestRoom.roomNumber,
-               capacity1: closestRoom.capacity,
-               openTime1: closestRoom.openTime,
-               duration1: closestRoom.duration,
-               closeTime1: closestRoom.closeTime,
-             });
-             console.log(closestRoom);
-           } else {
-            this.setState({
-              closestGroup: closestRoom,
-              locationOfRoom2: closestRoom.location.toLowerCase(),
-              capacity2: closestRoom.capacity,
-              roomNumber2: closestRoom.roomNumber,
-              openTime2: closestRoom.openTime,
-              duration2: closestRoom.duration,
-              closeTime2: closestRoom.closeTime,
-            });
-          }
-          console.log(closestRoom);
-          // console.log(this.state.closestIndividual);
-          // console.log(this.state.closestGroup);
         }).catch((error) => {
           this.setState({
             eMessage: error,

@@ -1,5 +1,6 @@
 import React from 'react';
 import { DropdownButton, MenuItem, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import Calendar from 'react-calendar';
 import Accordion from 'react-collapsy';
 
 import API from '../../utils';
@@ -28,7 +29,7 @@ class Filter extends Card {
         duration: 2,
         locations: [],
         occupants: 1,
-        date: d.toString(),
+        date: d,
         isSearch: false,
         amensCoffee: false,
         amensPrinter: false,
@@ -56,6 +57,11 @@ class Filter extends Card {
             });
           });
         }
+        if(this.props.homePg) {
+          this.setState({
+            occupants: 1,
+          });
+        }
         //console.log(this.state.BOBST)
       }).catch((error) =>  {
       this.setState({
@@ -64,6 +70,7 @@ class Filter extends Card {
         console.log(error);
       });
   }
+  calendarOnChange = date => this.setState({ date });
   handleChange = (event) => {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -192,22 +199,14 @@ class Filter extends Card {
               <Card title="Start time" className="filterbx">
                 <br/>
                 <div className="ddcontainer">
-                  <FormGroup controlId="formControlsSelect">
-                   <FormControl componentClass="select" placeholder="select" defaultValue={1} name="occupants" onChange={this.handleChange}>
-                     <option value="1" name="1" onChange={this.handleChange}>1 person</option>
-                     <option value="2" name="2" onChange={this.handleChange}>2 people</option>
-                     <option value="3" name="3" onChange={this.handleChange}>3 people</option>
-                     <option value="4" name="4" onChange={this.handleChange}>4 people</option>
-                     <option value="5" name="5" onChange={this.handleChange}>5 people</option>
-                     <option value="6" name="6" onChange={this.handleChange}>6 people</option>
-                     <option value="7" name="7" onChange={this.handleChange}>7 people</option>
-                     <option value="8+" name="8+" onChange={this.handleChange}>8+ people</option>
-                   </FormControl>
-                 </FormGroup>
+                  <Calendar onChange={this.calendarOnChange}
+                    value={this.state.date}
+                  />
                 </div>
                 <br/>
               </Card>
             )}
+
 
 
               <Card className="filterbx" lastItem={true} styles={{fontSize: '15px'}}>

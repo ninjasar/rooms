@@ -211,7 +211,7 @@ export default class API {
         }
         // return reservation data
         console.log(response);
-        resolve(response.data);
+        resolve(results.data);
       }).catch((error) => {
         console.log(error);
         reject(error.message);
@@ -219,7 +219,77 @@ export default class API {
     });
   }
 
+  static getUsersReservations() {
+    return new Promise((resolve, reject) => {
+      axios({
+        method: 'get',
+        url: `${url}users/reservations`,
+        headers: {
+          'accept': 'application/json',
+          'content-type': 'application/json',
 
+        },
+      }).then((response) => {
+        const results = {
+          'parseJWT(response.token)': 9,
+           data: response.data,
+        }
+        console.log(response);
+        resolve(results.data);
+      }).catch((error) => {
+        console.log(error);
+        reject(error.message);
+      });
+    });
+  }
+
+  static getUsersSavedFields() {
+    return new Promise((resolve, reject) => {
+      axios({
+        method: 'get',
+        url: `${url}users/answeredQuestions`,
+        headers: {
+          'accept': 'application/json',
+          'content-type': 'application/json',
+
+        },
+      }).then((response) => {
+        const results = {
+          'parseJWT(response.token)': 9,
+           data: response.data,
+        }
+        console.log(response);
+        resolve(results.data);
+      }).catch((error) => {
+        console.log(error);
+        reject(error.message);
+      });
+    });
+  }
+
+  static saveUserAnswer(questionObj) {
+    return new Promise((resolve, reject) => {
+      axios({
+        method: 'post',
+        url: `${url}users/answeredQuestions`,
+        headers: {
+          'accept': 'application/json',
+          'content-type': 'application/json',
+          'data': questionObj.data,
+        },
+      }).then((response) => {
+        const results = {
+          'parseJWT(response.token)': 9,
+           data: response.data,
+        }
+        console.log(response);
+        resolve(results.data);
+      }).catch((error) => {
+        console.log(error);
+        reject(error.message);
+      });
+    });
+  }
 
 
 }

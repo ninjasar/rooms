@@ -10,6 +10,9 @@
   background-color: white;
   }
 
+/* a:-webkit-any-link {
+  color: #491A88;
+} */
 
 
 
@@ -58,16 +61,17 @@ button:focus {
   color: #491A88;
   height: 100%;
   display: inline;
+
 }
 
 .active {
   font-size: 1.2rem;
   font-weight: bold;
-  border-bottom: 3px solid #491A88;
+  border-bottom: 3px solid #491A88 !important;
   align-self: center;
 }
 
-.reserve:focus {
+/* .reserve:focus {
   font-size: 1.2rem;
   font-weight: bold;
   border-bottom: 3px solid #491A88;
@@ -76,7 +80,7 @@ button:focus {
   font-size: 1.2rem;
   font-weight: bold;
   border-bottom: 3px solid #491A88;
-}
+} */
 
 .usersName {
   color: #5C5C5C;
@@ -98,6 +102,7 @@ button:focus {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: white;
 }
 .reserveContainer {
   display: flex;
@@ -119,6 +124,7 @@ button:focus {
   margin-right: 0rem;
   z-index: 1;
   align-self: flex-start;
+  background-color: white;
 }
 .logoContainer {
   order: 2;

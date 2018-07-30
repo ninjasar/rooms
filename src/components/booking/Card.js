@@ -12,7 +12,7 @@ class Card extends React.Component {
     this.title = props.title;
     this.amenity = false;
     this.bigTitle = false;
-    this.isRoomRec
+    this.isRoomRec = false;
     this.state = {
       duration: 2,
       location: '',
@@ -24,13 +24,13 @@ class Card extends React.Component {
 
   render() {
 
-    if (this.props.bigTitle == true) {
+    if (this.props.bigTitle === true) {
       this.bigTitle = true;
     }
-    if (this.props.lastItem == true) {
+    if (this.props.lastItem === true) {
       this.lastItem = true;
     }
-    if (this.props.isRoomRec == true) {
+    if (this.props.isRoomRec === true) {
       this.isRoomRec = true;
     }
 

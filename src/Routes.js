@@ -23,7 +23,7 @@ export default (props) =>
     isLoggedIn={props.loggedIn}
     />
     <PrivateRoute path='/currentReservation'
-    component={() => <NotFound url='/currentReservation'/>}
+    component={() => <currentReservePg url='/currentReservation'/>}
     isLoggedIn={props.loggedIn}
     />
     <PrivateRoute path='/advancedSearch'

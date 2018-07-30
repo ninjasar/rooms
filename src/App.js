@@ -91,7 +91,7 @@ class App extends React.Component {
     // console.log(this.state.loggedIn);
 
     return (
-      <div id="homeLayout">
+      <div >
         <Navbar className="topBar">
           <div className="flexy">
 
@@ -101,7 +101,7 @@ class App extends React.Component {
                 url={currentRoute}
                 curr={currentRoute === '/currentReservation'}
                 setNav={setNav}
-                newRs={currentRoute !== '/currentReservation'}
+                newRs={currentRoute != '/currentReservation'}
               />
 
           </div>
