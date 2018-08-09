@@ -147,18 +147,17 @@ export default class API {
     return new Promise((resolve, reject) => {
       axios({
         method: 'get',
-        url: `${url}locations`,
+        url: `${url}locations/${loc}`,
+        // params: {
+        //   locationId: loc,
+        // },
         headers: {
           'accept': 'application/json',
           'content-type': 'application/json',
-          locationId: loc,
         }
       }).then((response) => {
-        const results = {
-          'parseJWT(response.token)': 9,
-          data: response.data,
-        }
-        resolve(results);
+          // todo: 'parseJWT(response.token)': 9,
+        resolve(response.data);
       }).catch((error) => {
         console.log(error);
         reject(error);
@@ -254,12 +253,10 @@ export default class API {
 
         },
       }).then((response) => {
-        const results = {
-          'parseJWT(response.token)': 9,
-           data: response.data,
-        }
-        console.log(response);
-        resolve(results.data);
+          //todo 'parseJWT(response.token)': 9,
+
+        console.log(response.data);
+        resolve(response.data);
       }).catch((error) => {
         console.log(error);
         reject(error.message);

@@ -90,7 +90,7 @@ class SearchPg extends React.Component {
             <br/>
             <br/>
             <span className="rmAttribute">Amenities: </span>{r.room.amenities[0].name}
-            <div onClick={this.showQuestions.bind(this)} >
+            <div onClick={this.showQuestions} >
               <Accordion title="Reserve">
                 {this.state.questions[0]}
                 {console.log(this.state.questions)}
@@ -112,36 +112,16 @@ class SearchPg extends React.Component {
 
   }
 
-   showQuestions = ()  => {
-    //event.preventDefault();
-    var suppQ = [];
-    var qs = [];
+   showQuestions = async () => {
     // console.log(this.state.srchRes)
     // console.log(this.state.srchRes);
-    this.state.srchRes.forEach((r) => {
-      API.getLocInfo(r.locationId)
-        .then((results) => {
-          console.log(results);
-          qs = results.data[0].supplementaryFields.map((q) => {
-            return (<div key={q.name}>
-              {q.description}
-            </div>)
-          }
+    const proms = this.state.srchRes.map((r) => { API.getLocInfo(r.locationId) });
 
-          )
-          this.setState({
-            questions: qs,
-            key: 'yourname'
-          });
+    const questions = await Promise.all(proms);
 
-        }).catch((error) => {
-          console.log(error);
-        });
-      }
-    );
+    this.setState({
 
-
-
+    });
   }
 
 

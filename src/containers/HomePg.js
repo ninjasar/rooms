@@ -43,48 +43,10 @@ class HomePg extends React.Component {
 
   componentWillMount() {
     this.filterRecs(1, this.state.duration, this.state.occupants);
-    // for(var a = 0; a<2; a++) {
-    //   API.closest(this.state.userLocation, this.state.duration, this.state.occupants)
-    //     .then((closestRoom) => {
-    //        if(this.state.occupants === 1){
-    //          this.setState({
-    //            closestIndividual: closestRoom,
-    //            locationOfRoom1: closestRoom.location.toLowerCase(),
-    //            roomNumber1: closestRoom.roomNumber,
-    //            capacity1: closestRoom.capacity,
-    //            openTime1: closestRoom.openTime,
-    //            duration1: closestRoom.duration,
-    //            closeTime1: closestRoom.closeTime,
-    //          });
-    //        } else {
-    //         this.setState({
-    //           closestGroup: closestRoom,
-    //           locationOfRoom2: closestRoom.location.toLowerCase(),
-    //           capacity2: closestRoom.capacity,
-    //           roomNumber2: closestRoom.roomNumber,
-    //           openTime2: closestRoom.openTime,
-    //           duration2: closestRoom.duration,
-    //           closeTime2: closestRoom.closeTime,
-    //         });
-    //       }
-    //       // console.log(this.state.closestIndividual);
-    //       // console.log(this.state.closestGroup);
-    //       this.setState({
-    //         occupants: this.state.occupants+1,
-    //       });
-    //     }).catch((error) => {
-    //       this.setState({
-    //         eMessage: error,
-    //       });
-    //       console.log(error);
-    //     });
-    //
-    // }
   }
   //on filter change, recall the api with updated parameters for both individual and
   //group rooms
   filterRecs(event, duration) {
-    console.log('works');
 
     if(event !== 1)
       event.preventDefault();
@@ -116,7 +78,7 @@ class HomePg extends React.Component {
             });
           }
           //add one to occupants so we get a group response then loop
-          console.log(closestRoom);
+          //console.log(closestRoom);
           this.setState({
             occupants: this.state.occupants+1,
           });

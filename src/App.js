@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Navbar } from 'react-bootstrap';
 
 import './App.css';
@@ -91,7 +90,7 @@ class App extends React.Component {
     // console.log(this.state.loggedIn);
 
     return (
-      <div >
+      <div className="everyContain">
         <Navbar className="topBar">
           <div className="flexy">
 

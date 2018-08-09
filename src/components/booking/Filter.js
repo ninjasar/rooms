@@ -6,7 +6,7 @@ import Accordion from 'react-collapsy';
 import API from '../../utils';
 import Card from './Card.js';
 import '../../../node_modules/react-collapsy/lib/index.css';
-import './card.css';
+import './filter.css';
 
 
 
@@ -156,14 +156,14 @@ class Filter extends Card {
               <Card title="Duration" className="filterbx">
                 <br/>
                 <div className="ddcontainer">
-                  <FormGroup controlId="formControlsSelect">
+                  <FormGroup controlId="formControlsSelect" >
                    <FormControl componentClass="select" placeholder="select" defaultValue={2} name="duration" onChange={this.handleChange}>
-                     <option value=".5" name=".5" onChange={this.handleChange}>0.5 hours</option>
-                     <option value="1" name="1" onChange={this.handleChange}>1 hour</option>
-                     <option value="1.5" name="1.5" onChange={this.handleChange}>1.5 hours</option>
-                     <option value="2" name="2" onChange={this.handleChange}>2 hours</option>
-                     <option value="2.5" name="2.5" onChange={this.handleChange}>2.5 hours</option>
-                     <option value="3" name="3" onChange={this.handleChange}>3 hours</option>
+                     <option className="op" value=".5" name=".5" onChange={this.handleChange}>0.5 hours</option>
+                     <option className="op" value="1" name="1" onChange={this.handleChange}>1 hour</option>
+                     <option className="op" value="1.5" name="1.5" onChange={this.handleChange}>1.5 hours</option>
+                     <option className="op" value="2" name="2" onChange={this.handleChange}>2 hours</option>
+                     <option className="op" value="2.5" name="2.5" onChange={this.handleChange}>2.5 hours</option>
+                     <option className="op" value="3" name="3" onChange={this.handleChange}>3 hours</option>
                    </FormControl>
                  </FormGroup>
                   {/* <input type="range" min={1} max={3} name="duration" defaultValue={this.state.duration} className="slider" id="myRange"

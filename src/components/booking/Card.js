@@ -35,7 +35,7 @@ class Card extends React.Component {
     }
 
     return (
-      <div className={'base ' + (this.lastItem && ' lastItem' ) + (this.isRoomRec && ' roomRec' )} onClick={this.props.onClick}>
+      <div className={'base ' + (this.lastItem && ' lastItem ' ) + ' ' + (this.isRoomRec && ' roomRec' )} onClick={this.props.onClick}>
         <div className={'title ' + (this.bigTitle && ' bigTitle' )}>
             {this.title}
           {this.bigTitle && this.props.clear &&
