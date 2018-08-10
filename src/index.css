@@ -1,10 +1,8 @@
 *{
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
   text-decoration: none;
+  max-width: 100%;
 }
 
 a:focus, a:hover {
@@ -19,12 +17,6 @@ a:-webkit-any-link {
 }
 
 
-*:before,
-*:after {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-}
 
 html {
   height: 100%;
@@ -33,10 +25,12 @@ html {
   background-color: white;
   font-family: 'Montserrat';
   font-size: 14px;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 body {
   height: 100%;
-  width: 100%;
+  max-width: 100%;
   margin: 0;
   padding: 0;
   font-family: 'Montserrat';
@@ -44,6 +38,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   z-index: -1;
+  overflow-x: hidden;
 }
 
 button {
@@ -54,6 +49,7 @@ button {
   background-color: white;
   height: 100%;
   width: 100%;
+  max-width: 100%;
   margin: 0;
   padding: 0;
 }
@@ -67,10 +63,11 @@ button {
 }
 .everyContain{
   height: 100%;
+  max-width: 100%;
 }
 .rts {
   background-color: #f2f2f2;
-  width: 100%;
+  max-width: 100%;
   height: 100%;
   justify-self: center;
 }
@@ -82,7 +79,6 @@ button {
     margin-bottom: 0;
     border: 0;
     border-radius: 0;
-    line-height: 80px;
     min-height: min-content;
     width: 100%;
     display: flex;
@@ -154,10 +150,12 @@ button {
 #landingPg {
   position: absolute;
   height: 100%;
-  padding: 15px;
+  padding: 10px;
   font-size: 3rem;
   top: calc(6rem + 10px);
+  margin: 0 auto;
   width: 100%;
+  max-width: 100%;
   z-index: 20000;
   text-align: center;
   background-color: #f2f2f2;
@@ -166,11 +164,9 @@ button {
   font-weight: bold;
   text-overflow: wrap;
   align-items: center;
-
+  overflow-x: hidden;
   display: flex;
-
   flex-direction: column;
-
   justify-content: flex-start;
   border-top: 2px solid #5C5C5C;
   border-bottom: 2px solid #5C5C5C;
@@ -181,9 +177,6 @@ textarea.form-control,
 input.form-control {
   font-size: 16px;
 }
-input[type=file] {
-  width: 100%;
-}
 .logoContainer {
   order: 2;
   align-self: flex-start;
@@ -192,23 +185,15 @@ input[type=file] {
   margin-top: 9px;
 }
 .logo {
-  width: 7rem;
+  width: 1rem;
   -webkit-transform: rotate(0deg);
   }
 .navLink {
   text-decoration: none;
-  width: 100%;
+  /* width: 100%; */
   border: none;
 }
-.helloBtn {
-  width: 200px;
-  height: 200px;
-  display: inline-block;
-  position: relative;
-  margin-top: 30%;
-  font-size: 2rem;
-  z-index: 20;
-}
+
 @media (max-width: 600px) {
   #homeLayout {
     overflow-y: visible;

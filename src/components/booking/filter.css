@@ -1,12 +1,18 @@
 #filterdv {
   border-bottom: none;
-  align-self: flex-start;
-  margin: 10px;
-
+  align-items: center;
+  margin-right: 20px;
 }
 
 select.form-control, textarea.form-control, input.form-control {
   font-size: 12px;
+  border: 2px solid #9f95ed;
+}
+select.form-control {
+  width: 40%;
+  padding: 3px;
+  margin-left: 20px;
+  border: 2px solid #9f95ed;
 }
 .roomRec {
   cursor: pointer;
@@ -18,13 +24,22 @@ select.form-control, textarea.form-control, input.form-control {
 
 .filterbx {
   border-radius: 4px;
-  margin: 0px;
-  margin-left: -80px;
   border-bottom: 2px solid #DEDEDE;
-  padding-bottom: 40px;
-
+  align-self: center;
 }
 
 input {
   font-size: 12px;
+  align-items: center;
+}
+
+button.apply {
+  align-self: center;
+  align-items: center;
+}
+
+.applyDv {
+  text-align: center;
+  align-self: center;
+  align-items: center;
 }

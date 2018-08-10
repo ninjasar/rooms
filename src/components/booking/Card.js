@@ -47,7 +47,7 @@ class Card extends React.Component {
         </div>
 
 
-        <div style={{width: '90%'}} className='child '>
+        <div style={{ marginLeft: '0px'}} className='child '>
           {this.props.children}
         </div>
       </div>

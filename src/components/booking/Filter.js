@@ -209,8 +209,8 @@ class Filter extends Card {
 
 
 
-              <Card className="filterbx" lastItem={true} styles={{fontSize: '15px'}}>
-                <Accordion title='Amenities' styles={{fontSize: '15px'}}>
+              <Card className="filterbx" lastItem={true} >
+                <Accordion styles={{fontSize: '15px'}}>
                   <br/>
                   <div>
                     <input type="checkbox"
@@ -235,7 +235,10 @@ class Filter extends Card {
                 </Accordion>
               </Card>
               <br/>
-              <button type="submit" className="apply">Apply</button>
+              <div className="applyDv">
+                <button type="submit" className="apply">Apply</button>
+              </div>
+
               <br/>
               <br/>
               <br/>

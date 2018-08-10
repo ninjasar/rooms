@@ -29,7 +29,6 @@ class LandingPg extends React.Component {
           fontVariant: 'small-caps',
           fontWeight: 'bold',
           fontSize: '2rem',
-          marginRight: '25px',
           border: '1px solid black',
           borderRadius: '3px',
           color: '#303030'
@@ -37,13 +36,13 @@ class LandingPg extends React.Component {
         description : {
           fontSize: '1.3rem',
           marginTop : '20px',
-          marginLeft: '-20px',
+
           fontStyle : 'italic',
           width: '90%'
         },
         or : {
           fontSize: '1.5rem',
-          marginRight: '25px',
+
           marginTop: '1.5rem',
           marginBottom: '-2rem'
         }

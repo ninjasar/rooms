@@ -1,35 +1,27 @@
 #topBar {
-  font-size: 12rem;
+  font-size: 10rem;
   width: 100%;
   height: 100%;
-  line-height: 80px;
+  position: static;
+  line-height: 30px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   order: 1;
   background-color: white !important;
-  }
-
-/* a:-webkit-any-link {
-  color: #491A88;
-} */
-
-
+  overflow-x: hidden;
+  padding: 20px;
+}
 
 
 .topBar {
   flex-direction: row;
-
-  justify-content: space-between;
   background-color: white !important;
 
   align-self: flex-start;
-  padding: 10px;
   /*background: url(" + __webpack_require__( "./Texture.svg") + "), -webkit-linear-gradient(left, #FF3CAC, #784BA0 100%);
   background: url(" + __webpack_require__( "./Texture.svg") + "), -o-linear-gradient(left, #FF3CAC, #784BA0 100%);
   background: url('./Texture.svg'), linear-gradient(90deg, #FF3CAC, #784BA0 100%);*/
-  background-blend-mode: multiply, normal;
-  mix-blend-mode: multiply;
   width: 100%;
   border-bottom: 1px solid #5C5C5C;
 }
@@ -38,10 +30,15 @@
   font-size: 14px;
   font-family: inherit;
   fill: pink;
+  order: 1;
+  align-self: flex-start;
+
 }
 
 .backIcon {
   width: 3rem;
+  order: 1;
+  margin-top: 10px;
 }
 .back :focus, .back :active {
   outline: none;
@@ -53,10 +50,8 @@ button:focus {
 }
 
 .reserve {
-  font-size: 1.1rem;
-  margin: 10px 10px -22px 20px;
-  padding-bottom: 25px;
-
+  font-size: 1rem;
+  padding: 20px;
   align-self: center;
   color: #491A88;
   height: 100%;
@@ -65,44 +60,31 @@ button:focus {
 }
 
 .active {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   border-bottom: 3px solid #491A88 !important;
   align-self: center;
 }
 
-/* .reserve:focus {
-  font-size: 1.2rem;
-  font-weight: bold;
-  border-bottom: 3px solid #491A88;
-}
-.reserve:focus:active {
-  font-size: 1.2rem;
-  font-weight: bold;
-  border-bottom: 3px solid #491A88;
-} */
-
 .usersName {
   color: #5C5C5C;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   width: 30%;
-  margin-top: 1rem;
+  align-self: center;
   text-align: right;
   margin-right: 50px;
   padding: 0;
-  line-height: 1.5;
+  line-height: 1;
   }
 #appNameContainer {
-  font-size: 10rem;
-  width: 100%;
-  height: 100%;
-  line-height: 60px;
   display: flex;
+  width: 30rem;
   flex-direction: row;
-  justify-content: space-between;
-  background-color: white !important;
+  justify-content: flex-start;
+  height: 100%;
+  align-items: center;
 }
 .reserveContainer {
   display: flex;
@@ -115,18 +97,18 @@ button:focus {
 .appName {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
-  font-size: 3rem;
+  font-size: 2rem;
   text-align: left;
+  margin-left: 20px;
   letter-spacing: 0.18em;
   font-variant: small-caps;
-  color: #762289;
-  margin-left: 0rem;
-  margin-right: 0rem;
-  z-index: 1;
-  align-self: flex-start;
+  width: 100px;
+  color: #8c54b3;
+  font-weight: bold;
   background-color: white;
+  order: 2;
 }
-.logoContainer {
+/* .logoContainer {
   order: 2;
   align-self: flex-start;
   margin-left: 0px;
@@ -137,26 +119,20 @@ button:focus {
   width: 7rem;
   -webkit-transform: rotate(0deg);
   color: blue;
-  }
+  } */
 
   @media (max-width: 1200px) {
-    .usersName {
-      margin-top:2rem;
+    .topBar {
+      font-size: 5rem;
     }
-    .reserveContainer {
-      margin-left: 0rem;
+    #appNameContainer {
+      width: 0rem;
+      font-size: .2rem;
     }
   }
 @media (max-width: 600px) {
 
-    .appNameContainer {
-      padding-bottom: 3rem;
-      line-height: 3rem;
-      margin-left: -1rem;
-    }
-    .usersName {
-      margin-top: 40px;
-      }
+
 
       .backIcon {
         width: 2rem;
@@ -166,17 +142,7 @@ button:focus {
 
   }
   @media (max-width: 420px) {
-    .appName {
-      margin-bottom: 0rem;
-      line-height: 3rem;
-      margin-left: -1.5rem;
-      font-size: 35px;
-      margin-top: 2rem;
-    }
 
-    .logoContainer {
-      margin-left: -25px;
-    }
     .card {
       height: 10rem;
     }
@@ -186,21 +152,9 @@ button:focus {
       }
   }
   @media (max-width: 400px) {
-    .appName {
-      margin-top: .5rem;
-      line-height: 3rem;
-      margin-left: -1.5rem;
-      font-size: 35px;
-    }
+
 
   }
   @media (max-width: 350px) {
-    .appName {
-      margin-bottom: 1.5rem;
-      margin-left: -1.8rem;
-      margin-top: .5rem;
-    }
-    .logoContainer {
-      margin-left: -28px;
-    }
+
   }

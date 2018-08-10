@@ -90,12 +90,18 @@ class SearchPg extends React.Component {
             <br/>
             <br/>
             <span className="rmAttribute">Amenities: </span>{r.room.amenities[0].name}
-            <div onClick={this.showQuestions} >
-              <Accordion title="Reserve">
-                {this.state.questions[0]}
-                {console.log(this.state.questions)}
-              </Accordion>
-            </div>
+            <br/>
+            <br/>
+            <form className="slctTime">
+              <label>Select a time:</label>
+              <div onClick={this.showQuestions}>
+                <button></button>
+                  {this.state.questions[0]}
+                  {console.log(this.state.questions)}
+
+              </div>
+            </form>
+
 
           </Card>
 

@@ -1,10 +1,10 @@
 module.exports =
 {
-// http://eslint.org/docs/rules/
+ // http://eslint.org/docs/rules/
   "extends": [
     "eslint:recommended",
-    "google",
-    "plugin:react/recommended"
+    "google"
+
    ],
 
   "parserOptions": {

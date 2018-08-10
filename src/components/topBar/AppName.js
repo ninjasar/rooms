@@ -15,6 +15,7 @@ const AppName = (props) => {
         <div className="appName">
           nyu rooms
         </div>
+      </div>
         <div className="reserveContainer">
         <Link to="/home" onClick={props.setNav} className={'reserve ' + (props.newRs && ' active' )}>
           <div >
@@ -30,7 +31,7 @@ const AppName = (props) => {
         <div className="usersName">
           {props.uName ? 'Welcome, ' + props.uName : ''}
         </div>
-      </div>
+
     </div>
   );
 };

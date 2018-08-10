@@ -6,7 +6,19 @@
   justify-content: center;
   overflow-y: scroll;
 }
+
+label {
+  text-align: left;
+  float: left;
+
+}
+
+.child .slctTime {
+  align-self: left;
+}
+
 .roomRec {
+  text-align: left;
   /* width: 2rem;
   box-sizing: content-box;
   align-self: center;
@@ -17,6 +29,7 @@
 }
 
 .roomRecContain {
+  text-align: left;
   box-sizing: content-box;
   width: 30rem;
   font-size: 14px;
@@ -26,7 +39,7 @@
 }
 
 .resdv {
-  text-align: center;
+  text-align: left;
   width: 90%;
 }
 
