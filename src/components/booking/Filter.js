@@ -93,7 +93,7 @@ class Filter extends Card {
       this.state.locations.map((id) => (
         <div key="divv">
           &nbsp; &nbsp;
-          <input type='checkbox' value={id}
+          <input className="check" type='checkbox' value={id}
             name={id} checked={this.state.id}
             onChange={this.handleChange} key={id}
             />
@@ -210,25 +210,26 @@ class Filter extends Card {
 
 
               <Card className="filterbx" lastItem={true} >
-                <Accordion styles={{fontSize: '15px'}}>
+                <Accordion title="Amenities" styles={{'Accordion__header': {fontSize: '15px', fontWeight: 'bold'},
+                  'Accordion__header--collapsed': {fontSize: '15px', fontWeight: 'bold'}}}>
                   <br/>
                   <div>
-                    <input type="checkbox"
+                    <input className="check" type="checkbox"
                       name='amensCoffee' checked={this.state.amensCoffee}
                       onChange={this.handleChange}/> &nbsp; Coffee
                     <br/>
                     <br/>
-                    <input type="checkbox"
+                    <input className="check" type="checkbox"
                       name='amensPrinter' checked={this.state.amensPrinter}
                       onChange={this.handleChange}/>  &nbsp; Printer
                     <br/>
                     <br/>
-                    <input type="checkbox"
+                    <input className="check" type="checkbox"
                       name='amensProjector' checked={this.state.amensProjector}
                       onChange={this.handleChange}/>  &nbsp; Projector
                     <br/>
                     <br/>
-                    <input type="checkbox"
+                    <input className="check" type="checkbox"
                       name='amensSofa' checked={this.state.amensSofa}
                       onChange={this.handleChange}/>  &nbsp; Sofa
                   </div>

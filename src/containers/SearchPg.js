@@ -142,7 +142,9 @@ class SearchPg extends React.Component {
     return (
 
       <div className='container'>
+        <div className="leftContain">
           <Filter homePg={true} apply={this.displayResults} search={true}/>
+        </div>
             <div className="roomRecContain">
               <div>
                 {this.state.srchResultsComponents}

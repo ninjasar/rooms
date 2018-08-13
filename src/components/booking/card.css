@@ -10,7 +10,7 @@
   align-items: left;
   justify-content: flex-start;
   text-align: left;
-  padding: 15px;
+  padding: 10px;
   box-sizing: content-box;
 
 }
@@ -19,6 +19,16 @@
   font-weight: 400;
   color: #333;
   font-size: 13px;
+}
+
+#filterdv {
+  width: 100%;
+}
+
+.roomRec {
+  cursor: pointer;
+  border: 2px solid #f2f0ff;
+  box-shadow: none;
 }
 
 .slider {
@@ -75,7 +85,7 @@ button {
 }
 
 .apply {
-  color: 	#6454d0;
+  color: 	white;
   align-self: center;
   align-items: center;
   font-size: 13px;
@@ -83,20 +93,9 @@ button {
   padding: 10px;
   padding-left:  40px;
   padding-right: 40px;
-  border: solid 2px #964daf;
-  /* -webkit-border-image: -webkit-gradient(linear, 0 0, 100% 0, from(black), to(rgba(0, 0, 0, 0))) 1 100%;
- -webkit-border-image:
-   -webkit-linear-gradient(left, black, rgba(0, 0, 0, 0)) 1 100%;
- -moz-border-image:
-   -moz-linear-gradient(left, black, rgba(0, 0, 0, 0)) 1 100%;
- -o-border-image:
-   -o-linear-gradient(left, black, rgba(0, 0, 0, 0)) 1 100%;
- border-image:
-   linear-gradient(to left, black, rgba(0, 0, 0, 0)) 1 100%; */
-  /* -webkit-border-image: -webkit-gradient(linear, 100% 0, 0 0, from(#9d93ec), to(#9C48AC)) 10 200%; */
-  /* background-image: -webkit-gradient(linear, 0 0, 100% 0, from(#000), to(yellow)) 2 95%; */
-  /* background-image: linear-gradient(to right, #9d93ec, #6354d0, #964daf); */
-  /* background: -webkit-linear-gradient(left, #FB5899,  #A324CF 100%); */
+  background: linear-gradient(to right, #7f22c1 0%,  #a843e8  50%,   #c43de2 100%);
+  /* border: solid 2px #9C48AC; */
+
 }
 
 
@@ -109,6 +108,7 @@ button {
   font-weight: bold;
   font-size: 12px;
   align-self: center;
+  margin-top: 10px;
 }
 
 .bigTitle {
@@ -118,22 +118,21 @@ button {
   width: 100%;
   font-size: 15px;
   margin-left: 20px;
-  padding: 10px;
+  padding-top: 5px;
 
 }
 
 .child .base {
   box-shadow: none;
   border-bottom: 2px solid #DEDEDE;
-  padding: 0px;
+  padding-left: 10px;
   align-self: center;
-
 }
 
 .child {
-  padding-bottom: 5px;
   align-self: flex-start;
-  width: 100%;
+  width: 94%;
+  padding: 10px;
 }
 
 .child .lastItem{
@@ -146,7 +145,7 @@ button {
   color: #491A88;
   text-align: left;
   border-radius: 4px;
-  width: 100%;
+  width: 90%;
   font-size: 10px;
   margin-left: -80px;
   padding: 5px;

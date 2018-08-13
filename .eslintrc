@@ -1,16 +1,18 @@
 module.exports =
 {
- // http://eslint.org/docs/rules/
-  "extends": [
+  "extends": {
     "eslint:recommended",
     "google"
-
-   ],
+   },
 
   "parserOptions": {
       "ecmaVersion": 2017,
       "sourceType": "module"
   },
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
 
   "rules": {
       "padded-blocks": 0,
@@ -20,7 +22,7 @@ module.exports =
       "object-curly-spacing": 0,
       "spaced-comment": 0,
       "block-spacing": 0,
-      "max-len": [1, 120],
+      "max-len": [1, 140, 2, {ignoreComments: true}],
       "no-multi-str": 0,
       "no-console": 0,
   },

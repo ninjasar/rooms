@@ -13,6 +13,7 @@ class Card extends React.Component {
     this.amenity = false;
     this.bigTitle = false;
     this.isRoomRec = false;
+    this.srchBtn = false;
     this.state = {
       duration: 2,
       location: '',
@@ -33,11 +34,14 @@ class Card extends React.Component {
     if (this.props.isRoomRec === true) {
       this.isRoomRec = true;
     }
+    if (this.props.srchBtn === true) {
+      this.srchBtn = true;
+    }
 
     return (
-      <div className={'base ' + (this.lastItem && ' lastItem ' ) + ' ' + (this.isRoomRec && ' roomRec' )} onClick={this.props.onClick}>
-        <div className={'title ' + (this.bigTitle && ' bigTitle' )}>
-            {this.title}
+      <div className={'base ' + (this.lastItem && ' lastItem ' ) + ' ' + (this.isRoomRec && ' roomRec' )+ ' ' + (this.srchBtn && ' advancedSearchCard' )} onClick={this.props.onClick}>
+        <div className={(this.props.title && ' title ') + (this.bigTitle && ' bigTitle' )}>
+            {this.props.title && this.title}
           {this.bigTitle && this.props.clear &&
             <span className="clear">
             <button onClick={this.props.clrFilter}>

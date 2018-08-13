@@ -26,16 +26,17 @@ label {
   padding: 20px;
   margin-left: 20px;
   cursor: pointer; */
+  cursor: pointer;
 }
 
 .roomRecContain {
+  margin-top: 20px;
   text-align: left;
   box-sizing: content-box;
   width: 30rem;
   font-size: 14px;
   padding-left: 20px;
   margin-left: 10px;
-  cursor: pointer;
 }
 
 .resdv {

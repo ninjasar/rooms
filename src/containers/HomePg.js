@@ -99,39 +99,61 @@ class HomePg extends React.Component {
   render () {
     return (
       <div className='container'>
-        <Filter homePg={true} apply={this.filterRecs.bind(this)}/>
+        <div className="leftContain">
+          <Card srchBtn={true}>
+            <div className="advancedSearchCard">
+              <br/>
+                Don't like these rooms?
+                <br/>
+                <br/>
+                To get your favorite room
+                <br/>
+                at a future time try:
+                <br/>
+                <br/>
+                <br/>
+                <NavLink to='/advancedSearch' className="srchBtn">
+                  Advanced Search
+                </NavLink>
+                <br/>
+                <br/>
+            </div>
+          </Card>
+          <Filter homePg={true} apply={this.filterRecs.bind(this)}/>
+        </div>
         <div className="roomRecContain">
-          <Card title="Individual" bigTitle={true} className="roomRec">
-            Building: {this.state.locationOfRoom1}
+          <Card>
             <br/>
-            Capacity: {this.state.capacity1}
-            <br/>
-            Duration: {this.state.duration1} hour(s)
-            <br/>
-            Number: {this.state.roomNumber1}
-            <br/>
-            Start Time: {dateFormat(this.state.openTime1, 'default')}
-          </Card>
-          <Card title="Group" bigTitle={true} className="roomRec">
-            Building: {this.state.locationOfRoom2}
-            <br/>
-            Capacity: {this.state.capacity1}
-            <br/>
-            Duration: {this.state.duration2} hour(s)
-            <br/>
-            Number: {this.state.roomNumber2}
-            <br/>
-            Start Time: {dateFormat(this.state.openTime2, 'default')}
-          </Card>
-          <Card className="roomRec">
-            Don't like these rooms?
+            &nbsp;&nbsp;&nbsp;<span className="recTitle">Recommended Rooms</span>
             <br/>
             <br/>
-            <NavLink to='/advancedSearch' className="srchBtn">
-              Advanced Search
-            </NavLink>
+            <Card title="Individual" bigTitle={true} className="roomRec" isRoomRec={true}>
+              Building: {this.state.locationOfRoom1}
+              <br/>
+              Capacity: {this.state.capacity1}
+              <br/>
+              Duration: {this.state.duration1} hour(s)
+              <br/>
+              Number: {this.state.roomNumber1}
+              <br/>
+              Select Your Time:
+              <br/>
+              {dateFormat(this.state.openTime1, 'time')}
+            </Card>
+            <Card title="Group" bigTitle={true} className="roomRec" isRoomRec={true}>
+              Building: {this.state.locationOfRoom2}
+              <br/>
+              Capacity: {this.state.capacity1}
+              <br/>
+              Duration: {this.state.duration2} hour(s)
+              <br/>
+              Number: {this.state.roomNumber2}
+              <br/>
+              Start Time: {dateFormat(this.state.openTime2, 'default')}
+            </Card>
           </Card>
         </div>
+
           {!this.props.loggedIn && <LandingPg loginClicked={this.props.login}/>}
       </div>
     )

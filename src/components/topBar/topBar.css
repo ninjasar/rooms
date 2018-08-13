@@ -3,14 +3,14 @@
   width: 100%;
   height: 100%;
   position: static;
-  line-height: 30px;
+  line-height: 27px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   order: 1;
   background-color: white !important;
   overflow-x: hidden;
-  padding: 20px;
+  padding: 10px;
 }
 
 
@@ -23,7 +23,7 @@
   background: url(" + __webpack_require__( "./Texture.svg") + "), -o-linear-gradient(left, #FF3CAC, #784BA0 100%);
   background: url('./Texture.svg'), linear-gradient(90deg, #FF3CAC, #784BA0 100%);*/
   width: 100%;
-  border-bottom: 1px solid #5C5C5C;
+  box-shadow: 0px 5px 5px 0px #DEDEDE;
 }
 .back {
   background-color: transparent;
@@ -50,20 +50,25 @@ button:focus {
 }
 
 .reserve {
-  font-size: 1rem;
-  padding: 20px;
-  align-self: center;
-  color: #491A88;
+  font-size: .9rem;
+  margin-right: 20px;
+  align-self: baseline;
+  color: #742abf;
   height: 100%;
   display: inline;
+  padding-bottom: -20px;
 
 }
 
 .active {
-  font-size: 1rem;
+  font-size: .9rem;
   font-weight: bold;
-  border-bottom: 3px solid #491A88 !important;
-  align-self: center;
+  border-bottom: 3px solid#742abf !important;
+  margin-top: 10px;
+  padding: 0px;
+  padding-bottom: -20px;
+  color:#742abf;
+  height: 100%;
 }
 
 .usersName {
@@ -84,6 +89,7 @@ button:focus {
   flex-direction: row;
   justify-content: flex-start;
   height: 100%;
+  margin-left: 100px;
   align-items: center;
 }
 .reserveContainer {
@@ -92,18 +98,21 @@ button:focus {
   align-self: center;
   margin-left: 10rem;
   line-height: normal;
+  align-items: baseline;
+  justify-content: baseline;
+  height: 100%;
 }
 
 .appName {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
-  font-size: 2rem;
+  font-size: 1.8rem;
   text-align: left;
   margin-left: 20px;
   letter-spacing: 0.18em;
   font-variant: small-caps;
   width: 100px;
-  color: #8c54b3;
+  color: #732abf;
   font-weight: bold;
   background-color: white;
   order: 2;
