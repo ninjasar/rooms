@@ -5,6 +5,7 @@ import dateFormat from 'dateformat';
 import '../index.css';
 import './search.css';
 import './Home.css';
+import recImg from './recImg.png';
 import API from '../utils';
 import Card from '../components/booking/Card';
 import Filter from '../components/booking/Filter';
@@ -127,7 +128,7 @@ class HomePg extends React.Component {
             &nbsp;&nbsp;&nbsp;<span className="recTitle">Recommended Rooms</span>
             <br/>
             <br/>
-            <Card title="Individual" bigTitle={true} className="roomRec" isRoomRec={true} img="h">
+            <Card title="Individual" bigTitle={true} className="roomRec" isRoomRec={true} img={recImg}>
               Building: {this.state.locationOfRoom1}
               <br/>
               Capacity: {this.state.capacity1}
@@ -140,7 +141,7 @@ class HomePg extends React.Component {
               <br/>
               {dateFormat(this.state.openTime1, 'time')}
             </Card>
-            <Card title="Group" bigTitle={true} className="roomRec" isRoomRec={true} img="h">
+            <Card title="Group" bigTitle={true} className="roomRec" isRoomRec={true} img={recImg}>
               Building: {this.state.locationOfRoom2}
               <br/>
               Capacity: {this.state.capacity1}

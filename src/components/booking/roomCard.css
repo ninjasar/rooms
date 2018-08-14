@@ -1,0 +1,12 @@
+.recImg {
+  width: 70px;
+}
+
+.recTitle {
+  text-align: right;
+}
+.roomRec {
+  cursor: pointer;
+  border: 2px solid #f2f0ff;
+  box-shadow: none;
+}

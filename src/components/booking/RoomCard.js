@@ -1,23 +1,25 @@
 import React from 'react';
 
+import Card from './Card.js';
 import './card.css';
 
-class Card extends React.Component {
+class RoomCard extends Card {
 
   constructor(props) {
 
+    const d = new Date();
 
     super(props);
-    this.title = props.title;
+
     this.amenity = false;
-    this.bigTitle = false;
-    this.isRoomRec = false;
-    this.srchBtn = false;
-    this.base = React.createRef();
+    this.isRoomRec = true;
+    this.title.className = 'recTitle';
+    this.bigTitle.className = 'recTitle';
     this.state = {
       duration: 2,
       location: '',
       occupants: 1,
+      date: d.toString(),
       startTime: '',
     };
   }
@@ -27,15 +29,7 @@ class Card extends React.Component {
     if (this.props.bigTitle === true) {
       this.bigTitle = true;
     }
-    if (this.props.lastItem === true) {
-      this.lastItem = true;
-    }
-    if (this.props.isRoomRec === true) {
-      this.isRoomRec = true;
-    }
-    if (this.props.srchBtn === true) {
-      this.srchBtn = true;
-    }
+
 
     return (
       <div className={'base ' + (this.lastItem && ' lastItem ' ) + ' ' + (this.isRoomRec && ' roomRec' )+ ' ' + (this.srchBtn && ' advancedSearchCard' )} onClick={this.props.onClick}>
@@ -62,4 +56,4 @@ class Card extends React.Component {
 }
 
 
-export default Card;
+export default RoomCard;

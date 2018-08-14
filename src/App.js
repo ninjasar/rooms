@@ -5,7 +5,6 @@ import './App.css';
 import './index.css';
 import API from './utils';
 import AppName from './components/topBar/AppName.js';
-import Btn from './containers/Btn.js';
 import HomePg from './containers/HomePg.js';
 import Routes from './Routes';
 import LoginForm from './containers/LoginForm.js';
@@ -75,8 +74,6 @@ class App extends React.Component {
         });
     };
 
-
-    const btnCompnent = () => <Btn />;
     const homePg = () => (
       <HomePg
         loggedIn={this.state.loggedIn}
@@ -112,7 +109,6 @@ class App extends React.Component {
           <Routes
             loggedIn={this.state.loggedIn}
             homecmp={homePg}
-            btncmp={btnCompnent}
             logcmp={logFrm}
           />
         </div>
