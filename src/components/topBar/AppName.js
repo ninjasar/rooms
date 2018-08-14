@@ -10,8 +10,12 @@ import BackButton from './BackButton.js';
 const AppName = (props) => {
   return (
     <div id="topBar">
+      {props.url !== '/home' && props.url !== '/home/' && props.url !== '/' && props.url !== '/' && <BackButton/>}
+      <div className="vertLine">
+      </div>
       <div id="appNameContainer">
-        {props.url !== '/home' && props.url !== '/home/' && props.url !== '/' && props.url !== '/' && <BackButton/>}
+        <Logo/>
+
         <div className="appName">
           nyu rooms
         </div>
@@ -28,10 +32,12 @@ const AppName = (props) => {
             </div>
           </Link>
         </div>
-        <div className="usersName">
-          {props.uName ? 'Welcome, ' + props.uName : ''}
+        <div className="userContain">
+          <div className="oval"></div>
+            <div className="usersName">
+              {props.uName ? 'Welcome, ' + props.uName : ''}
+            </div>
         </div>
-
     </div>
   );
 };

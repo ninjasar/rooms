@@ -3,11 +3,11 @@ body {
 }
 
 .srchBtn {
-  color: #7f22c1;
+  color: #6555d0;
   padding: 10px;
   border-radius: 3px;
   font-weight: bold;
-  border: 2px solid  #6054d1;
+  border: 2px solid  #944db0;
 }
 
 .advancedSearchCard {
@@ -27,4 +27,32 @@ body {
   font-weight: bold;
   font-size: 20px;
   color: #676767;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow-y: scroll;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .leftContain {
+    display: none;
+  }
+  .roomRecContain {
+    margin: 0 auto;
+    text-align: left;
+    box-sizing: content-box;
+    width: 90%;
+    font-size: 14px;
+    padding: 10px;
+  }
+  .roomRec {
+    width: 90%;
+  }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 
 import './topBar.css';
-import backIcon from './back.png';
+import backIcon from './back2.png';
 
 class BackButton extends React.Component {
   static contextTypes = {

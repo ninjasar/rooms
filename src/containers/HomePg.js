@@ -127,7 +127,7 @@ class HomePg extends React.Component {
             &nbsp;&nbsp;&nbsp;<span className="recTitle">Recommended Rooms</span>
             <br/>
             <br/>
-            <Card title="Individual" bigTitle={true} className="roomRec" isRoomRec={true}>
+            <Card title="Individual" bigTitle={true} className="roomRec" isRoomRec={true} img="h">
               Building: {this.state.locationOfRoom1}
               <br/>
               Capacity: {this.state.capacity1}
@@ -136,11 +136,11 @@ class HomePg extends React.Component {
               <br/>
               Number: {this.state.roomNumber1}
               <br/>
-              Select Your Time:
+              SELECT YOUR TIME:
               <br/>
               {dateFormat(this.state.openTime1, 'time')}
             </Card>
-            <Card title="Group" bigTitle={true} className="roomRec" isRoomRec={true}>
+            <Card title="Group" bigTitle={true} className="roomRec" isRoomRec={true} img="h">
               Building: {this.state.locationOfRoom2}
               <br/>
               Capacity: {this.state.capacity1}

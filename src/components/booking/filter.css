@@ -9,9 +9,9 @@ select.form-control, textarea.form-control, input.form-control {
   border: 2px solid #9f95ed;
 }
 select.form-control {
-  width: 40%;
+  width: 75%;
   padding: 3px;
-  margin-left: 20px;
+  margin-left: 10px;
   border: 2px solid #9f95ed;
 }
 
@@ -19,10 +19,9 @@ select.form-control {
   font-weight: bold;
 }
 
-select.form-control:active {
-  width: 50%;
+select.form-control:active, select.form-control:focus {
+  width: 75%;
   padding: 3px;
-  margin-left: 20px;
   border: 2px solid #9f95ed;
   box-shadow: none;
 }

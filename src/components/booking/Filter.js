@@ -209,7 +209,7 @@ class Filter extends Card {
 
 
 
-              <Card className="filterbx" lastItem={true} >
+              {/* <Card className="filterbx" lastItem={true} >
                 <Accordion title="Amenities" styles={{'Accordion__header': {fontSize: '15px', fontWeight: 'bold'},
                   'Accordion__header--collapsed': {fontSize: '15px', fontWeight: 'bold'}}}>
                   <br/>
@@ -234,7 +234,7 @@ class Filter extends Card {
                       onChange={this.handleChange}/>  &nbsp; Sofa
                   </div>
                 </Accordion>
-              </Card>
+              </Card> */}
               <br/>
               <div className="applyDv">
                 <button type="submit" className="apply">Apply</button>

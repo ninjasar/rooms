@@ -5,4 +5,90 @@
 .App .navbar-brand {
   font-weight: bold;
 }
- 
+
+.app {
+  height: 100%;
+  font-size: 40rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+.everyContain{
+  height: 100%;
+  max-width: 100%;
+}
+.rts {
+  background-color: #f4f4f4;
+  max-width: 100%;
+  height: 100%;
+  justify-self: center;
+  align-self: center;
+}
+
+.topBar {
+  background-color: white;
+}
+
+#homeLayout {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  position: relative;
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.home {
+  width: 100%;
+  margin-left: 3%;
+  margin-right: 5%;
+}
+
+.flexy {
+  width: 100%;
+  height: 100%;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.joinTxt {
+  margin-top: 10%;
+  padding: 10px;
+  padding-right: 25px;
+  font-size: 2.5rem;
+}
+
+.logoContainer {
+  order: 2;
+  align-self: flex-start;
+  margin-left: 0px;
+  overflow-x: auto;
+  margin-top: 9px;
+}
+.logo {
+  width: 1rem;
+  -webkit-transform: rotate(0deg);
+  }
+.navLink {
+  text-decoration: none;
+  /* width: 100%; */
+  border: none;
+}
+
+@media (max-width: 600px) {
+  #homeLayout {
+    overflow-y: visible;
+    }
+  .app {
+    height: calc(100% + 1100px);
+    }
+
+}

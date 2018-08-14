@@ -91,20 +91,20 @@ class App extends React.Component {
 
     return (
       <div className="everyContain">
-        <Navbar className="topBar">
-          <div className="flexy">
 
-              <AppName
-                uName={this.state.currentUser}
-                loggedIn={this.state.loggedIn}
-                url={currentRoute}
-                curr={currentRoute === '/currentReservation'}
-                setNav={setNav}
-                newRs={currentRoute != '/currentReservation'}
-              />
+          <Navbar className="topBar">
+            <div className="flexy">
+                <AppName
+                  uName={this.state.currentUser}
+                  loggedIn={this.state.loggedIn}
+                  url={currentRoute}
+                  curr={currentRoute === '/currentReservation'}
+                  setNav={setNav}
+                  newRs={currentRoute != '/currentReservation'}
+                />
+              </div>
+          </Navbar>
 
-          </div>
-        </Navbar>
         <div className="rts">
           {this.state.eMessage && (
             <div className="error">{this.state.eMessage}</div>

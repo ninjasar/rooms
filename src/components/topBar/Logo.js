@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './topBar.css';
-import torch from './torch.png';
+import logo from './logo.svg';
 
 
 
@@ -9,7 +9,7 @@ const Logo = (props) => {
   return (
     <div className="logoContainer">
       <div>
-        <img src={torch} alt="torch" className="logo"/>
+        <img src={logo} alt="room" className="logo"/>
       </div>
     </div>
   )

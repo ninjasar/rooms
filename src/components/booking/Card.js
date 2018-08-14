@@ -40,7 +40,10 @@ class Card extends React.Component {
 
     return (
       <div className={'base ' + (this.lastItem && ' lastItem ' ) + ' ' + (this.isRoomRec && ' roomRec' )+ ' ' + (this.srchBtn && ' advancedSearchCard' )} onClick={this.props.onClick}>
-        <div className={(this.props.title && ' title ') + (this.bigTitle && ' bigTitle' )}>
+        <div>
+          {this.props.img && <img src="#"/>}
+        </div>
+        <div className={(this.props.title && ' title ') + ' ' + (this.bigTitle && ' bigTitle' )}>
             {this.props.title && this.title}
           {this.bigTitle && this.props.clear &&
             <span className="clear">
