@@ -11,7 +11,7 @@ import './filter.css';
 
 
 function log(value) {
-  console.log(value); //eslint-disable-line
+  //console.log(value); //eslint-disable-line
 }
 
 
@@ -28,9 +28,12 @@ class Filter extends Card {
       this.state = {
         duration: 2,
         locations: [],
+        locationIds: [],
         occupants: 1,
         date: d,
-        isSearch: false,
+        openTime: '',
+        closeTime: '',
+        isSearch: this.props.search || false,
         amensCoffee: false,
         amensPrinter: false,
         amensProjector: false,
@@ -48,13 +51,17 @@ class Filter extends Card {
     API.getLocs()
       .then((results) => {
         this.setState({
-          locations: results.idArray
+          locationIds: results.idArray,
+          locations: results.data
         });
-        if(this.state.locations) {
-          this.state.locations.forEach((loc) => {
+        //console.log(this.state.locationIds);
+        if(this.state.locationIds) {
+          this.state.locationIds.forEach((loc) => {
             this.setState({
-              [loc]: false,
+              loc: false,
             });
+            //console.log(this.state.loc);
+            //console.log(loc);
           });
         }
         if(this.props.homePg) {
@@ -79,8 +86,15 @@ class Filter extends Card {
     //console.log(this.state.occupants);
   }
   handleSubmit = (event) => {
-    this.apply(event, this.state.duration, this.state.occupants);
+    const amens = [this.state.amensCoffee, this.state.amensSofa, this.state.amensPrinter, this.state.amensProjector];
     event.preventDefault();
+    if(!this.props.search) {
+      this.apply(event, this.state.duration, this.state.occupants);
+    } else {
+      console.log('calling srch apply');
+      this.apply( this.state.openTime, this.state.closeTime, this.state.duration, this.state.locationIds, amens, this.state.occupants)
+    }
+
   }
 
   jsUcfirst(string)
@@ -88,19 +102,38 @@ class Filter extends Card {
         return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
     }
 
-  renderLocations = () => {
+  prepareLocations = () => {
+    const locations = this.state.locations;
+    const wsq = [];
+    const bkln = [];
+    locations.forEach((loc) => {
+      if(loc.campus === 'wsq') wsq.push(loc);
+      else bkln.push(loc);
+    });
+    //console.log(wsq);
+    const wsqLocs = wsq.map((loc) => (
+      <div key="divv">
+        &nbsp; &nbsp;
+        <input className="check" type='checkbox' value={loc.id}
+          name={loc.id} checked={this.state.locationIds[loc]}
+          onChange={this.handleChange} key={loc.id}
+          />
+        <label htmlFor={loc.id} className="label" key={loc.id + ' label'}>&nbsp;{loc.name}</label>
+      </div>
+    ));
+    // const bklnLocs = bkln.map((loc) => (
+    //   <div key="divv">
+    //     &nbsp; &nbsp;
+    //     <input className="check" type='checkbox' value={loc.id}
+    //       name={loc.id} checked={this.state.locationsIds[loc]}
+    //       onChange={this.handleChange} key={loc.id}
+    //       />
+    //     <label htmlFor={loc.id} className="label" key={loc.id + ' label'}>&nbsp;{loc.name}</label>
+    //   </div>
+    // ));
+
     return (
-      this.state.locations.map((id) => (
-        <div key="divv">
-          &nbsp; &nbsp;
-          <input className="check" type='checkbox' value={id}
-            name={id} checked={this.state.id}
-            onChange={this.handleChange} key={id}
-            />
-          <label htmlFor={id} className="label" key={id + ' label'}>&nbsp;{this.jsUcfirst(id)}</label>
-        </div>
-        )
-      )
+      {wsq: wsqLocs}
     )
 
   }
@@ -123,37 +156,42 @@ class Filter extends Card {
 
 
   render() {
-    //console.log(this.state.bobst);
+    const manhattan = this.prepareLocations().wsq;
+    const brooklyn = this.prepareLocations().bkln;
+    //console.log(this.state.isSearch);
+
       return (
-        <div id="filterdv" key={this.wrapper}>
-          <Card bigTitle={true} title="Filter" clear={true} clrFilter={this.resetFilter.bind(this)} style={{}}>
+        <div className={this.state.isSearch ? "filterdv srchFilterDv" : "filterdv"} key={this.wrapper}>
+          <Card bigTitle={true} clear={true} clrFilter={this.resetFilter.bind(this)} style={{}} isFltr={true}>
+              <div>
+                <span className="bigTitle">Filter</span>
+                  <span className="clear">
+                  <button onClick={this.props.clrFilter}>
+                    Clear
+                  </button>
+                </span>
+              </div>
             <form onSubmit={this.handleSubmit}>
               <div className="line"></div>
               {this.props.search && (
                 <Card title="Campus" className="filterbx" style={{'.title' : {fontSize: '20px'}}}>
+                  <span className="title">Campus</span>
+                  <br/>
                   <br/>
                   <Accordion title="Manhattan" style={{fontSize: '10px'}}>
-                    {/* <input type='checkbox' value="Bobst"
-                      name="bobst" checked={this.state.bobst}
-                      onChange={this.handleChange}
-                      />
-                    <label htmlFor="Bobst" className="label">&nbsp;Bobst</label>
-                    <br/>
-                    <br/>
-                    <input type="checkbox" value="Kimmel"
-                      name="kimmel" checked={this.state.kimmel}
-                      onChange={this.handleChange}/>
-                    <label htmlFor="Kimmel" className="label">&nbsp;Kimmel</label> */}
-                    {this.renderLocations()}
+
+                    {manhattan}
                   </Accordion>
                   <br/>
                   <Accordion title="Brooklyn">
-                    {this.renderLocations()}
+                    {brooklyn}
                   </Accordion>
                 </Card>
               )}
 
-              <Card title="Duration" className="filterbx">
+              <Card className={!this.state.isSearch ? "filterbx noBo" : "filterbx"}>
+                <span className="title">Duration</span>
+                <br/>
                 <br/>
                 <div className="ddcontainer">
                   <FormGroup controlId="formControlsSelect" >
@@ -166,14 +204,14 @@ class Filter extends Card {
                      <option className="op" value="3" name="3" onChange={this.handleChange}>3 hours</option>
                    </FormControl>
                  </FormGroup>
-                  {/* <input type="range" min={1} max={3} name="duration" defaultValue={this.state.duration} className="slider" id="myRange"
-                   onChange={this.handleChange} step={1}/> */}
                 </div>
                 <br/>
               </Card>
 
-            {this.props.search &&  (
-              <Card title="Occupants" className="filterbx">
+            {this.state.isSearch &&  (
+              <Card className="filterbx">
+                <span className="title">Occupants</span>
+                <br/>
                 <br/>
                 <div className="ddcontainer">
                   <FormGroup controlId="formControlsSelect">
@@ -196,9 +234,11 @@ class Filter extends Card {
             )}
 
             {this.props.search &&  (
-              <Card title="Start time" className="filterbx">
+              <Card className="filterbx">
+                <span className="title">Select Date</span>
                 <br/>
-                <div className="ddcontainer">
+                <br/>
+                <div className="calendarContainer">
                   <Calendar onChange={this.calendarOnChange}
                     value={this.state.date}
                   />
@@ -207,9 +247,71 @@ class Filter extends Card {
               </Card>
             )}
 
+            {( this.props.search &&
+              <Card className="filterbx">
+                <span className="title" title="The start of the time range you would like to search for.">Show me rooms available between</span>
+                <br/>
+                <br/>
+                <div className="rangeSelectDv">
+                  <div className="ddcontainer timeRange">
+                    <FormGroup controlId="formControlsSelect">
+                     <FormControl componentClass="select" placeholder="select" defaultValue={1} name="occupants" onChange={this.handleChange}>
+                       <option value="06:00" name="1" onChange={this.handleChange}>6am</option>
+                       <option value="07:00" name="1" onChange={this.handleChange}>7am</option>
+                       <option value="08:00" name="1" onChange={this.handleChange}>8am</option>
+                       <option value="09:00" name="1" onChange={this.handleChange}>9am</option>
+                       <option value="10:00" name="1" onChange={this.handleChange}>10am</option>
+                       <option value="11:00" name="1" onChange={this.handleChange}>11am</option>
+                       <option value="12:00" name="1" onChange={this.handleChange}>12pm</option>
+                       <option value="13:00" name="1" onChange={this.handleChange}>1pm</option>
+                       <option value="14:00" name="2" onChange={this.handleChange}>2pm </option>
+                       <option value="15:00" name="3" onChange={this.handleChange}>3pm </option>
+                       <option value="16:00" name="4" onChange={this.handleChange}>4pm </option>
+                       <option value="17:00" name="5" onChange={this.handleChange}>5pm </option>
+                       <option value="18:00" name="6" onChange={this.handleChange}>6pm </option>
+                       <option value="19:00" name="7" onChange={this.handleChange}>7pm </option>
+                       <option value="20:00" name="8+" onChange={this.handleChange}>8pm </option>
+                       <option value="21:00" name="1" onChange={this.handleChange}>9pm</option>
+                       <option value="22:00" name="1" onChange={this.handleChange}>10pm</option>
+                       <option value="23:00" name="1" onChange={this.handleChange}>11pm</option>
+                     </FormControl>
+                   </FormGroup>
+                  </div>
+                  <div>
+                    <span >and</span>
+                  </div>
+                  <div className="ddcontainer timeRange" title="The end of the time range you would like to search for.">
+                    <FormGroup controlId="formControlsSelect">
+                     <FormControl componentClass="select" placeholder="select" defaultValue={1} name="occupants" onChange={this.handleChange}>
+                       <option value="06:00" name="1" onChange={this.handleChange}>6am</option>
+                       <option value="07:00" name="1" onChange={this.handleChange}>7am</option>
+                       <option value="08:00" name="1" onChange={this.handleChange}>8am</option>
+                       <option value="09:00" name="1" onChange={this.handleChange}>9am</option>
+                       <option value="10:00" name="1" onChange={this.handleChange}>10am</option>
+                       <option value="11:00" name="1" onChange={this.handleChange}>11am</option>
+                       <option value="12:00" name="1" onChange={this.handleChange}>12pm</option>
+                       <option value="13:00" name="1" onChange={this.handleChange}>1pm</option>
+                       <option value="14:00" name="2" onChange={this.handleChange}>2pm </option>
+                       <option value="15:00" name="3" onChange={this.handleChange}>3pm </option>
+                       <option value="16:00" name="4" onChange={this.handleChange}>4pm </option>
+                       <option value="17:00" name="5" onChange={this.handleChange}>5pm </option>
+                       <option value="18:00" name="6" onChange={this.handleChange}>6pm </option>
+                       <option value="19:00" name="7" onChange={this.handleChange}>7pm </option>
+                       <option value="20:00" name="8+" onChange={this.handleChange}>8pm </option>
+                       <option value="21:00" name="1" onChange={this.handleChange}>9pm</option>
+                       <option value="22:00" name="1" onChange={this.handleChange}>10pm</option>
+                       <option value="23:00" name="1" onChange={this.handleChange}>11pm</option>
+                     </FormControl>
+                   </FormGroup>
+                  </div>
+                </div>
+                <br/>
+              </Card>
+            )}
 
 
-              {/* <Card className="filterbx" lastItem={true} >
+            {( this.props.search &&
+              <Card className="filterbx amenity" lastItem={true}>
                 <Accordion title="Amenities" styles={{'Accordion__header': {fontSize: '15px', fontWeight: 'bold'},
                   'Accordion__header--collapsed': {fontSize: '15px', fontWeight: 'bold'}}}>
                   <br/>
@@ -234,7 +336,8 @@ class Filter extends Card {
                       onChange={this.handleChange}/>  &nbsp; Sofa
                   </div>
                 </Accordion>
-              </Card> */}
+              </Card>
+            )}
               <br/>
               <div className="applyDv">
                 <button type="submit" className="apply">Apply</button>

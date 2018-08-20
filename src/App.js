@@ -91,15 +91,15 @@ class App extends React.Component {
 
           <Navbar className="topBar">
             <div className="flexy">
-                <AppName
-                  uName={this.state.currentUser}
-                  loggedIn={this.state.loggedIn}
-                  url={currentRoute}
-                  curr={currentRoute === '/currentReservation'}
-                  setNav={setNav}
-                  newRs={currentRoute != '/currentReservation'}
-                />
-              </div>
+              <AppName
+                uName={this.state.currentUser}
+                loggedIn={this.state.loggedIn}
+                url={currentRoute}
+                curr={currentRoute === '/currentReservation'}
+                setNav={setNav}
+                newRs={currentRoute != '/currentReservation'}
+              />
+            </div>
           </Navbar>
 
         <div className="rts">

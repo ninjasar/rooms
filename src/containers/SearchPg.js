@@ -5,9 +5,11 @@ import Accordion from 'react-collapsy';
 
 //import Transparent from './Transparent.js';
 
+import recImg from './recImg.png';
 import API from '../utils';
 import Card from '../components/booking/Card';
 import Filter from '../components/booking/Filter';
+import RoomCard from '../components/booking/RoomCard';
 import './search.css';
 import '../../node_modules/react-collapsy/lib/index.css';
 
@@ -22,32 +24,33 @@ class SearchPg extends React.Component {
       occupants: 2,
       duration: 1,
       location: [2,4],
+      startTime: '',
       eMessage: '',
       srchRes: {},
       questions: [],
       key: ';myname',
       reserve: () => {console.log('hello')},
     };
-    this.displayResults = this.displayResults.bind(this);
-
+    this.applySearch = this.applySearch.bind(this);
+    this.srchCmp = [];
   }
 
 
 
   componentDidMount() {
-    API.search()
-      .then((results) => {
-          this.setState({
-            srchRes: results,
-            // results: Object.entries(results).map(item => ({[item[0]]:item[1]})),
-          });
-        //console.log(this.state.srchRes)
-      }).catch((error) => {
-        this.setState({
-          eMessage: error,
-        });
-        console.log(error);
-      });
+    // API.search()
+    //   .then((results) => {
+    //       this.setState({
+    //         srchRes: results,
+    //         // results: Object.entries(results).map(item => ({[item[0]]:item[1]})),
+    //       });
+    //     //console.log(this.state.srchRes)
+    //   }).catch((error) => {
+    //     this.setState({
+    //       eMessage: error,
+    //     });
+    //     console.log(error);
+    //   });
     // API.getLocs()
     //   .then((results) => {
     //     console.log(results.idArray);
@@ -66,52 +69,41 @@ class SearchPg extends React.Component {
 
   }
 
-
-  // confirm() {
-  //   console.log('yay');
-  // }
-
-
-
 /*Display results is creating a list of links that will open a modal with*/
   displayResults() {
+    console.log(this.state.srchRes);
     var rArr = [];
     rArr = this.state.srchRes.map((r) => (
 
-          <Card title={r.room.locationId.toLowerCase() + ' ' + r.room.name}
-            key={this.state.key}  suppQ={this.state.questions}>
-            <span className="rmAttribute">Occupants: </span>{r.room.capacity}
-            <br/>
-            <br/>
-            <span className="rmAttribute">Time: </span>{dateFormat(r.times[0].openTime, 'default')}
-            <br/>
-            <br/>
-            <span className="rmAttribute">Duration: </span>{r.times[0].duration} hour(s)
-            <br/>
-            <br/>
-            <span className="rmAttribute">Amenities: </span>{r.room.amenities[0].name}
-            <br/>
-            <br/>
-            <form className="slctTime">
-              <label>Select a time:</label>
-              <div onClick={this.showQuestions}>
-                <button></button>
-                  {this.state.questions[0]}
-                  {console.log(this.state.questions)}
-
-              </div>
-            </form>
-
-
-          </Card>
-
+      <RoomCard key={r.room.name} bigTitle={true} img={recImg} bldg={r.room.locationId.toLowerCase()}
+        roomNumber={r.room.name} capacity={r.room.capacity} startTime={r.room.openTime}>
+      </RoomCard>
       )
     );
-    console.log(this.state.srchRes)
-      this.setState({
-        srchResultsComponents: rArr,
-      });
+    this.srchCmp = rArr;
+    this.setState({
+      key: 'jfkdlfd',
+    });
       return rArr;
+  }
+
+  applySearch = async ( openTime, closeTime, duration, locations, amenties, occupants) => {
+      //event.preventDefault();
+    API.search(openTime, closeTime, duration, locations, amenties, occupants)
+      .then((results) => {
+          this.setState({
+            srchRes: results,
+            // results: Object.entries(results).map(item => ({[item[0]]:item[1]})),
+          });
+        console.log(this.state.srchRes);
+        this.displayResults();
+      }).catch((error) => {
+        this.setState({
+          eMessage: error,
+        });
+        console.log(error);
+      });
+
   }
 
   getQsObj(qs, name) {
@@ -141,13 +133,13 @@ class SearchPg extends React.Component {
 
     return (
 
-      <div className='container'>
+      <div className='container' key={this.state.key}>
         <div className="leftContain">
-          <Filter homePg={true} apply={this.displayResults} search={true}/>
+          <Filter homePg={true} apply={() => {this.applySearch()} } search={true}/>
         </div>
             <div className="roomRecContain">
               <div>
-                {this.state.srchResultsComponents}
+                {this.srchCmp}
               </div>
 
             </div>

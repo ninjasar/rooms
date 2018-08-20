@@ -1,0 +1,85 @@
+.choiceBtn {
+  width: 9rem;
+  height: 4rem;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fff;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border: 1.5px solid #7f22c1;
+  border-radius: 4px;
+  color: #742abf;
+  margin: 20px;
+}
+.description {
+  font-size: 1.3rem;
+  margin-top : 70px;
+  font-style : italic;
+  width: 90%;
+}
+.or  {
+  font-size: 1.5rem;
+}
+
+#transparent {
+  position: absolute;
+  height: 100%;
+  padding: 15px;
+  font-size: 3rem;
+  width: 100%;
+  z-index: 20000;
+  text-align: center;
+  background-color: rgba(198, 198, 198, 0.6);
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-top: 2px solid #5C5C5C;
+  border-bottom: 2px solid #5C5C5C;
+}
+
+.joinTxt {
+  color: #9a57d9;
+  margin-left: 30px;
+  font-variant: small-caps;
+  letter-spacing: 5px;
+  font-size: 50px;
+}
+
+.btnCnt {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  width: 100%;
+  height: 30%;
+}
+
+
+
+#landingPg {
+  position: absolute;
+  height: 100%;
+  padding: 10px;
+  font-size: 3rem;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  z-index: 20000;
+  text-align: center;
+  background-color: #f4f4f4;
+  color: #676767;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  text-overflow: wrap;
+  align-items: center;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-bottom: 2px solid #5C5C5C;
+}

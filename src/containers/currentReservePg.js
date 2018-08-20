@@ -14,67 +14,21 @@ import Card from '../components/booking/Card';
 import Filter from '../components/booking/Filter';
 import LandingPg from './LandingPg.js';
 
-
-const getLocation = () => {
-  const geolocation = navigator.geolocation;
-
-  const location = new Promise((resolve, reject) => {
-    if (!geolocation) {
-      reject(new Error('Not Supported'));
-    }
-
-    geolocation.getCurrentPosition((position) => {
-      resolve(position);
-    }, () => {
-      reject (new Error('Permission denied'));
-    });
-  });
-  return location;
-};
-
 class currentReservePg extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      occupants: 1,
-      duration: 1,
-      closestIndividual: {},
-      closestGroup: '{}',
-      userLocation: this.props.location,
-      eMessage: '',
+      reservations: [],
     };
   }
 
   componentWillMount() {
     for(var a = 0; a<2; a++) {
-      API.closest(this.state.userLocation, this.state.duration, this.state.occupants)
-        .then((closestRoom) => {
-           if(this.state.occupants == 1){
+      API.getUsersReservations()
+        .then((res) => {
              this.setState({
-               closestIndividual: closestRoom,
-               locationOfRoom1: closestRoom.location.toLowerCase(),
-               roomNumber1: closestRoom.roomNumber,
-               capacity1: closestRoom.capacity,
-               openTime1: closestRoom.openTime,
-               duration1: closestRoom.duration,
-               closeTime1: closestRoom.closeTime,
+               reservations: res,
              });
-           } else {
-            this.setState({
-              closestGroup: closestRoom,
-              locationOfRoom2: closestRoom.location.toLowerCase(),
-              capacity2: closestRoom.capacity,
-              roomNumber2: closestRoom.roomNumber,
-              openTime2: closestRoom.openTime,
-              duration2: closestRoom.duration,
-              closeTime2: closestRoom.closeTime,
-            });
-          }
-          // console.log(this.state.closestIndividual);
-          // console.log(this.state.closestGroup);
-          this.setState({
-            occupants: this.state.occupants+1,
-          });
         }).catch((error) => {
           this.setState({
             eMessage: error,
@@ -85,47 +39,10 @@ class currentReservePg extends React.Component {
     }
   }
 
-  filterRecs(event, duration, occupants) {
-    console.log('works');
-    event.preventDefault();
-    for(var a = 0; a<2; a++) {
-      var occupants = a+1;
-      API.closest(this.state.userLocation, duration, occupants)
-        .then((closestRoom) => {
-           if(occupants == 1){
-             this.setState({
-               closestIndividual: closestRoom,
-               locationOfRoom1: closestRoom.location.toLowerCase(),
-               roomNumber1: closestRoom.roomNumber,
-               capacity1: closestRoom.capacity,
-               openTime1: closestRoom.openTime,
-               duration1: closestRoom.duration,
-               closeTime1: closestRoom.closeTime,
-             });
-             console.log(closestRoom);
-           } else {
-            this.setState({
-              closestGroup: closestRoom,
-              locationOfRoom2: closestRoom.location.toLowerCase(),
-              capacity2: closestRoom.capacity,
-              roomNumber2: closestRoom.roomNumber,
-              openTime2: closestRoom.openTime,
-              duration2: closestRoom.duration,
-              closeTime2: closestRoom.closeTime,
-            });
-          }
-          console.log(closestRoom);
-          // console.log(this.state.closestIndividual);
-          // console.log(this.state.closestGroup);
-        }).catch((error) => {
-          this.setState({
-            eMessage: error,
-          });
-          console.log(error);
-        });
-      }
 
 
+
+  sortReservations() {
   }
 
 

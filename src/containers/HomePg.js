@@ -8,6 +8,7 @@ import './Home.css';
 import recImg from './recImg.png';
 import API from '../utils';
 import Card from '../components/booking/Card';
+import RoomCard from '../components/booking/RoomCard';
 import Filter from '../components/booking/Filter';
 import LandingPg from './LandingPg.js';
 
@@ -128,31 +129,18 @@ class HomePg extends React.Component {
             &nbsp;&nbsp;&nbsp;<span className="recTitle">Recommended Rooms</span>
             <br/>
             <br/>
-            <Card title="Individual" bigTitle={true} className="roomRec" isRoomRec={true} img={recImg}>
-              Building: {this.state.locationOfRoom1}
-              <br/>
-              Capacity: {this.state.capacity1}
-              <br/>
-              Duration: {this.state.duration1} hour(s)
-              <br/>
-              Number: {this.state.roomNumber1}
-              <br/>
-              SELECT YOUR TIME:
-              <br/>
-              {dateFormat(this.state.openTime1, 'time')}
-            </Card>
-            <Card title="Group" bigTitle={true} className="roomRec" isRoomRec={true} img={recImg}>
-              Building: {this.state.locationOfRoom2}
-              <br/>
-              Capacity: {this.state.capacity1}
-              <br/>
-              Duration: {this.state.duration2} hour(s)
-              <br/>
-              Number: {this.state.roomNumber2}
-              <br/>
-              Start Time: {dateFormat(this.state.openTime2, 'default')}
-            </Card>
+          Individual
+          <RoomCard bigTitle={true} img={recImg} bldg={this.state.locationOfRoom1}
+              roomNumber={this.state.roomNumber1} capacity={this.state.capacity1} startTime={this.state.openTime1}>
+          </RoomCard>
+          <br/>
+          <br/>
+          Group
+          <RoomCard bigTitle={true} img={recImg} bldg={this.state.locationOfRoom2}
+            roomNumber={this.state.roomNumber2} capacity={this.state.capacity2} startTime={this.state.openTime2}>
+            </RoomCard>
           </Card>
+
         </div>
 
           {!this.props.loggedIn && <LandingPg loginClicked={this.props.login}/>}

@@ -38,19 +38,11 @@ class Card extends React.Component {
     }
 
     return (
-      <div className={'base ' + (this.lastItem && ' lastItem ' ) + ' ' + (this.isRoomRec && ' roomRec' )+ ' ' + (this.srchBtn && ' advancedSearchCard' )} onClick={this.props.onClick}>
+      <div ref={this.base} className={'base ' + (this.lastItem && ' lastItem ' ) + ' ' + (this.isRoomRec && ' roomRec' )+ ' ' + (this.props.className)} onClick={this.props.onClick}>
         <div>
-          {this.props.img && <img src={this.props.img} className="recImg"/>}
+          {/* {this.props.img && <img src={this.props.img} className="recImg"/>} */}
         </div>
-        <div className={(this.props.title && ' title ') + ' ' + (this.bigTitle && ' bigTitle' )}>
-            {this.props.title && this.title}
-          {this.bigTitle && this.props.clear &&
-            <span className="clear">
-            <button onClick={this.props.clrFilter}>
-              Clear
-            </button>
-          </span>}
-        </div>
+        
 
 
         <div style={{ marginLeft: '0px'}} className='child '>

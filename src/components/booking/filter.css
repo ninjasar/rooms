@@ -1,18 +1,41 @@
-#filterdv {
+.filterdv {
   border-bottom: none;
   align-items: center;
-  margin-right: 20px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+
+}
+
+.srchFilterDv {
+  width: 90%;
+  margin-top: 0px;
+}
+
+.ddcontainer {
+  background: linear-gradient(to right, #b861c6 0%,#ffc7c7 100%);
+  border-radius: 5px;
+  width: 60%;
+  margin-left: 10px;
+  padding: 2px;
+}
+.calendarContainer {
+  width: 85%;
+  margin-left: 20px;
+  border-radius: 5px;
+  padding: 2px;
+  background: linear-gradient(to right, #b861c6 0%,#ffc7c7 100%);
 }
 
 select.form-control, textarea.form-control, input.form-control {
   font-size: 12px;
-  border: 2px solid #9f95ed;
 }
 select.form-control {
-  width: 75%;
-  padding: 3px;
-  margin-left: 10px;
-  border: 2px solid #9f95ed;
+  width: 100%;
+  border-radius: 5px;
+  padding: 2px;
+  border: none;
+  border-image-slice: 1;
+  border-width: 2px;
 }
 
 .check:active, .check:focus {
@@ -20,24 +43,79 @@ select.form-control {
 }
 
 select.form-control:active, select.form-control:focus {
-  width: 75%;
+  width: 100%;
   padding: 3px;
-  border: 2px solid #9f95ed;
   box-shadow: none;
+  border-radius: 5px;
 }
+
+.timeRange {
+  width: 40%;
+  margin-left: 0px;
+}
+
+.rangeSelectDv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .roomRec {
   cursor: pointer;
 }
+
 
 .base {
   font-size: 12px;
 }
 
-.filterbx {
+
+.bigTitle {
+  color: #676767;
   border-radius: 4px;
+  width: 100%;
+  font-size: 17px;
+  margin-left: 15px;
+  padding-top: 5px;
+  font-weight: bold;
+}
+.title {
+  color: #676767;
+  text-align: left;
+  border-radius: 4px;
+  width: 90%;
+  font-weight: bold;
+  font-size: 13px;
+  align-self: center;
+  margin-top: 10px;
+}
+
+.clear {
+  font-size: 11px;
+  color: #998dea;
+  float: right;
+  margin-top: 2px;
+  margin-right: 12px;
+  background-color: white;
+}
+
+.form-group {
+  margin-bottom: 0px;
+}
+
+.filterbx {
+  border-radius: 0px;
   border-bottom: 2px solid #DEDEDE;
   align-self: center;
 }
+
+.noBo {
+  border-bottom: none;
+  align-self: flex-start;
+  justify-self: flex-start;
+}
+
 
 input {
   font-size: 12px;
@@ -53,4 +131,5 @@ button.apply {
   text-align: center;
   align-self: center;
   align-items: center;
+  margin-bottom: -20px;
 }

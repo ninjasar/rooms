@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 
-import '../index.css';
+import './landing.css';
 
 
 
@@ -19,58 +19,29 @@ class LandingPg extends React.Component {
 
     render() {
 
-      const styles = {
-        choiceBtn : {
-          width: '12rem',
-          height: '6rem',
-          fontFamily: "'Montserrat', sans-serif",
-          backgroundColor: '#e5cce3',
-          marginTop: '30%',
-          fontVariant: 'small-caps',
-          fontWeight: 'bold',
-          fontSize: '2rem',
-          border: '1px solid black',
-          borderRadius: '3px',
-          color: '#303030'
-        },
-        description : {
-          fontSize: '1.3rem',
-          marginTop : '20px',
-
-          fontStyle : 'italic',
-          width: '90%'
-        },
-        or : {
-          fontSize: '1.5rem',
-
-          marginTop: '1.5rem',
-          marginBottom: '-2rem'
-        }
-      }
-
-
       return (
         <div id="landingPg" >
           <div className="joinTxt">
-          NYU Rooms <br/>
+          nyu rooms
+          <br/>
           </div>
-          <div style={styles.description}>
-            The easiest way to book your room at NYU
+          <div className="description">
+            "get a room!"
           </div>
-          <div>
+          <div className="btnCnt">
             <NavLink to="/login/">
-              <button style={styles.choiceBtn} >
+              <button className="choiceBtn" >
                 log in
               </button>
             </NavLink>
-          </div>
-          <div style={styles.or}>or</div>
-          <div>
-            <button style={styles.choiceBtn} onClick={() => {this.loginClicked("rmr478", "password")}} >
-              join now
-            </button>
-          </div>
 
+            <div className="or">or</div>
+            <div>
+              <button className="choiceBtn" onClick={() => {this.loginClicked("rmr478", "password")}} >
+                join now
+              </button>
+            </div>
+          </div>
         </div>
 
       )

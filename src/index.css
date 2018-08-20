@@ -71,53 +71,7 @@ button {
   }
 
 
-#transparent {
-  position: absolute;
-  height: 100%;
-  top: calc(14rem + 105px);
-  padding: 15px;
-  font-size: 3rem;
-  width: 100%;
-  z-index: 20000;
-  text-align: center;
-  background-color: rgba(198, 198, 198, 0.6);
-  color: black;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  border-top: 2px solid #5C5C5C;
-  border-bottom: 2px solid #5C5C5C;
-}
 
-
-
-#landingPg {
-  position: absolute;
-  height: 100%;
-  padding: 10px;
-  font-size: 3rem;
-  top: calc(6rem + 10px);
-  margin: 0 auto;
-  width: 100%;
-  max-width: 100%;
-  z-index: 20000;
-  text-align: center;
-  background-color: #f2f2f2;
-  color: black;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  text-overflow: wrap;
-  align-items: center;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  border-top: 2px solid #5C5C5C;
-  border-bottom: 2px solid #5C5C5C;
-}
 
 select.form-control,
 textarea.form-control,

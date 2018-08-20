@@ -1,12 +1,86 @@
 .recImg {
-  width: 70px;
+  width: 100px;
+}
+.recImgDv {
+  width: 48%;
+  padding-left: 20px;
+  padding-right: 10px;
+  margin-right: 15px;
+}
+
+.topCard {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  padding: 10px 0px 10px 0px;
+}
+
+.roomInfo {
+  line-height: 20px;
+  font-size: 13px;
+  margin-left: -10px;
 }
 
 .recTitle {
   text-align: right;
+  color: #9a57d9;
+  width: 45%;
 }
-.roomRec {
-  cursor: pointer;
-  border: 2px solid #f2f0ff;
+.roomRec2 {
+  border: 2px solid #e5e1ff;
+  border-bottom: 2px solid #e5e1ff !important;
   box-shadow: none;
+}
+
+.roomRec2:hover {
+  border-color: #742abf !important;
+  box-shadow: 0 3px 4px 0 #c7c5c5 !important;
+}
+
+.selected {
+  border-color: #afa8ef !important;
+  box-shadow: 0 3px 4px 0 #c7c5c5 !important;
+}
+
+.roomRec2:active, .roomRec2:focus {
+  border-color: #afa8ef !important;
+  box-shadow: 0 3px 4px 0 #c7c5c5;
+}
+
+.roomTitle {
+  color: #9a57d9;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  width: 100%;
+  margin-left: -10px;
+}
+
+.time {
+  font-variant: small-caps;
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.timeBtn {
+  font-size: 11px;
+  color: #9a57d9;
+  padding: 5px 10px;
+  border: solid 1.5px #9a57d9;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-weight: 400;
+}
+
+.btnSelected {
+  background: linear-gradient(to right, #7f22c1 0%, #a843e8 50%, #c43de2 100%);
+  border: unset;
+  color: white;
+  padding: 6.5px 11.5px;
+}
+
+.timeBtn:hover {
+    box-shadow: 0px 1px 10px 1px rgba(0,0,0, 0.5);
 }
