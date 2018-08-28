@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import dateFormat from 'dateformat';
+//import dateFormat from 'dateformat';
 
 import '../index.css';
 import './search.css';
@@ -13,22 +13,22 @@ import Filter from '../components/booking/Filter';
 import LandingPg from './LandingPg.js';
 
 
-const getLocation = () => {
-  const geolocation = navigator.geolocation;
-
-  const location = new Promise((resolve, reject) => {
-    if (!geolocation) {
-      reject(new Error('Not Supported'));
-    }
-
-    geolocation.getCurrentPosition((position) => {
-      resolve(position);
-    }, () => {
-      reject (new Error('Permission denied'));
-    });
-  });
-  return location;
-};
+// const getLocation = () => {
+//   const geolocation = navigator.geolocation;
+//
+//   const location = new Promise((resolve, reject) => {
+//     if (!geolocation) {
+//       reject(new Error('Not Supported'));
+//     }
+//
+//     geolocation.getCurrentPosition((position) => {
+//       resolve(position);
+//     }, () => {
+//       reject (new Error('Permission denied'));
+//     });
+//   });
+//   return location;
+// };
 
 class HomePg extends React.Component {
   constructor(props) {
@@ -43,7 +43,7 @@ class HomePg extends React.Component {
     };
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.filterRecs(1, this.state.duration, this.state.occupants);
   }
   //on filter change, recall the api with updated parameters for both individual and
@@ -131,13 +131,13 @@ class HomePg extends React.Component {
             <br/>
           Individual
           <RoomCard bigTitle={true} img={recImg} bldg={this.state.locationOfRoom1}
-              roomNumber={this.state.roomNumber1} capacity={this.state.capacity1} startTime={this.state.openTime1}>
+              roomNumber={this.state.roomNumber1} capacity={this.state.capacity1} startTime={this.state.openTime1} duration={this.state.duration1}>
           </RoomCard>
           <br/>
           <br/>
           Group
           <RoomCard bigTitle={true} img={recImg} bldg={this.state.locationOfRoom2}
-            roomNumber={this.state.roomNumber2} capacity={this.state.capacity2} startTime={this.state.openTime2}>
+            roomNumber={this.state.roomNumber2} capacity={this.state.capacity2} startTime={this.state.openTime2} duration={this.state.duration2}>
             </RoomCard>
           </Card>
 

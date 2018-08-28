@@ -38,14 +38,14 @@ class App extends React.Component {
 
 
     const setNav = () => {
-      if(currentRoute == '/currentReservation') {
+      if(currentRoute === '/currentReservation') {
         console.log(currentRoute);
         this.setState({
           currRsrve: true,
         });
       }
     }
-    const showPosition = (position) => {
+    const getPosition = (position) => {
       // console.log("Latitude: " + position.coords.latitude +
       // "<br>Longitude: " + position.coords.longitude);
       this.setState({
@@ -56,7 +56,7 @@ class App extends React.Component {
 
     const loginFn = (userNm, passWd) => {
       // make login api req
-      navigator.geolocation.getCurrentPosition(showPosition);
+      navigator.geolocation.getCurrentPosition(getPosition);
 
       API.loginUser(userNm, passWd)
         .then((name) => {
@@ -97,7 +97,7 @@ class App extends React.Component {
                 url={currentRoute}
                 curr={currentRoute === '/currentReservation'}
                 setNav={setNav}
-                newRs={currentRoute != '/currentReservation'}
+                newRs={currentRoute !== '/currentReservation'}
               />
             </div>
           </Navbar>

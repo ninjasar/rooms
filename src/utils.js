@@ -1,9 +1,12 @@
 /** Descrip */
 import axios from 'axios';
+import moment from 'moment';
 
 const url = 'https://virtserver.swaggerhub.com/nyustit/rooms-api/10.0/';
 const tsDate1 = new Date(Date.UTC(2018, 7, 12, 13)).toUTCString();
 const tsDate2 = new Date(Date.UTC(2018, 7, 18, 23)).toUTCString();
+const token = 'x';
+const Authorization = `Bearer ${token}`;
 
 
 
@@ -26,7 +29,7 @@ export default class API {
       }).then((response) => {
         // parse jwt
         const userInfo = {
-          'parseJWT(response.token)': 9,
+          //'token': "parseJWT(response.token)",
            name: 'Sarah!',
         }
         // return users name
@@ -82,31 +85,24 @@ export default class API {
         method: 'get',
         url: `${url}vacancies/search`,
         params: {
-          openTime: tsDate1,
-          closeTime: tsDate2,
-          duration: duration,
-          locations: locations,
-          amenities: ['coffee'],
-          occupants: 4
+          openTime,
+          closeTime,
+          duration,
+          locations,
+          amenities,
+          occupants
         },
         headers: {
           'accept': 'application/json',
           'content-type': 'application/json',
+          Authorization,
 
         }
       }).then((response) => {
-        const data = [];
-        for(var a=0; a<4; a++) {
-
-        }
         //parseJWT
-        const results = {
-          'parseJWT(response.token)': 9,
-          data: response.data,
-        }
-        //data is the list of rooms
-        //console.log(results.data);
-        resolve(results.data);
+
+
+        resolve(response.data);
       }).catch((error) => {
         console.log(error);
         reject(error);
@@ -128,7 +124,7 @@ export default class API {
         const idArray = [];
         for(var a=0; a<response.data.length; a++){
           idArray.push(response.data[a].id);
-          console.log(response.data[a].id)
+          //console.log(response.data[a].id)
         }
         const results = {
           'parseJWT(response.token)': 9,

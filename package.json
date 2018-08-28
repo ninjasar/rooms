@@ -5,7 +5,10 @@
   "dependencies": {
     "ajv": "^6.5.2",
     "axios": "^0.18.0",
+    "date-and-time": "^0.6.2",
     "dateformat": "^3.0.3",
+    "datejs": "^1.0.0-rc3",
+    "moment": "^2.22.2",
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.1",
     "react-calendar": "^2.16.1",

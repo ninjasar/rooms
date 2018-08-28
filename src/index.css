@@ -25,6 +25,7 @@ html {
   font-size: 14px;
   overflow-x: hidden;
   max-width: 100%;
+  width: 100vw;
 }
 body {
   height: 100%;
@@ -46,7 +47,8 @@ button {
 #root {
   background-color: white;
   height: 100%;
-  width: 100%;
+  /*width: 100%;*/
+  width: 100vw;
   max-width: 100%;
   margin: 0;
   padding: 0;

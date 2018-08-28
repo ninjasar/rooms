@@ -33,20 +33,15 @@
   box-shadow: none;
 }
 
-.roomRec2:hover {
-  border-color: #742abf !important;
-  box-shadow: 0 3px 4px 0 #c7c5c5 !important;
-}
-
 .selected {
   border-color: #afa8ef !important;
   box-shadow: 0 3px 4px 0 #c7c5c5 !important;
 }
 
-.roomRec2:active, .roomRec2:focus {
+/* .roomRec2:active, .roomRec2:focus {
   border-color: #afa8ef !important;
   box-shadow: 0 3px 4px 0 #c7c5c5;
-}
+} */
 
 .roomTitle {
   color: #9a57d9;
@@ -76,11 +71,11 @@
 
 .btnSelected {
   background: linear-gradient(to right, #7f22c1 0%, #a843e8 50%, #c43de2 100%);
-  border: unset;
+  border: solid 1.5px #9a57d9;
   color: white;
-  padding: 6.5px 11.5px;
+  padding: 5px 10px;
 }
 
 .timeBtn:hover {
-    box-shadow: 0px 1px 10px 1px rgba(0,0,0, 0.5);
+    box-shadow: 0px 1px 10px 1px;
 }

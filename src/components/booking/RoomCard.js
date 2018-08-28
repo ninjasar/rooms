@@ -63,14 +63,13 @@ class RoomCard extends Card {
   }
 
   render() {
-
-
+    //console.log(this.props.startTimes);
 
     return (
       <Card className="roomRec2"  img={this.props.img} >
         <div className="topCard">
           <div className="recImgDv">
-            {this.props.img && <img src={this.props.img} className="recImg"/>}
+            {this.props.img && <img src={this.props.img} className="recImg" alt="a room"/>}
           </div>
           <div className="roomInfo">
             <div className="roomTitle">
@@ -80,13 +79,15 @@ class RoomCard extends Card {
             <br/>
             Capacity : {this.props.capacity} person(s)
             <br/>
-            Date : {dateFormat(this.props.startTime, "shortDate")}
+            Date : {this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, "shortDate") : dateFormat(this.props.startTime, "shortDate")}
+            <br/>
+            Duration : {this.props.duration ? this.props.duration : ' '} hour(s)
           </div>
         </div>
         <div className="time">
           select your time
           <div>
-            <TimeBtn btnSelected={this.state.btnSelected} loc={this.props.bldg} startTime={this.props.startTime} onClick={() => {this.handleClick(this.props.bldg)}}></TimeBtn>
+            <TimeBtn btnSelected={this.state.btnSelected} loc={this.props.bldg} startTime={this.props.startTimes ? this.props.startTimes[0].openTime : this.props.startTime} onClick={() => {this.handleClick(this.props.bldg)}}></TimeBtn>
           </div>
         </div>
         {this.props.children}
