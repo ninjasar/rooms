@@ -27,11 +27,13 @@ class SearchPg extends React.Component {
     this.state = {
       occupants: 2,
       duration: 1,
-      location: [2,4],
-      startTime: new Date(),
-      endTime: Date.parse('tomorrow'),
+      startTime: moment().toDate(),
+      endTime: moment().add(1, 'day').hour(0).toDate(),
       eMessage: '',
       srchRes: {},
+      wsq: [],
+      bkln: [],
+      bobst: false,
       questions: [],
       locs: [],
       key: ';myname',
@@ -39,25 +41,13 @@ class SearchPg extends React.Component {
     };
     this.applySearch = this.applySearch.bind(this);
     this.srchCmp = [];
+    this.instantRes = [];
+    this.getJSXResultsByBldg = this.getJSXResultsByBldg.bind(this);
   }
 
   //makes api calls for default results
   defaultRes = async () => {
 
-    // await API.getLocs()
-    //   .then((results) => {
-    //     //console.log(results.idArray);
-    //     locs = results;
-    //     this.setState({
-    //       locs: results,
-    //     });
-    //   }).catch((error) =>  {
-    //   this.setState({
-    //       eMessage: error,
-    //     });
-    //     console.log(error);
-    //   });
-      //console.log(this.state.startTime, this.state.endTime);
       let locs = [];
       let srchRes = [];
 
@@ -73,42 +63,30 @@ class SearchPg extends React.Component {
 
     }
 
-
-    // await API.search(this.state.startTime, this.state.endTime)
-    //   .then((results) => {
-    //     srchResNow = results;
-    //       this.setState({
-    //         srchRes: results,
-    //       });
-    //   }).catch((error) => {
-    //     this.setState({
-    //       eMessage: error,
-    //     });
-    //     console.log(error);
-    //   });
-
       //calls this function to get the vacancies per building data
-      let res = this.getSrchResByBldg(srchRes, locs.idArray);
+      let res = this.getNumVacByBldg(srchRes, locs.idArray);
       return res;
 
   }
 
-  getSrchResByBldg = (srchRes, locs) => {
-    //console.log(results, locs);
-    //location object for dynamically creating arrays for each location
+  getNumVacByBldg = (srchRes, locs) => {
 
     const counts = {};
-    locs.forEach((loc) => {
-      counts[loc] = 0;
-    })
-    //console.log(counts);
-    srchRes.forEach((res) => {
+    srchRes.forEach((res/*, i*/) => {
 
       const loc = res.room.locationId;
-      if (counts[loc]) { counts[loc] += res.times.length; }
-      console.log(counts[loc]);
+      counts[loc] = 0;
+      // let currLocProps = {
+      //   locationId: loc,
+      //   vacancies: 0,
+      // };
+      //console.log(currLocProps);
+      if (counts[loc] !== NaN) {
+        counts[loc] += res.times.length;
+      }
+      //counts[i] = currLocProps;
     });
-    console.log(srchRes);
+
     return counts;
   }
 
@@ -116,6 +94,11 @@ class SearchPg extends React.Component {
     //console.log(this.defaultRes());
     let test = await this.defaultRes();
     console.log(test);
+    this.instantRes = this.getJSXResultsByBldg(test);
+    console.log(this.instantRes);
+    this.setState({
+      key: 'heythere'
+    });
       // API.getLocInfo('BOBST')
       //   .then((results) => {
       //     //console.log(results);
@@ -125,12 +108,51 @@ class SearchPg extends React.Component {
 
   }
 
+  getJSXResultsByBldg(bldgCts) {
+    let rArr = [];
+    rArr[0] = Object.entries(bldgCts).map((vArray) => {
+      let lName = '';
 
+      if(this.state.locs) {
+        var locs = this.state.locs.data;
+        // for(let a = 0; a<loc.length; a++){
+        //   if(loc[a].id === vArray[0]) {
+        //       if(loc[a].id === 'BOBST') {
+        //         this.setState({
+        //           bobst : vArray[1]
+        //         });
+        //       }
+        //       lName = loc[a].name;
+        //     }
+        // }
+        locs.forEach((loc) => {
 
-/*Display results is creating a list of links that will open a modal with*/
-  displayResults() {
+          if(loc.id === vArray[0]) {
+            if(loc.id === 'BOBST') {
+              this.setState({
+                bobst : vArray[1]
+              });
+            }
+            lName = loc.name;
+          }
+        });
+      }
+
+      return (
+        <Card className="locationResultsCard" key={vArray[0]} onClick={() => 0}>
+          <div className="locationResult">
+            {lName} : {vArray[1]} <span className="vNum">room(s)</span>
+          </div>
+        </Card>
+      );
+    });
+    return rArr;
+  }
+
+/*Display results is creating a list of links that will */
+  getRCResults() {
     //console.log(this.state.srchRes);
-    var rArr = [];
+    let rArr = [];
     rArr = this.state.srchRes.map((r) => (
 
       <RoomCard key={r.room.name} bigTitle={true} img={recImg} bldg={r.room.locationId.toLowerCase()}
@@ -154,7 +176,7 @@ class SearchPg extends React.Component {
             srchRes: results,
           });
         //console.log(this.state.srchRes);
-        this.displayResults();
+        this.getRCResults();
       }).catch((error) => {
         this.setState({
           eMessage: error,
@@ -200,7 +222,7 @@ class SearchPg extends React.Component {
                 <span className="recTitle">Results:</span>
                 <br/>
                 <br/>
-                {this.srchCmp}
+                {this.instantRes || this.srchCmp}
               </Card>
             </div>
 
