@@ -120,7 +120,6 @@ class SearchPg extends React.Component {
       if (counts[loc] !== NaN) {
         counts[loc] += res.times.length;
       }
-      //counts[i] = currLocProps;
     });
 
     return counts;
@@ -212,12 +211,12 @@ class SearchPg extends React.Component {
     this.setState({
       srchRes: fuck
     });
-    let fuckyourayat = this.getRCResults();
-    this.srchCmp = fuckyourayat;
+    let res = this.getRCResults();
+    this.srchCmp = res;
     this.setState({
       key: 'seriouslyfuckyou'
     });
-    return fuckyourayat;
+    return res;
   }
 
 
@@ -232,9 +231,6 @@ class SearchPg extends React.Component {
       )
     );
     this.srchCmp = rArr;
-    // this.setState({
-    //   key: 'jfkdlfd',
-    // });
       return rArr;
   }
 
