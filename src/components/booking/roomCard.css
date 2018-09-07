@@ -1,3 +1,7 @@
+.rrBorder {
+  width: 100%;
+}
+
 .recImg {
   width: 100px;
 }
@@ -24,13 +28,15 @@
 
 .recTitle {
   text-align: right;
-  color: #9a57d9;
   width: 45%;
 }
 .roomRec2 {
-  border: 2px solid #e5e1ff;
-  border-bottom: 2px solid #e5e1ff !important;
+  /* border: 2px solid #e5e1ff;
+  border-bottom: 2px solid #e5e1ff !important; */
+  background-color: white;
+  padding: 20px;
   box-shadow: none;
+  border-radius: 5px;
 }
 
 .selected {
@@ -38,13 +44,7 @@
   box-shadow: 0 3px 4px 0 #c7c5c5 !important;
 }
 
-/* .roomRec2:active, .roomRec2:focus {
-  border-color: #afa8ef !important;
-  box-shadow: 0 3px 4px 0 #c7c5c5;
-} */
-
 .roomTitle {
-  color: #9a57d9;
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -59,23 +59,24 @@
   margin-top: 20px;
 }
 
-.timeBtn {
+/* .timeBtn {
   font-size: 11px;
-  color: #9a57d9;
+  color: #e255c1;
   padding: 5px 10px;
-  border: solid 1.5px #9a57d9;
+  border: solid 1.5px #e255c1;
   border-radius: 5px;
   margin-top: 10px;
   font-weight: 400;
-}
+} */
 
-.btnSelected {
-  background: linear-gradient(to right, #7f22c1 0%, #a843e8 50%, #c43de2 100%);
-  border: solid 1.5px #9a57d9;
+/* .btnSelected {
+  /* background: linear-gradient(to right, #681996 0%, #e255c1 60%, #ff6cb3 85%, #ffd17d 100%); */
+  /*background-color: #8c32a1;
+  border: solid 1.5px #8c32a1;
   color: white;
   padding: 5px 10px;
 }
 
 .timeBtn:hover {
     box-shadow: 0px 1px 10px 1px;
-}
+} */

@@ -4,12 +4,23 @@ body {
 
 
 .srchBtn {
-  color: #742abf;
-  padding: 10px;
+  padding: 15px;
   border-radius: 3px;
   font-weight: bold;
-  border: 2px solid  #7f22c1;
+  background-color: white;
+  width: 120%;
+  height: 20px;
+  justify-self: center;
 }
+
+.srchBtn:hover {
+  color: #e255c1;
+  box-shadow: 0px 1px 10px 1px;
+}
+.navLink {
+  padding: 0px;
+}
+
 
 .advancedSearchCard {
   text-align: center;
@@ -20,14 +31,19 @@ body {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  margin-right: 10px;
+  margin-right: 20px;
   margin-top: 20px;
 }
 
 .recTitle {
   font-weight: bold;
   font-size: 20px;
-  color: #9a57d9;
+  margin-top: 0px;
+}
+
+.typeOfR {
+  font-size: 15px;
+  font-weight: bold;
 }
 
 @media (max-width: 1200px) {

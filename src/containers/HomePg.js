@@ -4,6 +4,7 @@ import {NavLink} from 'react-router-dom';
 
 import '../index.css';
 import './search.css';
+import '../god.css';
 import './Home.css';
 import recImg from './recImg.png';
 import API from '../utils';
@@ -12,23 +13,6 @@ import RoomCard from '../components/booking/RoomCard';
 import Filter from '../components/booking/Filter';
 import LandingPg from './LandingPg.js';
 
-
-// const getLocation = () => {
-//   const geolocation = navigator.geolocation;
-//
-//   const location = new Promise((resolve, reject) => {
-//     if (!geolocation) {
-//       reject(new Error('Not Supported'));
-//     }
-//
-//     geolocation.getCurrentPosition((position) => {
-//       resolve(position);
-//     }, () => {
-//       reject (new Error('Permission denied'));
-//     });
-//   });
-//   return location;
-// };
 
 class HomePg extends React.Component {
   constructor(props) {
@@ -103,7 +87,7 @@ class HomePg extends React.Component {
       <div className='container'>
         <div className="leftContain">
           <Card srchBtn={true}>
-            <div className="advancedSearchCard">
+            <div className="advancedSearchCard normalCol">
               <br/>
                 Don't like these rooms?
                 <br/>
@@ -114,9 +98,11 @@ class HomePg extends React.Component {
                 <br/>
                 <br/>
                 <br/>
-                <NavLink to='/advancedSearch' className="srchBtn">
-                  Advanced Search
-                </NavLink>
+                <div className="srchBtnDv">
+                  <NavLink to='/advancedSearch' className="srchBtn pink">
+                    Advanced Search
+                  </NavLink>
+                </div>
                 <br/>
                 <br/>
             </div>
@@ -126,19 +112,26 @@ class HomePg extends React.Component {
         <div className="roomRecContain">
           <Card>
             <br/>
-            &nbsp;&nbsp;&nbsp;<span className="recTitle">Recommended Rooms</span>
+            &nbsp;&nbsp;&nbsp;<span className="recTitle purple">Recommended Rooms</span>
             <br/>
             <br/>
-          Individual
-          <RoomCard bigTitle={true} img={recImg} bldg={this.state.locationOfRoom1}
-              roomNumber={this.state.roomNumber1} capacity={this.state.capacity1} startTime={this.state.openTime1} duration={this.state.duration1}>
-          </RoomCard>
-          <br/>
-          <br/>
-          Group
+            <br/>
+            <span className="typeOfR">Individual</span>
+            <br/>
+            <br/>
+            <RoomCard bigTitle={true} img={recImg} bldg={this.state.locationOfRoom1}
+                roomNumber={this.state.roomNumber1} capacity={this.state.capacity1} startTime={this.state.openTime1} duration={this.state.duration1}>
+            </RoomCard>
+            <br/>
+            <br/>
+            <span className="typeOfR">Group</span>
+            <br/>
+            <br/>
           <RoomCard bigTitle={true} img={recImg} bldg={this.state.locationOfRoom2}
             roomNumber={this.state.roomNumber2} capacity={this.state.capacity2} startTime={this.state.openTime2} duration={this.state.duration2}>
             </RoomCard>
+            <br/>
+            <br/>
           </Card>
 
         </div>
@@ -154,8 +147,3 @@ class HomePg extends React.Component {
 }
 
 export default HomePg;
-
-
-/*
-{props.loggedIn && <Banner/>}
-{props.loggedIn && <RoomRec loggedIn={props.loggedIn} pics={pict}/>} */

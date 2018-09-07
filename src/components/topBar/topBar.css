@@ -9,7 +9,6 @@
   flex-direction: row;
   justify-content: space-between;
   order: 1;
-  background-color: white !important;
   overflow-x: hidden;
   box-shadow: 3px 3px 3px 3px;
 }
@@ -23,8 +22,23 @@
   background: url(" + __webpack_require__( "./Texture.svg") + "), -o-linear-gradient(left, #FF3CAC, #784BA0 100%);
   background: url('./Texture.svg'), linear-gradient(90deg, #FF3CAC, #784BA0 100%);*/
   width: 100%;
-  box-shadow: 0px 3px 5px 2px #DEDEDE;
+  box-shadow: 0px 4px 15px 3px #bbbbbb;
 }
+.appName {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 1.8rem;
+  text-align: left;
+  margin-left: 15px;
+  height: 100%;
+  letter-spacing: 0.18em;
+  font-variant: small-caps;
+  width: 100px;
+  font-weight: bold;
+
+  order: 3;
+}
+
 .back {
   background-color: transparent;
   font-size: 14px;
@@ -52,7 +66,7 @@ button:focus {
 }
 
 .vertLine {
-  border: 1px solid #e2e0e0;
+  border: 1px solid #686868;
   align-self: center;
   height: 40px;
   margin-left: 30px;
@@ -63,22 +77,29 @@ button:focus {
   font-size: .9rem;
   margin-right: 20px;
   align-self: baseline;
-  color: #742abf;
   height: 100%;
+  color: unset;
   display: inline;
   padding-bottom: -20px;
+}
 
+.reserve:hover, .active:hover {
+  color: #8c32a1 !important;
+}
+
+.reserve:focus, .active:focus {
+  color: #8c32a1 !important;
 }
 
 .active {
   align-self: baseline;
   font-size: .9rem;
   font-weight: bold;
-  border-bottom: 3px solid#742abf !important;
+  border-bottom: 3px solid #8c32a1 !important;
   margin-top: 2rem;
   padding: .3rem;
   padding-bottom: 1.8rem;
-  color:#742abf;
+  color: #8c32a1;
   height: 100%;
 }
 
@@ -93,9 +114,11 @@ button:focus {
   height: 100%;
 }
 
+
+
 .usersName {
   order: 5;
-  color: #5C5C5C;
+  color: #686868;
   font-size: 1.1rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
@@ -128,21 +151,7 @@ button:focus {
   height: 100%;
 }
 
-.appName {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  font-size: 1.8rem;
-  text-align: left;
-  margin-left: 15px;
-  height: 100%;
-  letter-spacing: 0.18em;
-  font-variant: small-caps;
-  width: 100px;
-  color: #9a57d9;
-  font-weight: bold;
-  background-color: white;
-  order: 3;
-}
+
 .logoContainer {
   order: 2;
   align-self: center;
@@ -161,7 +170,7 @@ button:focus {
   border-radius: 50%;
   height: 35px;
   margin-right: 1rem;
-  background-image: linear-gradient(to right, #6454d0, #944eb0);
+  border: 1px solid #E5CCF5;
   align-self: center;
   justify-self: flex-end;
 }

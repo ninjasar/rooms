@@ -12,18 +12,13 @@
 }
 
 .ddcontainer {
-  background: linear-gradient(to right, #b861c6 0%,#ffc7c7 100%);
-  border-radius: 5px;
+
   width: 60%;
   margin-left: 10px;
-  padding: 2px;
 }
 .calendarContainer {
   width: 85%;
   margin-left: 20px;
-  border-radius: 5px;
-  padding: 2px;
-  background: linear-gradient(to right, #b861c6 0%,#ffc7c7 100%);
 }
 
 select.form-control, textarea.form-control, input.form-control {
@@ -72,7 +67,6 @@ select.form-control:active, select.form-control:focus {
 
 
 .bigTitle {
-  color: #676767;
   border-radius: 4px;
   width: 100%;
   font-size: 17px;
@@ -81,7 +75,6 @@ select.form-control:active, select.form-control:focus {
   font-weight: bold;
 }
 .title {
-  color: #676767;
   text-align: left;
   border-radius: 4px;
   width: 90%;
@@ -93,7 +86,7 @@ select.form-control:active, select.form-control:focus {
 
 .clear {
   font-size: 11px;
-  color: #998dea;
+  color: #805CA2;
   float: right;
   margin-top: 2px;
   margin-right: 12px;
@@ -132,4 +125,17 @@ button.apply {
   align-self: center;
   align-items: center;
   margin-bottom: -20px;
+}
+
+.apply {
+  color: 	white;
+  align-self: center;
+  align-items: center;
+  font-size: 13px;
+  border-radius: 3px;
+  padding: 10px;
+  margin: auto;
+  padding-left:  40px;
+  padding-right: 40px;
+  /* background: linear-gradient(to right, #681996 0%, #e255c1 40%, #f575ad 60%, #ffc99b 100%); */
 }

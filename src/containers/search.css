@@ -13,6 +13,64 @@ label {
 
 }
 
+.locationResult {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 2px solid #ffafa8; */
+  /* border: 2px solid #edb1c0; */
+  /* border: 2px solid #e0b3b5; */
+}
+
+.locName{
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.locResDv {
+  /* background: linear-gradient(to right, #b861c6 0%,#ef89c7 50%, #ffd6a0 100%); */
+  /* background: linear-gradient(to right, #742abf 0%, #c95ad4 40%, #f561e5 60%, #ffc6a0 100%); */
+  /* background: linear-gradient(to right, #681996 0%, #e255c1 40%, #ff6cb3 60%, #f3ea95 100%); */
+  background-color: #B26D82;
+  padding: 2px;
+  border-radius: 5px;
+  width: 95%;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  align-self: center;
+  cursor: pointer;
+}
+
+.locResDv:hover {
+  box-shadow: 0px 1px 10px 1px #B26D82;
+
+}
+
+.manhatty {
+  margin: 20px;
+}
+.vNum {
+  color: #398721;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.vNumNone {
+  color: #d7536b;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.child {
+  align-self: center;
+}
+
 .child .slctTime {
   align-self: left;
 }

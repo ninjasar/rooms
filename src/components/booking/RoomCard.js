@@ -5,6 +5,7 @@ import Card from './Card.js';
 import API from '../../utils';
 import TimeBtn from './TimeBtn';
 import './roomCard.css';
+import '../../god.css';
 
 dateFormat.i18n = {
     dayNames: [
@@ -62,55 +63,42 @@ class RoomCard extends Card {
 
   }
 
+  getTimeBtns() {
+    this.props.startTimes.forEach(()=>{});
+  }
+
   render() {
     //console.log(this.props.startTimes);
 
     return (
-      <Card className="roomRec2"  img={this.props.img} >
-        <div className="topCard">
-          <div className="recImgDv">
-            {this.props.img && <img src={this.props.img} className="recImg" alt="a room"/>}
-          </div>
-          <div className="roomInfo">
-            <div className="roomTitle">
-              {this.jsUcfirst() + ' ' + this.props.roomNumber}
+      <div className='rrBorder borderHack lightMauve'>
+        <div className="roomRec2"  img={this.props.img}>
+            <div className="topCard">
+              <div className="recImgDv">
+                {this.props.img && <img src={this.props.img} className="recImg" alt="a room"/>}
+              </div>
+              <div className="roomInfo">
+                <div className="roomTitle purple">
+                  {this.jsUcfirst() + ' ' + this.props.roomNumber}
+                </div>
+                Location : {this.jsUcfirst()}
+                <br/>
+                Capacity : {this.props.capacity} person(s)
+                <br/>
+                Date : {this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, "shortDate") : dateFormat(this.props.startTime, "shortDate")}
+                <br/>
+                Duration : {this.props.duration ? this.props.duration : ' '} hour(s)
+              </div>
             </div>
-            Location : {this.jsUcfirst()}
-            <br/>
-            Capacity : {this.props.capacity} person(s)
-            <br/>
-            Date : {this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, "shortDate") : dateFormat(this.props.startTime, "shortDate")}
-            <br/>
-            Duration : {this.props.duration ? this.props.duration : ' '} hour(s)
+            <div className="time">
+              select your time
+              <div>
+                <TimeBtn btnSelected={this.state.btnSelected} loc={this.props.bldg} startTime={this.props.startTimes ? this.props.startTimes[0].openTime : this.props.startTime} onClick={() => {this.handleClick(this.props.bldg)}}></TimeBtn>
+              </div>
+            </div>
+          {this.props.children}
           </div>
         </div>
-        <div className="time">
-          select your time
-          <div>
-            <TimeBtn btnSelected={this.state.btnSelected} loc={this.props.bldg} startTime={this.props.startTimes ? this.props.startTimes[0].openTime : this.props.startTime} onClick={() => {this.handleClick(this.props.bldg)}}></TimeBtn>
-          </div>
-        </div>
-        {this.props.children}
-      </Card>
-      // <div className={'base ' + (this.lastItem && ' lastItem ' ) + ' ' + (this.isRoomRec && ' roomRec' )+ ' ' + (this.srchBtn && ' advancedSearchCard' )} onClick={this.props.onClick}>
-      //   <div>
-      //     {this.props.img && <img src={this.props.img} className="recImg"/>}
-      //   </div>
-      //   <div className={(this.props.title && ' title ') + ' ' + (this.bigTitle && ' bigTitle' )}>
-      //       {this.props.title && this.title}
-      //     {this.bigTitle && this.props.clear &&
-      //       <span className="clear">
-      //       <button onClick={this.props.clrFilter}>
-      //         Clear
-      //       </button>
-      //     </span>}
-      //   </div>
-      //
-      //
-      //   <div style={{ marginLeft: '0px'}} className='child '>
-      //     {this.props.children}
-      //   </div>
-      // </div>
     );
   }
 }

@@ -32,28 +32,6 @@
   overflow: scroll;
 }
 
-.topBar {
-  background-color: white;
-}
-
-#homeLayout {
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  position: relative;
-  background-color: #f2f2f2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-}
-
-.home {
-  width: 100%;
-  margin-left: 3%;
-  margin-right: 5%;
-}
 
 .flexy {
   width: 100%;
@@ -65,16 +43,9 @@
   text-align: center;
 }
 
-.joinTxt {
-  margin-top: 10%;
-  padding: 10px;
-  padding-right: 25px;
-  font-size: 2.5rem;
-}
 
 .navLink {
   text-decoration: none;
-  /* width: 100%; */
   border: none;
 }
 

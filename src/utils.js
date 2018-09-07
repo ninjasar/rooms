@@ -121,13 +121,12 @@ export default class API {
 
         }
       }).then((response) => {
-        const idArray = [];
-        for(var a=0; a<response.data.length; a++){
-          idArray.push(response.data[a].id);
-          //console.log(response.data[a].id)
-        }
+        const idArray = ['BOBST', 'KIMMEL'];
+        // for(var a=0; a<response.data.length; a++){
+        //   idArray.push(response.data[a].id);
+        //   //console.log(response.data[a].id)
+        // }
         const results = {
-          'parseJWT(response.token)': 9,
           data: response.data,
           idArray: idArray,
         }
@@ -201,7 +200,6 @@ export default class API {
       }).then((response) => {
         // parse jwt
         const results = {
-          'parseJWT(response.token)': 9,
            data: response.data,
         }
         // return reservation data
@@ -226,7 +224,6 @@ export default class API {
         },
       }).then((response) => {
         const results = {
-          'parseJWT(response.token)': 9,
            data: response.data,
         }
         console.log(response);

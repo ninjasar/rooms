@@ -4,7 +4,7 @@ import { Navbar } from 'react-bootstrap';
 import './App.css';
 import './index.css';
 import API from './utils';
-import AppName from './components/topBar/AppName.js';
+import TopBar from './components/topBar/TopBar.js';
 import HomePg from './containers/HomePg.js';
 import Routes from './Routes';
 import LoginForm from './containers/LoginForm.js';
@@ -91,7 +91,7 @@ class App extends React.Component {
 
           <Navbar className="topBar">
             <div className="flexy">
-              <AppName
+              <TopBar
                 uName={this.state.currentUser}
                 loggedIn={this.state.loggedIn}
                 url={currentRoute}

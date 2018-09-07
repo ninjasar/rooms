@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 
 import PrivateRoute from "./PrivateRoute.js";
 import SearchPg from "./containers/SearchPg";
+import CurrentReservePg from "./containers/CurrentReservePg";
 import NotFound from "./containers/NotFound";
 
 
@@ -23,7 +24,7 @@ export default (props) =>
     isLoggedIn={props.loggedIn}
     />
     <PrivateRoute path='/currentReservation'
-    component={() => <currentReservePg url='/currentReservation'/>}
+    component={() => <CurrentReservePg url='/currentReservation'/>}
     isLoggedIn={props.loggedIn}
     />
     <PrivateRoute path='/advancedSearch'

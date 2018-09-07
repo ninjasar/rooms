@@ -1,0 +1,45 @@
+.font {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.bckgd {
+
+}
+
+.normalCol {
+  color: #686868;
+}
+
+.mutedPink {
+  background-color: #fff0ee;
+}
+
+.purple {
+  color: #8c32a1;
+}
+
+.purpleBckgd {
+  background-color: #8c32a1;
+}
+
+.purpleBrdr {
+  border: solid 1.5px #8c32a1 !important;
+}
+
+.lightMauve {
+  background-color: #D1A9AE;
+}
+
+.borderHack {
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.gradient {
+  background: linear-gradient(to right, #681996 0%, #e255c1 40%, #f575ad 60%, #ffc99b 100%);
+}
+
+.pink {
+  color: #e255c1;
+  border: 1.5px solid #e255c1;
+}

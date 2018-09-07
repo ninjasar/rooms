@@ -12,7 +12,7 @@
   justify-self: center;
   justify-content: center;
   text-align: left;
-  padding: 10px;
+  padding: 15px;
   box-sizing: content-box;
 }
 
@@ -32,16 +32,7 @@
   width: 70px;
 }
 
-.recTitle {
-  text-align: right;
-  color: #9a57d9;
-}
 
-
-.roomRec:active, .roomRec2:focus {
-  border-color: #afa8ef !important;
-  box-shadow: 0 3px 4px 0 #c7c5c5;
-}
 
 
 .slider {
@@ -89,20 +80,7 @@ button {
   align-items: center;
 }
 
-.apply {
-  color: 	white;
-  align-self: center;
-  align-items: center;
-  font-size: 13px;
-  border-radius: 3px;
-  padding: 10px;
-  margin: auto;
-  padding-left:  40px;
-  padding-right: 40px;
-  background: linear-gradient(to right, #7f22c1 0%,  #a843e8  50%,   #c43de2 100%);
-  /* border: solid 2px #9C48AC; */
 
-}
 
 .child .base {
   box-shadow: none;

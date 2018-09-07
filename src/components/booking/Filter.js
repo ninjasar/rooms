@@ -10,6 +10,7 @@ import API from '../../utils';
 import Card from './Card.js';
 import '../../../node_modules/react-collapsy/lib/index.css';
 import './filter.css';
+import '../../god.css';
 
 
 
@@ -295,7 +296,7 @@ class Filter extends Card {
     const brooklyn = this.prepareLocations().bkln;
 
       return (
-        <div className={this.state.isSearch ? "filterdv srchFilterDv" : "filterdv"} key={this.state.wrapper}>
+        <div className={this.state.isSearch ? "filterdv srchFilterDv normalCol" : "filterdv normalCol"} key={this.state.wrapper}>
           <Card bigTitle={true} clear={true} clrFilter={this.resetFilter.bind(this)} style={{}} isFltr={true}>
               <div>
                 <span className="bigTitle">Filter</span>
@@ -327,7 +328,7 @@ class Filter extends Card {
                 <span className="title">Duration</span>
                 <br/>
                 <br/>
-                <div className="ddcontainer">
+                <div className="ddcontainer lightMauve borderHack">
                   <FormGroup controlId="formControlsSelect" >
                    <FormControl componentClass="select" placeholder="select" defaultValue={2} name="duration" onChange={this.durationOnChange.bind(this)}>
                      <option className="op" value=".5" name=".5" >0.5 hours</option>
@@ -347,7 +348,7 @@ class Filter extends Card {
                 <span className="title">Occupants</span>
                 <br/>
                 <br/>
-                <div className="ddcontainer">
+                <div className="ddcontainer lightMauve borderHack">
                   <FormGroup controlId="formControlsSelect">
                    <FormControl componentClass="select" placeholder="select" defaultValue={1} name="occupants" onChange={this.handleChange}>
                      <option value="1" name="1" onChange={this.handleChange}>1 person</option>
@@ -372,7 +373,7 @@ class Filter extends Card {
                 <span className="title">Select Date</span>
                 <br/>
                 <br/>
-                <div className="calendarContainer">
+                <div className="calendarContainer lightMauve borderHack">
                   <Calendar onChange={this.calendarOnChange}
                     value={this.state.openTime.toDate()}
                     defaultValue={this.state.openTime.toDate()}
@@ -392,8 +393,8 @@ class Filter extends Card {
 
                 <br/>
                 <br/>
-                <div className="rangeSelectDv">
-                  <div className="ddcontainer timeRange">
+                <div className="rangeSelectDv ">
+                  <div className="ddcontainer timeRange lightMauve borderHack">
                     <FormGroup controlId="formControlsSelect" key={this.state.random}>
                      <FormControl componentClass="select"
                        placeholder="select"
@@ -408,7 +409,7 @@ class Filter extends Card {
                    <div>
                     <span >to</span>
                   </div>
-                  <div className="ddcontainer timeRange">
+                  <div className="ddcontainer timeRange lightMauve borderHack">
                     <FormGroup controlId="formControlsSelect">
                      <FormControl componentClass="select"
                        placeholder="select"
@@ -427,7 +428,7 @@ class Filter extends Card {
 
 
             {( this.props.search &&
-              <Card className="filterbx amenity" lastItem={true}>
+              <Card className="filterbx amenity " lastItem={true}>
                 <Accordion title="Amenities" styles={{'Accordion__header': {fontSize: '15px', fontWeight: 'bold'},
                   'Accordion__header--collapsed': {fontSize: '15px', fontWeight: 'bold'}}}>
                   <br/>
@@ -456,7 +457,7 @@ class Filter extends Card {
             )}
               <br/>
               <div className="applyDv">
-                <button type="submit" className="apply">Apply</button>
+                <button type="submit" className="apply gradient">Apply</button>
               </div>
 
               <br/>

@@ -1,18 +1,13 @@
 .timeBtn {
   font-size: 11px;
-  color: #9a57d9;
   padding: 5px 10px;
-  border: solid 1.5px #9a57d9;
   border-radius: 5px;
   margin-top: 10px;
   font-weight: 400;
 }
 
 .btnSelected {
-  background: linear-gradient(to right, #7f22c1 0%, #a843e8 50%, #c43de2 100%);
-  border: unset;
   color: white;
-  border: solid 1.5px #9a57d9;
   padding: 5px 10px;
 }
 

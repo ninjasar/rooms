@@ -5,7 +5,6 @@
 }
 
 a:focus, a:hover {
-  color: #491A88;
   text-decoration: none;
   outline: none;
 }
@@ -54,6 +53,8 @@ button {
   padding: 0;
 }
 
+
+
 .navbar, .navbar-default {
     margin-bottom: 0;
     border: 0;
@@ -79,11 +80,4 @@ select.form-control,
 textarea.form-control,
 input.form-control {
   font-size: 16px;
-}
-
-@media (max-height: 700px) {
-
-  #transparent {
-    top: calc(3rem + 160px);
-  }
 }
