@@ -239,25 +239,25 @@ class Filter extends Card {
     });
     if(wsq.length !== 0) {
       wsqLocs = wsq.map((loc) => (
-        <div key="divv">
+        <div key="divv" className='checkB'>
           &nbsp; &nbsp;
           <input className="check" type='checkbox' value={loc.id}
             name={loc.id} checked={this.state.locationIds[loc]}
             onChange={this.handleChange} key={loc.id}
             />
-          <label htmlFor={loc.id} className="label" key={loc.id + ' label'}>&nbsp;{loc.name}</label>
+            <label htmlFor={loc.id} className="label" key={loc.id + ' label'}>&nbsp;{loc.name} </label>
         </div>
       ));
     }
     if(bkln.length !== 0) {
       bklnLocs = bkln.map((loc) => (
-        <div key="divv">
+        <div key="divv" className="checkB">
           &nbsp; &nbsp;
           <input className="check" type='checkbox' value={loc.id}
             name={loc.id} checked={this.state.locationsIds[loc]}
             onChange={this.handleChange} key={loc.id}
             />
-          <label htmlFor={loc.id} className="label" key={loc.id + ' label'}>&nbsp;{loc.name}</label>
+            <label htmlFor={loc.id} className="label" key={loc.id + ' label'}>&nbsp;{loc.name}</label>
         </div>
       ));
     }

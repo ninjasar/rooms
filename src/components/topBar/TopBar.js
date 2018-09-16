@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Media from 'react-media';
 
 import './topBar.css';
 import '../../god.css';
+import Arrows from './Arrows';
+import down from './down.svg';
+import up from './upIcon.svg';
 import Logo from './Logo.js';
 import BackButton from './BackButton.js';
-
 
 
 const AppName = (props) => {
@@ -16,6 +19,17 @@ const AppName = (props) => {
       </div>
       <div id="appNameContainer">
         <Logo/>
+        <Media query="(max-width: 1200px)">
+          {matches =>
+            matches ? (
+              <div>
+                <Arrows/>
+              </div>
+            ) : (
+              <div></div>
+            )
+          }
+        </Media>
 
         <div className="appName purple">
           nyu rooms

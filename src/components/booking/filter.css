@@ -6,6 +6,11 @@
 
 }
 
+.checkB {
+  display: flex;
+  flex-direction: row;
+}
+
 .srchFilterDv {
   width: 90%;
   margin-top: 0px;

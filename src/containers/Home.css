@@ -58,12 +58,14 @@ body {
     align-items: center;
     justify-content: flex-start;
   }
+  .child {
+    width: 70% !important;
+  }
   .leftContain {
     display: none;
   }
   .roomRecContain {
     margin: 0 auto;
-    text-align: left;
     box-sizing: content-box;
     width: 90%;
     font-size: 14px;
@@ -71,5 +73,18 @@ body {
   }
   .roomRec {
     width: 90%;
+  }
+}
+
+@media (max-width: 900px) {
+  .child {
+    width: 100% !important;
+  }
+  .base {
+    margin-left: -5px !important;
+    box-sizing: content-box;
+    width: 90%;
+    font-size: 14px;
+    padding: 10px;
   }
 }

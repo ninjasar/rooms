@@ -207,9 +207,9 @@ class SearchPg extends React.Component {
 
   bldgViewToRes = async (bldgId) => {
     const {startTime, endTime, duration, amenities, occupants} = this.state;
-    let fuck = await API.search(startTime, endTime, duration, bldgId, amenities, occupants);
+    let apiRes = await API.search(startTime, endTime, duration, bldgId, amenities, occupants);
     this.setState({
-      srchRes: fuck
+      srchRes: apiRes
     });
     let res = this.getRCResults();
     this.srchCmp = res;
@@ -223,12 +223,14 @@ class SearchPg extends React.Component {
 /*Display results is creating a list of links that will */
   getRCResults() {
     let rArr = [];
-    rArr = this.state.srchRes.map((r) => (
-
-      <RoomCard key={r.room.name} bigTitle={true} img={recImg} bldg={r.room.locationId.toLowerCase()}
-        roomNumber={r.room.name} capacity={r.room.capacity} startTimes={r.times} duration={r.times[0].duration}>
-      </RoomCard>
-      )
+    rArr = this.state.srchRes.map((r) => {
+      r.times.push({openTime: '2007-04-05T13:30-02:00'}, {openTime: '2007-04-05T07:30-02:00'});
+      return (
+        <RoomCard key={r.room.name} bigTitle={true} img={recImg} bldg={r.room.locationId.toLowerCase()}
+          roomNumber={r.room.name} capacity={r.room.capacity} startTimes={r.times} duration={r.times[0].duration}>
+        </RoomCard>
+        )
+      }
     );
     this.srchCmp = rArr;
       return rArr;

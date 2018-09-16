@@ -116,16 +116,14 @@ class HomePg extends React.Component {
             <br/>
             <br/>
             <br/>
-            <span className="typeOfR">Individual</span>
-            <br/>
+            <span className="typeOfR">&nbsp;&nbsp;&nbsp;Individual</span>
             <br/>
             <RoomCard bigTitle={true} img={recImg} bldg={this.state.locationOfRoom1}
                 roomNumber={this.state.roomNumber1} capacity={this.state.capacity1} startTime={this.state.openTime1} duration={this.state.duration1}>
             </RoomCard>
             <br/>
             <br/>
-            <span className="typeOfR">Group</span>
-            <br/>
+            <span className="typeOfR">&nbsp;&nbsp;&nbsp;Group</span>
             <br/>
           <RoomCard bigTitle={true} img={recImg} bldg={this.state.locationOfRoom2}
             roomNumber={this.state.roomNumber2} capacity={this.state.capacity2} startTime={this.state.openTime2} duration={this.state.duration2}>

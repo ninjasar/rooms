@@ -4,8 +4,11 @@ import dateFormat from 'dateformat';
 import './timeBtn.css';
 import '../../god.css';
 
-
-
+let btnSelected = 0;
+const handleClick = () =>  {
+  btnSelected= !btnSelected;
+  //API.getLocInfo(loc)
+}
 
 var TimeBtn = (props) => {
   return (

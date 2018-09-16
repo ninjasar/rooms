@@ -1,6 +1,5 @@
 /** Descrip */
 import axios from 'axios';
-import moment from 'moment';
 
 const url = 'https://virtserver.swaggerhub.com/nyustit/rooms-api/10.0/';
 const tsDate1 = new Date(Date.UTC(2018, 7, 12, 13)).toUTCString();

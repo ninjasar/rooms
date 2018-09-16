@@ -21,6 +21,7 @@ dateFormat.i18n = {
     ]
 };
 
+
 class RoomCard extends Card {
 
   constructor(props) {
@@ -34,23 +35,25 @@ class RoomCard extends Card {
     // this.title.className = 'recTitle';
     this.className = this.className + ' roomRec2';
     this.timeBtn = React.createRef();
+    this.btnArr = [];
     this.state = {
       duration: 2,
       location: this.props.bldg,
       occupants: 1,
       date: d.toString(),
       startTime: '',
-      btnSelected: false,
       selected: false,
+      key: 'urMom',
     };
-
+    this.btnSelected = false;
   }
 
   handleClick(loc) {
-    this.setState({
-      btnSelected: !this.state.btnSelected,
-    });
-    API.getLocInfo(loc)
+      this.btnSelected= !this.btnSelected;
+      this.setState({
+        key: 'mmm'
+      });
+    //API.getLocInfo(loc)
   }
 
 
@@ -64,14 +67,36 @@ class RoomCard extends Card {
   }
 
   getTimeBtns() {
-    this.props.startTimes.forEach(()=>{});
+    if(this.props.startTimes){
+      this.btnArr = this.props.startTimes.map((time)=> {
+        //console.log(time.openTime);
+        return (
+          <TimeBtn btnSelected={this.btnSelected}
+            key={time.startTime}
+            loc={this.props.bldg}
+            startTime={time.openTime}
+            onClick={() => {this.handleClick(this.props.bldg)}}>
+          </TimeBtn>
+        );
+      });
+    }
+    else if (this.props.startTime) {
+      this.btnArr[0] = <TimeBtn btnSelected={this.btnSelected}
+              key={this.props.startTime}
+              loc={this.props.bldg}
+              startTime={this.props.startTime}
+              onClick={() => {this.handleClick(this.props.bldg)}}>
+          </TimeBtn>
+    }
+
+    return this.btnArr;
   }
 
   render() {
     //console.log(this.props.startTimes);
-
+    this.getTimeBtns();
     return (
-      <div className='rrBorder borderHack lightMauve'>
+      <div className='rrBorder borderHack' key={this.state.key}>
         <div className="roomRec2"  img={this.props.img}>
             <div className="topCard">
               <div className="recImgDv">
@@ -81,23 +106,25 @@ class RoomCard extends Card {
                 <div className="roomTitle purple">
                   {this.jsUcfirst() + ' ' + this.props.roomNumber}
                 </div>
-                Location : {this.jsUcfirst()}
+                <span className="attribute">Location</span> : {this.jsUcfirst()}
                 <br/>
-                Capacity : {this.props.capacity} person(s)
+                <span className="attribute">Capacity</span> : {this.props.capacity} person(s)
                 <br/>
-                Date : {this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, "shortDate") : dateFormat(this.props.startTime, "shortDate")}
+                <span className="attribute">Date</span> : {this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, "shortDate") : dateFormat(this.props.startTime, "shortDate")}
                 <br/>
-                Duration : {this.props.duration ? this.props.duration : ' '} hour(s)
+                <span className="attribute">Duration</span> : {this.props.duration ? this.props.duration : ' '} hour(s)
               </div>
             </div>
             <div className="time">
               select your time
-              <div>
-                <TimeBtn btnSelected={this.state.btnSelected} loc={this.props.bldg} startTime={this.props.startTimes ? this.props.startTimes[0].openTime : this.props.startTime} onClick={() => {this.handleClick(this.props.bldg)}}></TimeBtn>
+              <div className="tBtnContain">
+                {this.btnArr}
+                {/* <TimeBtn btnSelected={this.state.btnSelected} loc={this.props.bldg} startTime={this.props.startTimes ? this.props.startTimes[0].openTime : this.props.startTime} onClick={() => {this.handleClick(this.props.bldg)}}></TimeBtn> */}
               </div>
             </div>
           {this.props.children}
           </div>
+          <div className='line2'></div>
         </div>
     );
   }

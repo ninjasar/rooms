@@ -1,12 +1,20 @@
 .rrBorder {
   width: 100%;
+
+}
+
+.line2 {
+  border-bottom: 1px solid #dcdcdc;
+  border-radius: 0px;
+  width: 90%;
+  margin-left: 20px;
 }
 
 .recImg {
   width: 100px;
 }
 .recImgDv {
-  width: 48%;
+  max-width: 48%;
   padding-left: 20px;
   padding-right: 10px;
   margin-right: 15px;
@@ -23,7 +31,7 @@
 .roomInfo {
   line-height: 20px;
   font-size: 13px;
-  margin-left: -10px;
+  padding-left: 10px;
 }
 
 .recTitle {
@@ -36,7 +44,7 @@
   background-color: white;
   padding: 20px;
   box-shadow: none;
-  border-radius: 5px;
+  border-radius: 0px;
 }
 
 .selected {
@@ -59,24 +67,25 @@
   margin-top: 20px;
 }
 
-/* .timeBtn {
-  font-size: 11px;
-  color: #e255c1;
-  padding: 5px 10px;
-  border: solid 1.5px #e255c1;
-  border-radius: 5px;
-  margin-top: 10px;
-  font-weight: 400;
-} */
-
-/* .btnSelected {
-  /* background: linear-gradient(to right, #681996 0%, #e255c1 60%, #ff6cb3 85%, #ffd17d 100%); */
-  /*background-color: #8c32a1;
-  border: solid 1.5px #8c32a1;
-  color: white;
-  padding: 5px 10px;
+.tBtnContain {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
-.timeBtn:hover {
-    box-shadow: 0px 1px 10px 1px;
-} */
+@media (max-width: 1200px) {
+  .rrBorder {
+    max-width: 500px;
+    margin: auto;
+  }
+  .recImgDv {
+    padding-left: 0px;
+  }
+  .recImg {
+    width: 150px;
+  }
+  .roomTitle {
+    font-size: 14px;
+    width: 100%;
+  }
+}

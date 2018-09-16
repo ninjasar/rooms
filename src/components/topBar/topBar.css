@@ -114,7 +114,13 @@ button:focus {
   height: 100%;
 }
 
-
+.arrow {
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  justify-self: flex-end;
+  order: 200;
+}
 
 .usersName {
   order: 5;
@@ -194,7 +200,7 @@ button:focus {
     }
     #appNameContainer {
       justify-content: flex-end;
-      padding-right: 100px;
+      padding-right: 30px;
     }
     .logo {
       justify-self: flex-end;
