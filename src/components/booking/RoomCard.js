@@ -44,16 +44,51 @@ class RoomCard extends Card {
       startTime: '',
       selected: false,
       key: 'urMom',
+      locationFormData: [],
+      selectedBtns: {},
     };
     this.btnSelected = false;
+    this.handleClick = this.handleClick.bind(this);
+    this.getTimeBtns = this.getTimeBtns.bind(this);
   }
 
-  handleClick(loc) {
-      this.btnSelected= !this.btnSelected;
-      this.setState({
-        key: 'mmm'
-      });
-    //API.getLocInfo(loc)
+  //location form data = bobst, kimmel, yourmom
+  //need to display bobst but
+
+  async handleClick(loc, startTime) {
+      const btns = {...this.state.selectedBtns};
+      btns[startTime] = !btns[startTime];
+      for(let btn in btns) {
+        if (btn === startTime)
+          continue;
+        else {
+          btns[btn] = false;
+          //console.log(btns[btn]);
+        }
+      }
+      if(btns[startTime] === false) {
+        await this.setState({
+          locationFormData: [],
+          selectedBtns: btns,
+        });
+      }
+
+      let locationFormData = await API.getLocInfo(loc);
+      if (this.state.locationFormData.length === 0 && btns[startTime]){
+        //console.log(btns);
+
+        this.setState({
+          selectedBtns: btns,
+          locationFormData,
+        });
+      }
+      else {
+        this.setState({
+          selectedBtns: btns,
+          key: '666',
+        });
+      }
+      console.log(btns);
   }
 
 
@@ -71,21 +106,21 @@ class RoomCard extends Card {
       this.btnArr = this.props.startTimes.map((time)=> {
         //console.log(time.openTime);
         return (
-          <TimeBtn btnSelected={this.btnSelected}
-            key={time.startTime}
+          <TimeBtn btnSelected={this.state.selectedBtns[time.openTime]}
+            key={time.openTime}
             loc={this.props.bldg}
             startTime={time.openTime}
-            onClick={() => {this.handleClick(this.props.bldg)}}>
+            onClick={() => {this.handleClick(this.props.bldg, time.openTime)}}>
           </TimeBtn>
         );
       });
     }
     else if (this.props.startTime) {
-      this.btnArr[0] = <TimeBtn btnSelected={this.btnSelected}
-              key={this.props.startTime}
+      this.btnArr[0] = <TimeBtn btnSelected={this.state.selectedBtns[this.props.startTime]}
+              key={this.props.openTime + 'xxx'}
               loc={this.props.bldg}
               startTime={this.props.startTime}
-              onClick={() => {this.handleClick(this.props.bldg)}}>
+              onClick={() => {this.handleClick(this.props.bldg, this.props.startTime)}}>
           </TimeBtn>
     }
 
@@ -119,12 +154,14 @@ class RoomCard extends Card {
               select your time
               <div className="tBtnContain">
                 {this.btnArr}
-                {/* <TimeBtn btnSelected={this.state.btnSelected} loc={this.props.bldg} startTime={this.props.startTimes ? this.props.startTimes[0].openTime : this.props.startTime} onClick={() => {this.handleClick(this.props.bldg)}}></TimeBtn> */}
-              </div>
+                </div>
             </div>
           {this.props.children}
           </div>
           <div className='line2'></div>
+          <div>
+            {(this.state.locationFormData.length !== 0) ? this.state.locationFormData.supplementaryFields[0].description : <div></div>}
+          </div>
         </div>
     );
   }

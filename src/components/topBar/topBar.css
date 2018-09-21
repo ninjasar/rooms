@@ -6,6 +6,7 @@
   position: static;
   line-height: 27px;
   display: flex;
+  right: 0px;
   flex-direction: row;
   justify-content: space-between;
   order: 1;
@@ -18,9 +19,6 @@
   z-index: 100;
   align-self: flex-start;
   max-width: 100%;
-  /*background: url(" + __webpack_require__( "./Texture.svg") + "), -webkit-linear-gradient(left, #FF3CAC, #784BA0 100%);
-  background: url(" + __webpack_require__( "./Texture.svg") + "), -o-linear-gradient(left, #FF3CAC, #784BA0 100%);
-  background: url('./Texture.svg'), linear-gradient(90deg, #FF3CAC, #784BA0 100%);*/
   width: 100%;
   box-shadow: 0px 4px 15px 3px #bbbbbb;
 }
@@ -114,7 +112,7 @@ button:focus {
   height: 100%;
 }
 
-.arrow {
+.arrowContainer {
   font-size: 12px;
   width: 20px;
   height: 20px;
@@ -157,6 +155,23 @@ button:focus {
   height: 100%;
 }
 
+.medTB {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 10px;
+}
+
+.logArr {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
 
 .logoContainer {
   order: 2;
@@ -188,23 +203,42 @@ button:focus {
       padding: 0;
       display: flex;
       flex-direction: row;
-      justify-content: flex-end;
+      justify-content: space-between;
+      align-items: center;
     }
+    .topBar {
+      flex-direction: row;
+      max-width: 100%;
+    }
+
+    .medTB {
+      justify-content: space-between;
+    }
+
+    .mediaBack {
+
+    }
+
     .usersName, .appName, .reserveContainer, .oval, .vertLine, .userContain {
       display: none;
       width: 0px;
       height: 0px;
     }
     .logoContainer {
-      justify-self: flex-end;
+      order: 1;
+      width: 70px;
     }
     #appNameContainer {
       justify-content: flex-end;
       padding-right: 30px;
     }
-    .logo {
-      justify-self: flex-end;
-      width: 30px;
+    .arrowContainer {
+      order: 200;
+      width: 50px;
+      align-self: center;
+    }
+    .arrow {
+      width: 25px;
     }
     .vertLine {
       margin-left: 20px;
@@ -215,24 +249,18 @@ button:focus {
       .backIcon {
         width: .8rem;
       }
-}
-  @media (max-height: 700px) {
+      .logoContainer {
+        order: 1;
+      }
 
-  }
+}
   @media (max-width: 420px) {
 
-    .card {
+    /* .card {
       height: 10rem;
     }
     .usersName {
       margin-top: 10%;
       font-size: 16px;
-      }
-  }
-  @media (max-width: 400px) {
-
-
-  }
-  @media (max-width: 350px) {
-
+      } */
   }

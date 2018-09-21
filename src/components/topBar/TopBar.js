@@ -13,47 +13,50 @@ import BackButton from './BackButton.js';
 
 const AppName = (props) => {
   return (
-    <div id="topBar" className="mutedPink">
-      {props.url !== '/home' && props.url !== '/home/' && props.url !== '/' && props.url !== '/' && <BackButton/>}
-      <div className="vertLine">
-      </div>
-      <div id="appNameContainer">
-        <Logo/>
-        <Media query="(max-width: 1200px)">
-          {matches =>
-            matches ? (
-              <div>
+    <Media query="(min-width: 1200px)" >
+      {matches =>
+        matches ? (
+          <div id="topBar" >
+              {props.url !== '/home' && props.url !== '/home/' && props.url !== '/' && props.url !== '/' && <BackButton/>}
+            <div className="vertLine">
+            </div>
+            <div id="appNameContainer">
+              <Logo/>
+              <div className="appName purple">
+                nyu rooms
+              </div>
+            </div>
+              <div className="reserveContainer">
+              <Link to="/home" onClick={props.setNav} className={'reserve normalCol ' + (props.newRs && ' active purple' )}>
+                <div >
+                  Reserve New Room
+                </div>
+              </Link>
+                <Link to="/currentReservation" onClick={props.setNav} className={'reserve normalCol ' + (props.curr && ' active purple' )}>
+                  <div >
+                     &nbsp;&nbsp;Current Reservation
+                  </div>
+                </Link>
+              </div>
+              <div className="userContain normalCol">
+                <div className="oval gradient"></div>
+                  <div className="usersName">
+                    {props.uName ? 'Welcome, ' + props.uName : ''}
+                  </div>
+              </div>
+          </div>
+        ) : (
+          <div id="topBar" className="mutedPink">
+            <div className="medTB">
+                {props.url !== '/home' && props.url !== '/home/' && props.url !== '/' && props.url !== '/' && <BackButton/>}
+              <div className="logArr">
+                <Logo/>
                 <Arrows/>
               </div>
-            ) : (
-              <div></div>
-            )
-          }
-        </Media>
-
-        <div className="appName purple">
-          nyu rooms
-        </div>
-      </div>
-        <div className="reserveContainer">
-        <Link to="/home" onClick={props.setNav} className={'reserve normalCol ' + (props.newRs && ' active purple' )}>
-          <div >
-            Reserve New Room
+            </div>
           </div>
-        </Link>
-          <Link to="/currentReservation" onClick={props.setNav} className={'reserve normalCol ' + (props.curr && ' active purple' )}>
-            <div >
-               &nbsp;&nbsp;Current Reservation
-            </div>
-          </Link>
-        </div>
-        <div className="userContain normalCol">
-          <div className="oval gradient"></div>
-            <div className="usersName">
-              {props.uName ? 'Welcome, ' + props.uName : ''}
-            </div>
-        </div>
-    </div>
+        )}
+    </Media>
   );
 };
 

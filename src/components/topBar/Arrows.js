@@ -33,8 +33,8 @@ class Arrows extends React.Component {
 
   render() {
     return (
-     <div className="arrow" key={this.state.key} onClick={this.switchArrows}>
-         <img src={this.dir} alt="room"/>
+     <div className="arrowContainer" key={this.state.key} onClick={() => {this.switchArrows()}}>
+         <img src={this.dir} alt="arr" className="arrow"/>
      </div>
    );
   }

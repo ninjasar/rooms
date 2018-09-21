@@ -68,6 +68,8 @@ body {
     margin: 0 auto;
     box-sizing: content-box;
     width: 90%;
+    margin-top: 30px;
+    margin-bottom: 20px;
     font-size: 14px;
     padding: 10px;
   }

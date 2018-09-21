@@ -1,7 +1,7 @@
 /** Descrip */
 import axios from 'axios';
 
-const url = 'https://virtserver.swaggerhub.com/nyustit/rooms-api/10.0/';
+const url = 'https://virtserver.swaggerhub.com/nyustit/rooms-api/8.0/';
 const tsDate1 = new Date(Date.UTC(2018, 7, 12, 13)).toUTCString();
 const tsDate2 = new Date(Date.UTC(2018, 7, 18, 23)).toUTCString();
 const token = 'x';
@@ -15,7 +15,7 @@ export default class API {
     return new Promise((resolve, reject) => {
       axios({
         method: 'post',
-        url: `${url}auth/token`,
+        url: `${url}auth/login`,
         data: {
           username: userNm,
           password: passWd,
