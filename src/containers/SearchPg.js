@@ -3,6 +3,7 @@ import dateFormat from 'dateformat';
 //import {NavLink} from 'react-router-dom';
 import moment from 'moment';
 import Accordion from 'react-collapsy';
+import Media from 'react-media';
 
 
 import recImg from './recImg.png';
@@ -132,7 +133,7 @@ class SearchPg extends React.Component {
     this.instantRes = this.getJSXResultsByBldg(roomCt);
     console.log(this.instantRes);
     this.setState({
-      key: 'heythere'
+      key: 'jfkd'
     });
 
   }
@@ -272,7 +273,6 @@ class SearchPg extends React.Component {
    showQuestions = async () => {
     const proms = this.state.srchRes.map((r) => { API.getLocInfo(r.locationId) });
 
-    //const questions = await Promise.all(proms);
 
     this.setState({
 

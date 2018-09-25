@@ -46,16 +46,19 @@ class RoomCard extends Card {
       key: 'urMom',
       locationData: [],
       selectedBtns: {},
+      answers: {},
     };
     this.btnSelected = false;
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClick = this.handleTimeBClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.getTimeBtns = this.getTimeBtns.bind(this);
+    this.getRsrveFm = this.getRsrveFm.bind(this);
   }
 
   //location form data = bobst, kimmel, yourmom
   //need to display bobst but
 
-  async handleClick(loc, startTime) {
+  async handleTimeBClick(loc, startTime) {
       const btns = {...this.state.selectedBtns};
       btns[startTime] = !btns[startTime];
       for(let btn in btns) {
@@ -91,18 +94,30 @@ class RoomCard extends Card {
       console.log(btns);
   }
 
+// merge = ( ...objects ) => ( { ...objects } );
+
+  handleChange = event => {
+    this.setState({
+      answers: {...this.state.answers, [event.target.name]: event.target.value},
+    });
+  }
+
   getRsrveFm(locFmArray) {
     let res = locFmArray.map((qs) => {
-      console.log(qs);
       return (
         <div className='questionContain'>
           <label htmlFor={qs.name}>{qs.description}</label><br/>
-          <input type='text' name={qs.name} length={20} defaultValue={null}></input>
+          <input type='text' name={qs.name} length={20} defaultValue={null} required={true} onChange={this.handleChange}/>
         </div>
       )
     });
-    console.log(res);
+
     return res;
+  }
+
+  reserve = async event => {
+    event.preventDefault();
+    console.log(this.state.answers);
   }
 
 
@@ -124,7 +139,7 @@ class RoomCard extends Card {
             key={time.openTime}
             loc={this.props.bldg}
             startTime={time.openTime}
-            onClick={() => {this.handleClick(this.props.bldg, time.openTime)}}>
+            onClick={() => {this.handleTimeBClick(this.props.bldg, time.openTime)}}>
           </TimeBtn>
         );
       });
@@ -134,7 +149,7 @@ class RoomCard extends Card {
               key={this.props.openTime + 'xxx'}
               loc={this.props.bldg}
               startTime={this.props.startTime}
-              onClick={() => {this.handleClick(this.props.bldg, this.props.startTime)}}>
+              onClick={() => {this.handleTimeBClick(this.props.bldg, this.props.startTime)}}>
           </TimeBtn>
     }
     return this.btnArr;
@@ -172,8 +187,15 @@ class RoomCard extends Card {
           {this.props.children}
           </div>
           <div className='line2'></div>
-          <form onSubmit={() => 7}>
-            {(this.state.locationData.length !== 0) ? this.getRsrveFm(this.state.locationData.supplementaryFields) : <div></div>}
+          <form onSubmit={this.reserve}>
+            {(this.state.locationData.length !== 0) ? (
+              <div>
+                {this.getRsrveFm(this.state.locationData.supplementaryFields)}
+                <button type="submit" value='submit'>Submit</button>
+              </div>
+
+
+            ) : <div></div>}
           </form>
         </div>
     );

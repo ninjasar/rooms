@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import Media from 'react-media';
 //import dateFormat from 'dateformat';
 
 import '../index.css';

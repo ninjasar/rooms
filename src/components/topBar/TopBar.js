@@ -46,7 +46,7 @@ const AppName = (props) => {
               </div>
           </div>
         ) : (
-          <div id="topBar" className="mutedPink">
+          <div id="topBar">
             <div className="medTB">
                 {props.url !== '/home' && props.url !== '/home/' && props.url !== '/' && props.url !== '/' && <BackButton/>}
               <div className="logArr">
