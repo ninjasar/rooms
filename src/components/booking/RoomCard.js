@@ -44,7 +44,7 @@ class RoomCard extends Card {
       startTime: '',
       selected: false,
       key: 'urMom',
-      locationFormData: [],
+      locationData: [],
       selectedBtns: {},
     };
     this.btnSelected = false;
@@ -68,18 +68,18 @@ class RoomCard extends Card {
       }
       if(btns[startTime] === false) {
         await this.setState({
-          locationFormData: [],
+          locationData: [],
           selectedBtns: btns,
         });
       }
 
-      let locationFormData = await API.getLocInfo(loc);
-      if (this.state.locationFormData.length === 0 && btns[startTime]){
+      let locationData = await API.getLocInfo(loc);
+      if (this.state.locationData.length === 0 && btns[startTime]){
         //console.log(btns);
 
         this.setState({
           selectedBtns: btns,
-          locationFormData,
+          locationData,
         });
       }
       else {
@@ -89,6 +89,20 @@ class RoomCard extends Card {
         });
       }
       console.log(btns);
+  }
+
+  getRsrveFm(locFmArray) {
+    let res = locFmArray.map((qs) => {
+      console.log(qs);
+      return (
+        <div className='questionContain'>
+          <label htmlFor={qs.name}>{qs.description}</label><br/>
+          <input type='text' name={qs.name} length={20} defaultValue={null}></input>
+        </div>
+      )
+    });
+    console.log(res);
+    return res;
   }
 
 
@@ -123,7 +137,6 @@ class RoomCard extends Card {
               onClick={() => {this.handleClick(this.props.bldg, this.props.startTime)}}>
           </TimeBtn>
     }
-
     return this.btnArr;
   }
 
@@ -159,9 +172,9 @@ class RoomCard extends Card {
           {this.props.children}
           </div>
           <div className='line2'></div>
-          <div>
-            {(this.state.locationFormData.length !== 0) ? this.state.locationFormData.supplementaryFields[0].description : <div></div>}
-          </div>
+          <form onSubmit={() => 7}>
+            {(this.state.locationData.length !== 0) ? this.getRsrveFm(this.state.locationData.supplementaryFields) : <div></div>}
+          </form>
         </div>
     );
   }

@@ -50,6 +50,10 @@ button {
   padding: 0;
 }
 
+img {
+  font-size: 15px;
+}
+
 
 
 .navbar, .navbar-default {

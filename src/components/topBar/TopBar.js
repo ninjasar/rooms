@@ -16,7 +16,7 @@ const AppName = (props) => {
     <Media query="(min-width: 1200px)" >
       {matches =>
         matches ? (
-          <div id="topBar" >
+          <div id="topBar">
               {props.url !== '/home' && props.url !== '/home/' && props.url !== '/' && props.url !== '/' && <BackButton/>}
             <div className="vertLine">
             </div>

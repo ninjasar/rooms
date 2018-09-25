@@ -9,7 +9,7 @@ const Logo = (props) => {
   return (
     <div className="logoContainer">
       <div>
-        <img src={logo} alt="room" className="logo"/>
+        <img src={logo} alt="logo" className="logo"/>
       </div>
     </div>
   )

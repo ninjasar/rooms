@@ -73,6 +73,13 @@
   align-items: flex-start;
 }
 
+.questionContain{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 @media (max-width: 1200px) {
   .rrBorder {
     max-width: 500px;
