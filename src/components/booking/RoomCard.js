@@ -46,11 +46,12 @@ class RoomCard extends Card {
       key: 'urMom',
       locationData: [],
       selectedBtns: {},
-      answers: {},
+      questions: [],
     };
     this.btnSelected = false;
     this.handleClick = this.handleTimeBClick.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    //this.handleChange = this.handleChange.bind(this);
+    this.inputs=[];
     this.getTimeBtns = this.getTimeBtns.bind(this);
     this.getRsrveFm = this.getRsrveFm.bind(this);
   }
@@ -83,6 +84,7 @@ class RoomCard extends Card {
         this.setState({
           selectedBtns: btns,
           locationData,
+          questions: locationData.supplementaryFields,
         });
       }
       else {
@@ -91,7 +93,6 @@ class RoomCard extends Card {
           key: '666',
         });
       }
-      console.log(btns);
   }
 
 // merge = ( ...objects ) => ( { ...objects } );
@@ -103,21 +104,29 @@ class RoomCard extends Card {
   }
 
   getRsrveFm(locFmArray) {
-    let res = locFmArray.map((qs) => {
+    let res = locFmArray.map((qs, index) => {
       return (
-        <div className='questionContain'>
+        <div className={`questionContain`} key={qs.name}>
           <label htmlFor={qs.name}>{qs.description}</label><br/>
-          <input type='text' name={qs.name} length={20} defaultValue={null} required={true} onChange={this.handleChange}/>
+          <input type='text' className={`qInput responseField_${index}`} name={index} length={20} defaultValue={'in'} required={true} onChange={this.handleChange}/>
         </div>
       )
     });
+    this.inputs = res;
 
     return res;
   }
 
   reserve = async event => {
     event.preventDefault();
-    console.log(this.state.answers);
+    const usersInfo = {...API.usersInfo};
+    for(var a=0; a<this.state.questions.length; a++){
+      this.state.questions[a].response = this.state.answers[``];
+    }
+      this.state.questions[0].response = 'input.props.children[2].value';
+    console.log(this.inputs);
+    console.log(this.state.questions[0].response);
+
   }
 
 
@@ -191,7 +200,7 @@ class RoomCard extends Card {
             {(this.state.locationData.length !== 0) ? (
               <div>
                 {this.getRsrveFm(this.state.locationData.supplementaryFields)}
-                <button type="submit" value='submit'>Submit</button>
+                <button type="submit" className='qSubmit pink' value='submit'>Submit</button>
               </div>
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { DropdownButton, FormGroup, FormControl } from 'react-bootstrap';
+import { FormGroup, FormControl } from 'react-bootstrap';
 import dateFormat from 'dateformat';
 import 'datejs';
 import moment from 'moment';
@@ -58,14 +58,11 @@ class Filter extends Card {
           locationIds: results.idArray,
           locations: results.data
         });
-        //console.log(this.state.locationIds);
         if(this.state.locationIds) {
           this.state.locationIds.forEach((loc) => {
             this.setState({
               loc: false,
             });
-            //console.log(this.state.loc);
-            //console.log(loc);
           });
         }
         if(this.props.homePg) {
@@ -73,7 +70,6 @@ class Filter extends Card {
             occupants: 1,
           });
         }
-        //console.log(this.state.BOBST)
       }).catch((error) =>  {
       this.setState({
           eMessage: error,
@@ -81,7 +77,7 @@ class Filter extends Card {
         console.log(error);
       });
 
-      if(!this.state.openTime.date() == moment().date()){
+      if(!this.state.openTime.date() === moment().date()){
         console.log('working');
         this.setState({
           startHour: 7,
@@ -160,13 +156,6 @@ class Filter extends Card {
       amens.push('printer');
     if(this.state.amensProjector)
       amens.push('projector');
-
-    console.log(this.state.openTime.toDate());
-    console.log(this.state.closeTime.toDate());
-    //console.log(this.state.duration);
-    //console.log(this.state.locationIds);
-    //console.log(amens);
-    //console.log(this.state.occupants);
     if(!this.props.search) {
       this.apply(event, this.state.duration, this.state.occupants);
     } else {
@@ -182,7 +171,6 @@ class Filter extends Card {
     let realD = moment().hour(23);
     let defVal = this.state.startHour;
     if(!(this.state.openTime.date() === fakeD.date()) || (this.state.openTime.hour() !== fDHours)) {
-      //console.log('it isnt');
       fakeD = moment().hour(7).startOf('hour');
       defVal = 7;
     }

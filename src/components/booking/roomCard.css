@@ -80,6 +80,20 @@
   align-items: flex-start;
 }
 
+.qInput, .qInput:focus {
+  outline: none;
+}
+
+.qSubmit {
+  border-radius: 5px;
+  padding: 4px 7px 4px 7px;
+  font-weight: bold;
+}
+.qSubmit:hover {
+  box-shadow: 0px 0px 9px 0px;
+  transition: .2s;
+}
+
 @media (max-width: 1200px) {
   .rrBorder {
     max-width: 500px;

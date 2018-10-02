@@ -58,20 +58,21 @@ class App extends React.Component {
       // make login api req
       navigator.geolocation.getCurrentPosition(getPosition);
 
-      API.loginUser(userNm, passWd)
-        .then((name) => {
-          // set login state and set name
-          this.setLoginState(name);
-
-          // redirect to hompage
-        })
-        .catch((error) => {
-          // if failed display invalid login
-          console.log(error);
-          this.setState({
-            eMessage: error
-          });
-        });
+      // API.loginUser(userNm, passWd)
+      //   .then((name) => {
+      //     // set login state and set name
+      //     this.setLoginState(name);
+      //
+      //     // redirect to hompage
+      //   })
+      //   .catch((error) => {
+      //     // if failed display invalid login
+      //     console.log(error);
+      //     this.setState({
+      //       eMessage: error
+      //     });
+      //   });
+      this.setLoginState('sarah');
     };
 
     const homePg = () => (

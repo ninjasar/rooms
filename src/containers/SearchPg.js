@@ -118,7 +118,7 @@ class SearchPg extends React.Component {
     });
     srchRes.forEach((res) => {
       const loc = res.room.locationId;
-      if (counts[loc] !== NaN) {
+      if (!isNaN(counts[loc])) {
         counts[loc] += res.times.length;
       }
     });
@@ -266,26 +266,21 @@ class SearchPg extends React.Component {
       return 0;
   }
 
-  getQsObj(qs, name) {
+  // getQsObj(qs, name) {
+  //
+  // }
 
-  }
-
-   showQuestions = async () => {
-    const proms = this.state.srchRes.map((r) => { API.getLocInfo(r.locationId) });
-
-
-    this.setState({
-
-    });
-  }
-
-
-
-
+  //  showQuestions = async () => {
+  //   const proms = this.state.srchRes.map((r) => { API.getLocInfo(r.locationId) });
+  //
+  //
+  //   this.setState({
+  //
+  //   });
+  // }
 
 
   render () {
-    var x = [];
 
 
     return (
@@ -302,9 +297,6 @@ class SearchPg extends React.Component {
                 {(this.srchCmp.length !== 0) ? (this.srchCmp) : this.instantRes}
               </Card>
             </div>
-
-
-
       </div>
     )
 

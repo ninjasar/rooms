@@ -13,7 +13,7 @@ class currentReservePg extends React.Component {
     };
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     for(var a = 0; a<2; a++) {
       API.getUsersReservations()
         .then((res) => {
