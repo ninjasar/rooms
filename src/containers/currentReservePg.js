@@ -4,49 +4,71 @@ import dateFormat from 'dateformat';
 
 
 import API from '../utils.js';
+import Card from '../components/booking/Card.js';
+import RoomCard from '../components/booking/RoomCard.js';
+import recImg from './recImg.png';
+import './currentRes.css';
+import '../god.css';
 
 class currentReservePg extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       reservations: [],
+      key: 'm',
+      current: true,
+      past: false,
+      locs: [],
+
     };
+    this.addresses= {};
+    this.roomCards = [];
   }
 
-  UNSAFE_componentWillMount() {
-    for(var a = 0; a<2; a++) {
-      API.getUsersReservations()
-        .then((res) => {
-             this.setState({
-               reservations: res,
-             });
-        }).catch((error) => {
-          this.setState({
-            eMessage: error,
-          });
-          console.log(error);
-        });
+  async componentDidMount() {
 
-    }
+      let reservations = await API.getUsersReservations();
+      let locs = await API.getLocs();
+      this.setState({ reservations, locs });
   }
 
 
 
 
   sortReservations() {
+    this.state.reservations.forEach((room) => {
+      let i = this.state.locs.idArray.indexOf(room.locationId);
+          this.addresses = {...this.addresses, [room.locationId]: this.state.locs.data[i].address,};
+    });
+    console.log(this.addresses);
+    this.state.reservations.forEach((room) => {
+      this.roomCards.push(<RoomCard key={room.roomId} isRoomRec={false} img={recImg} bldg={room.locationId}
+          roomNumber={room.vendorRoomId} capacity={room.occupants}  startTime={room.reserveTime}
+          duration={room.duration} address={this.addresses[room.locationId]}>
+          </RoomCard>);
+    });
+
+    //console.log(this.roomCards);
   }
 
 
 
 
   render () {
+    this.sortReservations();
     return (
-      <div className='container'>
-        <div className="roomRecContain">
+      <div className='biggerContain'>
+        <div className='btnContain'>
+          <button className='sortRes sRActive'>
+          Current Reservations
+          </button>
+          <button className='sortRes '>
+          Past Reservations
+          </button>
+        </div>
+        <div className='currResContain' key={this.state.key}>
 
-            <NavLink to='/advancedSearch' className="srchBtn">
-              Advanced Search
-            </NavLink>
+          {this.roomCards}
         </div>
       </div>
     )

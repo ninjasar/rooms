@@ -15,8 +15,6 @@ import '../../god.css';
 
 
 
-
-
 class Filter extends Card {
 
   constructor(props) {

@@ -47,6 +47,7 @@ class HomePg extends React.Component {
                closestIndividual: closestRoom,
                locationOfRoom1: closestRoom.location.toLowerCase(),
                roomNumber1: closestRoom.roomNumber,
+               roomId1: closestRoom.id,
                capacity1: closestRoom.capacity,
                openTime1: closestRoom.openTime,
                duration1: closestRoom.duration,
@@ -58,6 +59,7 @@ class HomePg extends React.Component {
               closestGroup: closestRoom,
               locationOfRoom2: closestRoom.location.toLowerCase(),
               capacity2: closestRoom.capacity,
+              roomId2: closestRoom.id,
               roomNumber2: closestRoom.roomNumber,
               openTime2: closestRoom.openTime,
               duration2: closestRoom.duration,
@@ -119,15 +121,15 @@ class HomePg extends React.Component {
             <br/>
             <span className="typeOfR">&nbsp;&nbsp;&nbsp;Individual</span>
             <br/>
-            <RoomCard bigTitle={true} img={recImg} bldg={this.state.locationOfRoom1}
-                roomNumber={this.state.roomNumber1} capacity={this.state.capacity1} startTime={this.state.openTime1} duration={this.state.duration1}>
+            <RoomCard bigTitle={true} img={recImg} bldg={this.state.locationOfRoom1} isRoomRec={true}
+                roomNumber={this.state.roomNumber1} capacity={this.state.capacity1} id={this.state.roomId1} history={this.props.history} startTime={this.state.openTime1} duration={this.state.duration1}>
             </RoomCard>
             <br/>
             <br/>
             <span className="typeOfR">&nbsp;&nbsp;&nbsp;Group</span>
             <br/>
-          <RoomCard bigTitle={true} img={recImg} bldg={this.state.locationOfRoom2}
-            roomNumber={this.state.roomNumber2} capacity={this.state.capacity2} startTime={this.state.openTime2} duration={this.state.duration2}>
+          <RoomCard bigTitle={true} img={recImg} bldg={this.state.locationOfRoom2} isRoomRec={true}
+            roomNumber={this.state.roomNumber2} capacity={this.state.capacity2} id={this.state.roomId2} history={this.props.history} startTime={this.state.openTime2} duration={this.state.duration2}>
             </RoomCard>
             <br/>
             <br/>

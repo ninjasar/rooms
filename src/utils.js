@@ -15,14 +15,6 @@ export default class API {
     name: "Rayat Rahman",
     email: "fake12@nyu.edu",
     id: "12315ASaf",
-    vendorId: "ASDEAAGsd2343",
-    roomId: "BOBST_LL2_29",
-    vendorRoomId: "LL2_29",
-    locationId: "BOBST",
-    openTime: "2007-04-05T12:30-02:00",
-    reserveTime: "2007-04-05T12:30-02:00",
-    duration: 1.5,
-    occupants: 2,
     alternates: [
       "fake12@nyu.edu",
       "fake23@nyu.edu"
@@ -79,6 +71,7 @@ export default class API {
              'parseJWT(response.token)': 9,
              location: res.data.room.locationId,
              roomNumber: res.data.room.name,
+             id: res.data.room.id,
              amenities: res.data.room.amenities,
              capacity: res.data.room.capacity,
              openTime: res.data.times[0].openTime,
@@ -206,37 +199,27 @@ export default class API {
     });
   }
 
-  static makeReservation(username, name, email, id,
-    vendorId, roomId, vendorRoomId, locationId, openTime, reserveTime, duration, occupants, alternates, supplementaryFields) {
+  static makeReservation(userInfo, vendorId, roomId, vendorRoomId, locationId,
+    openTime, reserveTime, duration, occupants, supplementaryFields) {
     return new Promise((resolve, reject) => {
       axios({
         method: 'post',
         url: `${url}reservations`,
         data: {
-          "username": "sarah",
-          "name": "noelle",
-          "email": "pierce@nyu.edu",
-          "id": "sjddlfjlsdjfs",
-          "vendorId": "AJDFSLDC",
-          "roomId": "BOBST_LL2_29",
-          "vendorRoomId": "LL2_29",
-          "locationId": "BOBST",
-          "openTime": "2007-04-05T12:30-02:00",
-          "reserveTime": "2007-04-05T12:30-02:00",
-          "duration": 1.5,
-          "occupants": 2,
-          "alternates": [
-            "fake12@nyu.edu",
-            "fake23@nyu.edu"
-          ],
-          "supplementaryFields": [
-            {
-              "name": "heard",
-              "description": "Where did you hear about the CoOp?",
-              "required": true,
-              "response": "NYU Newsletter"
-            }
-          ]
+          "username": userInfo.username,
+          "name": userInfo.name,
+          "email": userInfo.email,
+          "id": userInfo.id,
+          "vendorId": vendorId,
+          "roomId": roomId,
+          "vendorRoomId": vendorRoomId,
+          "locationId": locationId,
+          "openTime": openTime,
+          "reserveTime": reserveTime,
+          "duration": duration,
+          "occupants": occupants,
+          "alternates": userInfo.alternates,
+          "supplementaryFields": supplementaryFields
         },
         headers: {
           'accept': 'application/json',
@@ -249,7 +232,6 @@ export default class API {
            data: response.data,
         }
         // return reservation data
-        console.log(response);
         resolve(results.data);
       }).catch((error) => {
         console.log(error);
@@ -272,7 +254,7 @@ export default class API {
         const results = {
            data: response.data,
         }
-        console.log(response);
+        console.log(response.data);
         resolve(results.data);
       }).catch((error) => {
         console.log(error);

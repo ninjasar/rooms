@@ -221,13 +221,13 @@ class SearchPg extends React.Component {
   }
 
 
-/*Display results is creating a list of links that will */
+/*Display results is creating a list of roomcards that will */
   getRCResults() {
     let rArr = [];
     rArr = this.state.srchRes.map((r) => {
       r.times.push({openTime: '2007-04-05T13:30-02:00'}, {openTime: '2007-04-05T07:30-02:00'});
       return (
-        <RoomCard key={r.room.name} bigTitle={true} img={recImg} bldg={r.room.locationId.toLowerCase()}
+        <RoomCard key={r.room.name} id={r.room.id} img={recImg} isRoomRec={true} bldg={r.room.locationId.toLowerCase()}
           roomNumber={r.room.name} capacity={r.room.capacity} startTimes={r.times} duration={r.times[0].duration}>
         </RoomCard>
         )
@@ -265,20 +265,6 @@ class SearchPg extends React.Component {
       });
       return 0;
   }
-
-  // getQsObj(qs, name) {
-  //
-  // }
-
-  //  showQuestions = async () => {
-  //   const proms = this.state.srchRes.map((r) => { API.getLocInfo(r.locationId) });
-  //
-  //
-  //   this.setState({
-  //
-  //   });
-  // }
-
 
   render () {
 

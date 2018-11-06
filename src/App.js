@@ -1,5 +1,8 @@
 import React from 'react';
 import { Navbar } from 'react-bootstrap';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStroopwafel, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import './App.css';
 import './index.css';
@@ -8,6 +11,9 @@ import TopBar from './components/topBar/TopBar.js';
 import HomePg from './containers/HomePg.js';
 import Routes from './Routes';
 import LoginForm from './containers/LoginForm.js';
+
+library.add(faStroopwafel);
+library.add(faTimes);
 
 class App extends React.Component {
   constructor(props) {
@@ -81,15 +87,14 @@ class App extends React.Component {
         uName={this.state.currentUser}
         login={loginFn}
         location={this.state.location}
+        history={this.props.history}
       />
     );
 
     const logFrm = () => <LoginForm loginClicked={loginFn} />;
-    // console.log(this.state.loggedIn);
 
     return (
       <div className="everyContain">
-
           <Navbar className="topBar">
             <div className="flexy">
               <TopBar

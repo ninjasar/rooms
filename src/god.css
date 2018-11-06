@@ -2,6 +2,10 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+input {
+  border: 1.5px solid #ccc;
+  border-radius: 4px;
+}
 .bckgd {
 
 }
@@ -15,7 +19,7 @@
 }
 
 .prettyPeach {
-  background-color: #fde7ce;
+  border: 1px solid #fde7ce;
 }
 
 .purple {
