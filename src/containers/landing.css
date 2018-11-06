@@ -83,3 +83,14 @@
   flex-direction: column;
   justify-content: flex-start;
 }
+
+@media(max-width: 1200px) {
+  .joinTxt {
+    color: #9a57d9;
+    margin-left: 0px;
+    padding-top: 50px;
+  }
+  .description {
+    margin-top : 30px;
+  }
+}

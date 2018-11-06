@@ -2,7 +2,8 @@ import React from 'react';
 import dateFormat from 'dateformat';
 import { Redirect, BrowserRouter } from "react-router-dom";
 import moment from 'moment';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Media from 'react-media';
 
 import Card from './Card.js';
 import API from '../../utils';
@@ -250,48 +251,96 @@ class RoomCard extends Card {
       );
     }
     else return (
-      <div className='rrBorder ' key={this.state.key}>
-        <div className="roomRec3"  img={this.props.img}>
+      <Media query="(max-width: 1200px)">
+          {matches =>
+            matches ? (
+              <div className='medrrBorder ' key={this.state.key}>
+                <div className="medRoomRec3"  img={this.props.img}>
 
-            <div className="topCard">
-              <div className="recImgDv">
-                {this.props.img && <img src={this.props.img} className="recImg" alt="a room"/>}
-              </div>
-              <div className="roomInfo">
-                <div className="roomTitle purple">
-                  {this.jsUcfirst() + ' ' + this.props.roomNumber}
+                    <div className="medTopSide">
+                      <div className="medRecImgDv">
+                        {this.props.img && <img src={this.props.img} className="medRecImg" alt="a room"/>}
+                      </div>
+                      <div className="medRoomInfo">
+                        <div className="medRoomTitle purple">
+                          {this.jsUcfirst() + ' ' + this.props.roomNumber}
+                        </div>
+                        <span className="attribute">Location</span> : {this.jsUcfirst()}
+                        <br/>
+
+                        <span className="attribute">Capacity</span> : {this.props.capacity} person(s)
+                        <br/>
+
+                        <span className="attribute">Date</span> :  {dateFormat(this.props.startTime, "shortDate")}
+                        &nbsp;&nbsp;{this.props.duration ?  moment(this.props.startTime).format("HH:mm")+'-'+moment(this.props.startTime).add(this.props.duration, 'h').format("HH:mm"): ' '}
+                        <br/>
+                      </div>
+
+                    </div>
+                    <div className='medBottomCard'>
+
+                      <div className='medMap'>
+                        <a href={mapsUrl+this.props.address} className="medMapLink">
+                        <button className='medMapTxt purple'>go to map</button>
+                        <img src={Map} className='medMapImg'/></a>
+                      </div>
+                      <button className="cancel" disabled>
+                      <FontAwesomeIcon icon="times" className='ex' />&nbsp;&nbsp;
+                          Cancel
+                      </button>
+                    </div>
+                  </div>
+                  {this.props.children}
+                  <br/>
+                  <div className='line2'></div>
                 </div>
-                <span className="attribute">Location</span> : {this.jsUcfirst()}
-                <br/>
 
-                <span className="attribute">Capacity</span> : {this.props.capacity} person(s)
-                <br/>
+            ) : (
+              <div className='rrBorder ' key={this.state.key}>
+                <div className="roomRec3"  img={this.props.img}>
 
-                <span className="attribute">Date</span> :  {dateFormat(this.props.startTime, "shortDate")}
-                &nbsp;&nbsp;{this.props.duration ?  moment(this.props.startTime).format("HH:mm")+'-'+moment(this.props.startTime).add(this.props.duration, 'h').format("HH:mm"): ' '}
-                <br/>
-              </div>
+                    <div className="topCard">
+                      <div className="recImgDv">
+                        {this.props.img && <img src={this.props.img} className="recImg" alt="a room"/>}
+                      </div>
+                      <div className="roomInfo">
+                        <div className="roomTitle purple">
+                          {this.jsUcfirst() + ' ' + this.props.roomNumber}
+                        </div>
+                        <span className="attribute">Location</span> : {this.jsUcfirst()}
+                        <br/>
 
-            </div>
-            <div className='rightSide'>
+                        <span className="attribute">Capacity</span> : {this.props.capacity} person(s)
+                        <br/>
 
-              <div className='map'>
-                <a href={mapsUrl+this.props.address}>
-                <button>go to map</button>
-                <img src={Map} className='mapImg'/></a>
-              </div>
-              <button className="cancel" disabled>
-              <FontAwesomeIcon icon="times" className='ex' />&nbsp;&nbsp;
-                  Cancel
-              </button>
-            </div>
-          </div>
-          {this.props.children}
-          <br/>
-          <div className='line2'></div>
-        </div>
-    );
-  }
+                        <span className="attribute">Date</span> :  {dateFormat(this.props.startTime, "shortDate")}
+                        &nbsp;&nbsp;{this.props.duration ?  moment(this.props.startTime).format("HH:mm")+'-'+moment(this.props.startTime).add(this.props.duration, 'h').format("HH:mm"): ' '}
+                        <br/>
+                      </div>
+
+                    </div>
+                    <div className='rightSide'>
+
+                      <div className='map'>
+                        <a href={mapsUrl+this.props.address}>
+                        <button>go to map</button>
+                        <img src={Map} className='mapImg'/></a>
+                      </div>
+                      <button className="cancel" disabled>
+                      <FontAwesomeIcon icon="times" className='ex' />&nbsp;&nbsp;
+                          Cancel
+                      </button>
+                    </div>
+                  </div>
+                  {this.props.children}
+                  <br/>
+                  <div className='line2'></div>
+                </div>
+              )
+            }
+            </Media>
+          );
+        }
 }
 
 

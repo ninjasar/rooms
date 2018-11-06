@@ -142,6 +142,66 @@
 
 }
 
+.medrrBorder{
+
+}
+.medRoomRec3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.medTopSide{
+  align-self: center;
+}
+.medRecImgDv {
+  text-align: center;
+  padding: 10px;
+}
+.medRecImg {
+  max-width: 200px;
+}
+.medRoomInfo {
+  padding: 10px;
+}
+.medRoomTitle {
+  font-size: 16px;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+.medBottomCard {
+  display: flex;
+  flex-direction: column;
+}
+.medMap {
+  width: 100%;
+}
+.medMapImg {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 2px solid #afa8ef;
+}
+.medMapLink {
+  position: relative;
+  text-align: center;
+}
+.medMapTxt {
+  position: absolute;
+  left: 30%;
+  background-color: transparent;
+  font-weight: bold;
+  top: 0 auto;
+  bottom: 0px;
+  font-size: 19px;
+  font-variant: small-caps;
+}
+
+
 @media (max-width: 1200px) {
   .rrBorder {
     margin: auto;
