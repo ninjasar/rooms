@@ -1,6 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import dateFormat from 'dateformat';
+import moment from 'moment';
 
 
 import API from '../utils.js';
@@ -35,7 +36,7 @@ class currentReservePg extends React.Component {
 
 
 
-  sortReservations() {
+  showReservations() {
     this.state.reservations.forEach((room) => {
       let i = this.state.locs.idArray.indexOf(room.locationId);
           this.addresses = {...this.addresses, [room.locationId]: this.state.locs.data[i].address,};
@@ -51,18 +52,31 @@ class currentReservePg extends React.Component {
     //console.log(this.roomCards);
   }
 
+   showCurrent() {
+     console.log(this.state.reservations);
+     // this.state.reservations.forEach((room) => {
+     //   if(0){
+     //     return 7;
+     //   }
+     // });
+   }
+
+   showPast() {
+
+   }
+
 
 
 
   render () {
-    this.sortReservations();
+    this.showReservations();
     return (
       <div className='biggerContain'>
         <div className='btnContain'>
-          <button className='sortRes sRActive'>
+          <button onClick={this.showCurrent} className='sortRes sRActive'>
           Current Reservations
           </button>
-          <button className='sortRes '>
+          <button onClick={this.showPast} className='sortRes '>
           Past Reservations
           </button>
         </div>

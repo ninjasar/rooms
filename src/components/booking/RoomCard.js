@@ -208,46 +208,94 @@ class RoomCard extends Card {
     this.getTimeBtns();
     if(this.props.isRoomRec) {
       return (
-        <div className='rrBorder borderHack' key={this.state.key}>
-          <div className="roomRec2"  img={this.props.img}>
-              <div className="topCard">
-                <div className="recImgDv">
-                  {this.props.img && <img src={this.props.img} className="recImg" alt="a room"/>}
-                </div>
-                <div className="roomInfo">
-                  <div className="roomTitle purple">
-                    {this.jsUcfirst() + ' ' + this.props.roomNumber}
-                  </div>
-                  <span className="attribute">Location</span> : {this.jsUcfirst()}
-                  <br/>
-                  <span className="attribute">Capacity</span> : {this.props.capacity} person(s)
-                  <br/>
-                  <span className="attribute">Date</span> : {this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, "shortDate") : dateFormat(this.props.startTime, "shortDate")}
-                  <br/>
-                  <span className="attribute">Duration</span> : {this.props.duration ? this.props.duration : ' '} hour(s)
-                </div>
-              </div>
-              <div className="time">
-                select your time
-                <div className="tBtnContain">
-                  {this.btnArr}
-                  </div>
-              </div>
-            {this.props.children}
-            </div>
-            <div className='line2'></div>
-            <form onSubmit={this.reserve}>
-              {(this.state.locationData.length !== 0) ? (
-                <div>
-                  {this.getRsrveFm(this.state.locationData.supplementaryFields)}
-                  <button type="submit" className='qSubmit pink' value='submit'>Submit</button>
-                  {this.rd}
-                </div>
+        <Media query="(max-width: 1200px)">
+        {matches =>
+          matches ? (
 
-              ) : <div></div>}
-            </form>
-            {this.reservationSuccessful}
-          </div>
+          <div className='rrBorder borderHack' key={this.state.key}>
+            <div className="medRoomRec3"  img={this.props.img}>
+                <div className="medTopSide1">
+                  <div className="medRecImgDv1">
+                    {this.props.img && <img src={this.props.img} className="medRecImg" alt="a room"/>}
+                  </div>
+                  <div className="roomInfo">
+                    <div className="roomTitle purple">
+                      {this.jsUcfirst() + ' ' + this.props.roomNumber}
+                    </div>
+                    <span className="attribute">Location</span> : {this.jsUcfirst()}
+                    <br/>
+                    <span className="attribute">Capacity</span> : {this.props.capacity} person(s)
+                    <br/>
+                    <span className="attribute">Date</span> : {this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, "shortDate") : dateFormat(this.props.startTime, "shortDate")}
+                    <br/>
+                    <span className="attribute">Duration</span> : {this.props.duration ? this.props.duration : ' '} hour(s)
+                  </div>
+                </div>
+                <div className="time medTime">
+                  select your time
+                  <div className="tBtnContain">
+                    {this.btnArr}
+                    </div>
+                </div>
+              {this.props.children}
+              </div>
+              <div className='line2'></div>
+              <form onSubmit={this.reserve}>
+                {(this.state.locationData.length !== 0) ? (
+                  <div>
+                    {this.getRsrveFm(this.state.locationData.supplementaryFields)}
+                    <button type="submit" className='qSubmit pink' value='submit'>Submit</button>
+                    {this.rd}
+                  </div>
+
+                ) : <div></div>}
+              </form>
+              {this.reservationSuccessful}
+            </div>
+        ): (
+          <div className='rrBorder borderHack' key={this.state.key}>
+            <div className="roomRec2"  img={this.props.img}>
+                <div className="topCard">
+                  <div className="recImgDv">
+                    {this.props.img && <img src={this.props.img} className="recImg" alt="a room"/>}
+                  </div>
+                  <div className="roomInfo">
+                    <div className="roomTitle purple">
+                      {this.jsUcfirst() + ' ' + this.props.roomNumber}
+                    </div>
+                    <span className="attribute">Location</span> : {this.jsUcfirst()}
+                    <br/>
+                    <span className="attribute">Capacity</span> : {this.props.capacity} person(s)
+                    <br/>
+                    <span className="attribute">Date</span> : {this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, "shortDate") : dateFormat(this.props.startTime, "shortDate")}
+                    <br/>
+                    <span className="attribute">Duration</span> : {this.props.duration ? this.props.duration : ' '} hour(s)
+                  </div>
+                </div>
+                <div className="time">
+                  select your time
+                  <div className="tBtnContain">
+                    {this.btnArr}
+                    </div>
+                </div>
+              {this.props.children}
+              </div>
+              <div className='line2'></div>
+              <form onSubmit={this.reserve}>
+                {(this.state.locationData.length !== 0) ? (
+                  <div>
+                    {this.getRsrveFm(this.state.locationData.supplementaryFields)}
+                    <button type="submit" className='qSubmit pink' value='submit'>Submit</button>
+                    {this.rd}
+                  </div>
+
+                ) : <div></div>}
+              </form>
+              {this.reservationSuccessful}
+            </div>
+          )
+        }
+        </Media>
       );
     }
     else return (
@@ -321,9 +369,9 @@ class RoomCard extends Card {
                     </div>
                     <div className='rightSide'>
 
-                      <div className='map'>
+                      <div className='map '>
                         <a href={mapsUrl+this.props.address}>
-                        <button>go to map</button>
+                        <button className='mapTxt purple'>go to map</button>
                         <img src={Map} className='mapImg'/></a>
                       </div>
                       <button className="cancel" disabled>
