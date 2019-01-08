@@ -5,7 +5,7 @@ const url = 'https://virtserver.swaggerhub.com/nyustit/rooms-api/10.0/';
 const token = 'x';
 const Authorization = `Bearer ${token}`;
 
-
+const TEST = process.env.stage == 'dev' || process.env.stage == 'test';
 
 
 /** api class */
@@ -142,7 +142,35 @@ export default class API {
         }
       }).then((response) => {
         //parseJWT
-
+        //if(TEST) {
+          response.data.push({
+            "room": {
+              "id": "Kimmel42069",
+              "vendorId": 123,
+              "name": "420-69",
+              "locationId": "KIMMEL",
+              "amenities": [
+                {
+                  "name": "Coffee",
+                  "id": 12
+                }
+              ],
+              "capacity": 5
+            },
+            "times": [
+              {
+                "openTime": "2007-04-05T12:30-02:00",
+                "duration": 1,
+                "closeTime": "2007-04-05T13:30-02:00"
+              },
+              {
+                "openTime": "2007-04-05T09:30-02:00",
+                "duration": 1,
+                "closeTime": "2007-04-05T10:30-02:00"
+              },
+            ]
+          });
+        //}
 
         resolve(response.data);
       }).catch((error) => {
@@ -169,7 +197,21 @@ export default class API {
         //   //console.log(response.data[a].id)
         // }
         const results = {
-          data: response.data,
+          data: [...response.data, {
+            "name": "Kimmel Student Center",
+            "id": 'KIMMEL',
+            "message": "This location is under construction. Room reservations at this location is only accessible for entrepreneurial activities.",
+            "defaultAmenities": [
+              {
+                "name": "Coffee",
+                "id": 12
+              }
+            ],
+            "address": "70 Washington Square S, New York, NY 10012",
+            "campus": "wsq",
+            "latitude": 40.729619,
+            "longitude": -73.997025
+          }],
           idArray: idArray,
         }
         resolve(results);

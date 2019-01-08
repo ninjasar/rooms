@@ -31,12 +31,14 @@ class SearchPg extends React.Component {
       startTime: moment().toDate(),
       endTime: moment().add(1, 'day').hour(0).toDate(),
       eMessage: '',
+      locations: [],
       srchRes: {},
       bobst: false,
       questions: [],
       key: ';myname',
     };
     this.applySearch = this.applySearch.bind(this);
+    this.bldgClicked = '';
     this.wsq = [];
     this.bkln = [];
     this.srchCmp = [];
@@ -47,63 +49,35 @@ class SearchPg extends React.Component {
   //makes api calls for default results and passes loc array on to sort by bldg fn
    defaultRes = async () => {
 
-      let locs = [];
+      let locs = {};
       let srchRes = [];
-      const extraRes = {
-        "room": {
-          "id": "Kimmel42069",
-          "vendorId": 123,
-          "name": "420-69",
-          "locationId": "KIMMEL",
-          "amenities": [
-            {
-              "name": "Coffee",
-              "id": 12
-            }
-          ],
-          "capacity": 5
-        },
-        "times": [
-          {
-            "openTime": "2007-04-05T12:30-02:00",
-            "duration": 1,
-            "closeTime": "2007-04-05T12:30-02:00"
-          },
-          {
-            "openTime": "2007-04-05T9:30-02:00",
-            "duration": 1,
-            "closeTime": "2007-04-05T12:30-02:00"
-          },
-        ]
-      };
 
-        try {
-          locs = await API.getLocs();
-          srchRes = await API.search(this.state.startTime, this.state.endTime);
-          locs.data.push({
-            "name": "Kimmel Student Center",
-            "id": "KIMMEL",
-            "message": "This location is under construction. Room reservations at this location is only accessible for entrepreneurial activities.",
-            "defaultAmenities": [
-              {
-                "name": "Coffee",
-                "id": 12
-              }
-            ],
-            "address": "70 Washington Square S, New York, NY 10012",
-            "campus": "wsq",
-            "latitude": 40.729619,
-            "longitude": -73.997025
-          });
-          srchRes.push(extraRes);
-        this.setState({ locs, srchRes });
-      } catch(eMessage) {
+      if(this.state.locations.length !== 0) {
+        try{
+          for(var a =0; a<this.state.locations.length; a++){
+            locs.data = [];
+            var curr = await API.getLocInfo(this.state.locations[a]);
+            locs.data.push(curr);
+          }
 
-        this.setState({ eMessage });
+          locs.idArray = this.state.locations;
+        } catch(eMessage) {
+          this.setState({ eMessage });
+        }
 
       }
+      else {
+        try {
+          locs = await API.getLocs();
+          console.log('start: ' + this.state.startTime + ' end: ' + this.state.endTime)
+          srchRes = await API.search(this.state.startTime, this.state.endTime);
+          this.setState({ locs, srchRes });
+        } catch(eMessage) {
 
-    console.log(this.state.locs);
+          this.setState({ eMessage });
+
+        }
+      }
 
       //calls this function to get the vacancies per building data
       let res = this.getNumVacByBldg(srchRes, locs.idArray);
@@ -112,26 +86,28 @@ class SearchPg extends React.Component {
   }
 
   getNumVacByBldg = (srchRes, locs) => {
+    //console.log(this.state.srchRes)
     const counts = {};
     locs.forEach((l) =>{
       counts[l] = 0;
     });
+    console.log(counts);
     srchRes.forEach((res) => {
       const loc = res.room.locationId;
       if (!isNaN(counts[loc])) {
         counts[loc] += res.times.length;
       }
     });
-
+    console.log(counts);
     return counts;
   }
 
   async componentDidMount() {
     let roomCt = await this.defaultRes();
-    console.log(this.state.locs);
+
 
     this.instantRes = this.getJSXResultsByBldg(roomCt);
-    console.log(this.instantRes);
+    //console.log(this.instantRes);
     this.setState({
       key: 'jfkd'
     });
@@ -179,7 +155,7 @@ class SearchPg extends React.Component {
                 <span className={(vArray[1] === 0) ? "vNumNone" : "vNum"}>
                   {vArray[1]}
                 </span>
-                 &nbsp;&nbsp;room(s)
+                 &nbsp;&nbsp;vacancies
               </div>
             </div>
           </div>
@@ -194,7 +170,7 @@ class SearchPg extends React.Component {
               <span className={(localBobstVal === 0) ? "vNumNone" : "vNum"}>
                 {localBobstVal}
               </span>
-               &nbsp;&nbsp;room(s)
+               &nbsp;&nbsp;vacancies
             </div>
           </div>
         </div>
@@ -209,28 +185,31 @@ class SearchPg extends React.Component {
   bldgViewToRes = async (bldgId) => {
     const {startTime, endTime, duration, amenities, occupants} = this.state;
     let apiRes = await API.search(startTime, endTime, duration, bldgId, amenities, occupants);
+    console.log(bldgId);
     this.setState({
-      srchRes: apiRes
+      srchRes: apiRes,
+      locations: bldgId
     });
-    let res = this.getRCResults();
+    let res = this.getRCResults(bldgId);
     this.srchCmp = res;
     this.setState({
-      key: 'seriouslyfuckyou'
+      key: 'seriouy kls'
     });
     return res;
   }
 
 
 /*Display results is creating a list of roomcards that will */
-  getRCResults() {
+  getRCResults(bldg) {
     let rArr = [];
     rArr = this.state.srchRes.map((r) => {
-      r.times.push({openTime: '2007-04-05T13:30-02:00'}, {openTime: '2007-04-05T07:30-02:00'});
-      return (
-        <RoomCard key={r.room.name} id={r.room.id} img={recImg} isRoomRec={true} bldg={r.room.locationId.toLowerCase()}
-          roomNumber={r.room.name} capacity={r.room.capacity} startTimes={r.times} duration={r.times[0].duration}>
-        </RoomCard>
-        )
+      if(r.room.locationId == bldg) {
+        return (
+          <RoomCard key={r.room.name} id={r.room.id} img={recImg} isRoomRec={true} bldg={r.room.locationId.toLowerCase()}
+            roomNumber={r.room.name} capacity={r.room.capacity} startTimes={r.times} duration={r.times[0].duration}>
+          </RoomCard>
+          )
+        }
       }
     );
     this.srchCmp = rArr;
@@ -244,6 +223,7 @@ class SearchPg extends React.Component {
       duration,
       occupants,
       amenities,
+      locations,
       startTime: openTime,
       endTime: closeTime
     });
@@ -251,11 +231,10 @@ class SearchPg extends React.Component {
       .then((results) => {
           this.setState({
             srchRes: results,
+            locations: locations,
           });
         this.srchCmp = [];
-        console.log(this.state.locs);
         roomsForlocsSelected = this.getNumVacByBldg(this.state.srchRes, this.state.locs.idArray);
-        console.log(roomsForlocsSelected);
         this.instantRes = this.getJSXResultsByBldg(roomsForlocsSelected);
       }).catch((error) => {
         this.setState({
@@ -263,6 +242,7 @@ class SearchPg extends React.Component {
         });
         console.log(error);
       });
+
       return 0;
   }
 
@@ -273,7 +253,7 @@ class SearchPg extends React.Component {
 
       <div className='container' key={this.state.key}>
         <div className="leftContain">
-          <Filter homePg={true} apply={() => {this.applySearch()} } search={true}/>
+          <Filter duration={this.state.duration} homePg={true} apply={this.applySearch} search={true}/>
         </div>
             <div className="roomRecContain">
               <Card>

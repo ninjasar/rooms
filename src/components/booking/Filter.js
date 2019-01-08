@@ -21,7 +21,7 @@ class Filter extends Card {
     super(props);
 
     const d = new Date();
-
+    this.duration = 2;
       this.state = {
         duration: 2,
         locations: [],
@@ -30,9 +30,9 @@ class Filter extends Card {
         date: d,
         oldOT: moment().startOf('hour'),
         openTime: moment().startOf('hour'),
-        closeTime: moment().startOf('hour').add(this.state.duration, 'hour'),
+        closeTime: moment().startOf('hour').add(this.props.duration, 'hour'),
         startHour: moment().startOf('hour').hour(),
-        endHour:  moment().startOf('hour').add(this.state.duration, 'hour').hour(),
+        endHour:  moment().startOf('hour').add(this.props.duration, 'hour').hour(),
         isSearch: this.props.search || false,
         wrapper: 'w',
         amensCoffee: false,
@@ -44,6 +44,7 @@ class Filter extends Card {
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
       this.apply = this.props.apply;
+
       this.reserve = this.props.reserve;
       this.wrapper = 'lkjfklsklfdslk';
 
@@ -155,9 +156,11 @@ class Filter extends Card {
     if(this.state.amensProjector)
       amens.push('projector');
     if(!this.props.search) {
+      console.log("JUST CHECKING IF SEARCH PROP IS NOT SET")
       this.apply(event, this.state.duration, this.state.occupants);
     } else {
-      this.apply( this.state.openTime.toDate(), this.state.closeTime.toDate(), this.state.duration, this.state.locationIds, amens, this.state.occupants)
+      console.log("CALLING APPLY!!!!!!!!!!")
+      this.apply( this.state.openTime.toISOString(), this.state.closeTime.toISOString(), this.state.duration, this.state.locationIds, amens, this.state.occupants)
     }
 
   }
@@ -225,7 +228,7 @@ class Filter extends Card {
     });
     if(wsq.length !== 0) {
       wsqLocs = wsq.map((loc) => (
-        <div key="divv" className='checkB'>
+        <div key="div" className='checkB'>
           &nbsp; &nbsp;
           <input className="check" type='checkbox' value={loc.id}
             name={loc.id} checked={this.state.locationIds[loc]}
@@ -300,7 +303,6 @@ class Filter extends Card {
                   <br/>
                   <br/>
                   <Accordion title="Manhattan" style={{fontSize: '10px'}}>
-
                     {manhattan}
                   </Accordion>
                   <br/>

@@ -181,6 +181,7 @@ class RoomCard extends Card {
   }
 
   getTimeBtns() {
+
     if(this.props.startTimes){
       this.btnArr = this.props.startTimes.map((time)=> {
         return (
@@ -195,7 +196,7 @@ class RoomCard extends Card {
     }
     else if (this.props.startTime) {
       this.btnArr[0] = <TimeBtn btnSelected={this.state.selectedBtns[this.props.startTime]}
-              key={this.props.openTime + 'xxx'}
+              key={this.props.openTime + 'xx'}
               loc={this.props.bldg}
               startTime={this.props.startTime}
               onClick={() => {this.handleTimeBClick(this.props.bldg, this.props.startTime)}}>
@@ -320,7 +321,10 @@ class RoomCard extends Card {
                         <br/>
 
                         <span className="attribute">Date</span> :  {dateFormat(this.props.startTime, "shortDate")}
-                        &nbsp;&nbsp;{this.props.duration ?  moment(this.props.startTime).format("HH:mm")+'-'+moment(this.props.startTime).add(this.props.duration, 'h').format("HH:mm"): ' '}
+                        <br/>
+
+                        <span className="attribute">Time</span> :
+                        {this.props.duration ?  moment(this.props.startTime).format("HH:mm")+'-'+moment(this.props.startTime).add(this.props.duration, 'h').format("HH:mm"): ' '}
                         <br/>
                       </div>
 
@@ -328,11 +332,12 @@ class RoomCard extends Card {
                     <div className='medBottomCard'>
 
                       <div className='medMap'>
-                        <a href={mapsUrl+this.props.address} className="medMapLink">
+                        <a href={mapsUrl+this.props.address} className="medMapLink" target='_blank'>
                         <button className='medMapTxt purple'>go to map</button>
                         <img src={Map} className='medMapImg'/></a>
                       </div>
-                      <button className="cancel" disabled>
+                      <button className="cancel" >
+                      <p className="cancelTxt">Cancel feature coming soon!</p>
                       <FontAwesomeIcon icon="times" className='ex' />&nbsp;&nbsp;
                           Cancel
                       </button>
@@ -362,7 +367,10 @@ class RoomCard extends Card {
                         <br/>
 
                         <span className="attribute">Date</span> :  {dateFormat(this.props.startTime, "shortDate")}
-                        &nbsp;&nbsp;{this.props.duration ?  moment(this.props.startTime).format("HH:mm")+'-'+moment(this.props.startTime).add(this.props.duration, 'h').format("HH:mm"): ' '}
+                        <br/>
+
+                        <span className="attribute">Time</span> :
+                        {this.props.duration ?  moment(this.props.startTime).format("HH:mm")+'-'+moment(this.props.startTime).add(this.props.duration, 'h').format("HH:mm"): ' '}
                         <br/>
                       </div>
 
@@ -370,11 +378,12 @@ class RoomCard extends Card {
                     <div className='rightSide'>
 
                       <div className='map '>
-                        <a href={mapsUrl+this.props.address}>
+                        <a href={mapsUrl+this.props.address} target='_blank'>
                         <button className='mapTxt purple'>go to map</button>
                         <img src={Map} className='mapImg'/></a>
                       </div>
-                      <button className="cancel" disabled>
+                      <button className="cancel" >
+                      <p className="cancelTxt">Cancel feature coming soon!</p>
                       <FontAwesomeIcon icon="times" className='ex' />&nbsp;&nbsp;
                           Cancel
                       </button>

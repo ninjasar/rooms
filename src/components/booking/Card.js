@@ -13,13 +13,6 @@ class Card extends React.Component {
     this.bigTitle = false;
     this.isRoomRec = false;
     this.srchBtn = false;
-    this.base = React.createRef();
-    this.state = {
-      duration: 2,
-      location: '',
-      occupants: 1,
-      startTime: '',
-    };
   }
 
   render() {
@@ -38,11 +31,11 @@ class Card extends React.Component {
     }
 
     return (
-      <div ref={this.base} className={'base ' + (this.lastItem && ' lastItem ' ) + ' ' + (this.isRoomRec && ' roomRec' )+ ' ' + (this.props.className)} onClick={this.props.onClick}>
+      <div className={'base ' + (this.lastItem && ' lastItem ' ) + ' ' + (this.isRoomRec && ' roomRec' )+ ' ' + (this.props.className)} onClick={this.props.onClick}>
         <div>
           {/* {this.props.img && <img src={this.props.img} className="recImg"/>} */}
         </div>
-        
+
 
 
         <div style={{ marginLeft: '0px'}} className='child '>
