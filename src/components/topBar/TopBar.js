@@ -9,9 +9,11 @@ import down from './down.svg';
 import up from './upIcon.svg';
 import Logo from './Logo.js';
 import BackButton from './BackButton.js';
+import Dropdown from './Dropdown.js';
 
 
 const AppName = (props) => {
+
   return (
     <Media query="(min-width: 1200px)" >
       {matches =>
@@ -39,7 +41,7 @@ const AppName = (props) => {
                 </Link>
               </div>
               <div className="userContain normalCol">
-                <div className="oval gradient"></div>
+                <Dropdown></Dropdown>
                   <div className="usersName">
                     {props.uName ? 'Welcome, ' + props.uName : ''}
                   </div>
