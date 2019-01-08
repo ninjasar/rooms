@@ -50,6 +50,11 @@ input {
 .gradient {
   /* background: linear-gradient(to right, #681996 0%, #e255c1 40%, #f575ad 60%, #ffc99b 100%); */
   background: linear-gradient(79deg, #561389, #fb5dbc);
+
+}
+
+.tGradient {
+  background: linear-gradient(79deg, #561389, #fb5dbc);
 }
 
 .pink {

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './topBar.css';
-import logo from './logo.svg';
+import logo from './logoNew.svg';
 
 
 

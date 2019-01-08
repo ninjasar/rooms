@@ -286,15 +286,8 @@ class Filter extends Card {
 
       return (
         <div className={this.state.isSearch ? "filterdv srchFilterDv normalCol" : "filterdv normalCol"} key={this.state.wrapper}>
-          <Card bigTitle={true} clear={true} clrFilter={this.resetFilter.bind(this)} style={{}} isFltr={true}>
-              <div>
-                <span className="bigTitle">Filter</span>
-                  <span className="clear">
-                  <button onClick={this.resetFilter.bind(this)}>
-                    Clear
-                  </button>
-                </span>
-              </div>
+          <Card bigTitle={'Filter'} clear={true} clrFilter={this.resetFilter.bind(this)} style={{}} isFltr={true}>
+
             <form onSubmit={this.handleSubmit}>
               <div className="line"></div>
               {this.props.search && (

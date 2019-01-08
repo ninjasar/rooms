@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './card.css';
+import '../../god.css';
 
 class Card extends React.Component {
 
@@ -32,6 +33,14 @@ class Card extends React.Component {
 
     return (
       <div className={'base ' + (this.lastItem && ' lastItem ' ) + ' ' + (this.isRoomRec && ' roomRec' )+ ' ' + (this.props.className)} onClick={this.props.onClick}>
+        <div className={this.props.bigTitle ? 'title2 tGradient' : ' '}>{this.props.bigTitle}
+        {this.props.clear ? (
+          <span className="clear">
+            <button onClick={this.props.clrFilter}>
+              Clear
+            </button>
+          </span>) : ''
+      }</div>
         <div>
           {/* {this.props.img && <img src={this.props.img} className="recImg"/>} */}
         </div>
