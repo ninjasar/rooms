@@ -438,7 +438,7 @@ class Filter extends Card {
             )}
               <br/>
               <div className="applyDv">
-                <button type="submit" className="apply gradient">Apply</button>
+                <button type="submit" className="apply purple">Apply</button>
               </div>
 
               <br/>

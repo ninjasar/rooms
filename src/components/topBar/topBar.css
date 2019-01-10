@@ -87,13 +87,19 @@ button:focus {
 
 .reserve:focus, .active:focus {
   color: #8c32a1 !important;
+
 }
+
+.active:focus, .active:hover{
+  border-bottom: 3px solid #8c32a1 !important;
+}
+
 
 .active {
   align-self: baseline;
   font-size: .9rem;
   font-weight: bold;
-  border-bottom: 3px solid #8c32a1 !important;
+  border-bottom: 3px solid #604c8d !important;
   margin-top: 2rem;
   padding: .3rem;
   padding-bottom: 1.8rem;

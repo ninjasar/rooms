@@ -28,24 +28,20 @@ class Dropdown extends React.Component {
 
   close(event) {
 
-    if (!event.target.matches('.dropbtn')) {
+    if (!event.target.matches('.dropbtn') && !event.target.matches('.oval')) {
       this.setState({
         hidden: true
       });
     }
   }
 
-  componentDidMount() {
-    if(this.state.hidden == false){
-      window.addEventListener('click', this.close);
-    }
-
-  }
 
 
 
   render() {
-
+    if(this.state.hidden == false){
+      window.addEventListener('click', this.close);
+    }
 
     return (
       <div className="oval gradient" onClick={this.toggle}>

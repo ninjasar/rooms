@@ -17,6 +17,10 @@
   justify-self: flex-end;
 }
 
+.oval:focus .dropdown {
+  visibility: visible;
+}
+
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
   visibility: visible;
@@ -25,7 +29,8 @@
   font-size: 12px;
   position: absolute;
   top: 50px;
-  -webkit-transition: 2s;
+
+  transition: display 3000;
   float: right;
 
 }
@@ -45,6 +50,7 @@
   text-align: left;
   right: 0;
   margin-right: -10px;
+  transition: visibility 2s;
 }
 
 /* Links inside the dropdown */

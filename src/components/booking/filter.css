@@ -129,12 +129,14 @@ button.apply {
   align-self: center;
   align-items: center;
   margin-bottom: -20px;
+
 }
 
 .apply {
-  color: 	white;
   align-self: center;
   align-items: center;
+  font-weight: bold;
+  border: 1px solid #beb3e8 !important;
   font-size: 13px;
   border-radius: 3px;
   padding: 10px;

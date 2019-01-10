@@ -206,7 +206,7 @@ class SearchPg extends React.Component {
       if(r.room.locationId == bldg) {
         return (
           <RoomCard key={r.room.name} id={r.room.id} img={recImg} isRoomRec={true} bldg={r.room.locationId.toLowerCase()}
-            roomNumber={r.room.name} capacity={r.room.capacity} startTimes={r.times} duration={r.times[0].duration}>
+            roomNumber={r.room.name} capacity={r.room.capacity} startTimes={r.times} amenity={''} duration={r.times[0].duration}>
           </RoomCard>
           )
         }
@@ -252,14 +252,12 @@ class SearchPg extends React.Component {
     return (
 
       <div className='container' key={this.state.key}>
-        <div className="leftContain">
+        <div className="leftContain2">
           <Filter duration={this.state.duration} homePg={true} apply={this.applySearch} search={true}/>
         </div>
-            <div className="roomRecContain">
-              <Card>
-                <span className="recTitle purple">Results:</span>
-                <br/>
-                <br/>
+            <div className="roomRecContain2">
+              <Card bigTitle='Results:'>
+              {/*<span className="recTitle purple">Results:</span>*/}
                 {(this.srchCmp.length !== 0) ? (this.srchCmp) : this.instantRes}
               </Card>
             </div>

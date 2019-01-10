@@ -10,6 +10,7 @@ import API from '../../utils';
 import TimeBtn from './TimeBtn';
 import '../../god.css';
 import './roomCard.css';
+import Coffee from './coffee.svg';
 import CurrentReservePg from '../../containers/CurrentReservePg';
 import Map from './map.png';
 
@@ -230,6 +231,7 @@ class RoomCard extends Card {
                     <span className="attribute">Date</span> : {this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, "shortDate") : dateFormat(this.props.startTime, "shortDate")}
                     <br/>
                     <span className="attribute">Duration</span> : {this.props.duration ? this.props.duration : ' '} hour(s)
+                    <span className="attribute">{this.props.amenities}<img src={Coffee}/> </span>
                   </div>
                 </div>
                 <div className="time medTime">
@@ -271,6 +273,7 @@ class RoomCard extends Card {
                     <span className="attribute">Date</span> : {this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, "shortDate") : dateFormat(this.props.startTime, "shortDate")}
                     <br/>
                     <span className="attribute">Duration</span> : {this.props.duration ? this.props.duration : ' '} hour(s)
+                    <span className="attribute">{this.props.amenities}<img src={Coffee}/> </span>
                   </div>
                 </div>
                 <div className="time">

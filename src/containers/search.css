@@ -88,11 +88,15 @@ label {
   cursor: pointer;
 }
 
-.roomRecContain {
+.leftContain2 {
+  margin-top: 20px;
+}
+
+.roomRecContain2 {
   margin-top: 20px;
   text-align: left;
   box-sizing: content-box;
-  width: 30rem;
+  width: 50rem;
   font-size: 14px;
   padding-left: 20px;
   margin-left: 0px;

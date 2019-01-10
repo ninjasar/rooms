@@ -113,12 +113,9 @@ class HomePg extends React.Component {
           <Filter homePg={true} apply={this.filterRecs.bind(this)}/>
         </div>
         <div className="roomRecContain">
-          <Card>
+          <Card bigTitle={ <span>&nbsp;&nbsp;&nbsp; Recommended Rooms</span>}>
             <br/>
-            &nbsp;&nbsp;&nbsp;<span className="recTitle purple">Recommended Rooms</span>
-            <br/>
-            <br/>
-            <br/>
+             {/*&nbsp;&nbsp;&nbsp;<span className="recTitle purple">Recommended Rooms</span> */}
             <span className="typeOfR">&nbsp;&nbsp;&nbsp;Individual</span>
             <br/>
             <RoomCard bigTitle={true} img={recImg} bldg={this.state.locationOfRoom1} isRoomRec={true}

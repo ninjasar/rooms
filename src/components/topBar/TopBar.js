@@ -24,7 +24,7 @@ const AppName = (props) => {
             </div>
             <div id="appNameContainer">
               <Logo/>
-              <div className="appName purple">
+              <div className="appName drkBlue">
                 nyu rooms
               </div>
             </div>

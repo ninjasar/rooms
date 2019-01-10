@@ -23,20 +23,25 @@ input {
 }
 
 .purple {
-  color: #8c32a1;
+  color: #604c8d;
 }
 
 .purpleBckgd {
-  background-color: #8c32a1;
+  background-color: #604c8d;
 }
 
 .purpleBrdr {
-  border: solid 1.5px #8c32a1 !important;
+  border: solid 1.5px #604c8d !important;
+}
+
+.drkBlue {
+  color: #182952;
 }
 
 .lightMauve {
   background-color: #c7c1c1;
 }
+
 
 .borderHack {
   border-radius: 5px;
@@ -49,12 +54,12 @@ input {
 
 .gradient {
   /* background: linear-gradient(to right, #681996 0%, #e255c1 40%, #f575ad 60%, #ffc99b 100%); */
-  background: linear-gradient(79deg, #561389, #fb5dbc);
+  background: linear-gradient(79deg, #604c8d, #fb5dbc);
 
 }
 
 .tGradient {
-  background: linear-gradient(79deg, #561389, #fb5dbc);
+  background: linear-gradient(79deg, #604c8d, #fb5dbc);
 }
 
 .pink {
