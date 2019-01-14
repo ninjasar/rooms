@@ -109,7 +109,6 @@
   font-size: 3rem;
   margin: 0 auto;
   width: 100%;
-  background-color: #f4f4f4;
   max-width: 100%;
   text-align: center;
   color: #676767;
@@ -125,7 +124,6 @@
 
 @media(max-width: 1200px) {
   .joinTxt {
-    color: #9a57d9;
     margin-left: 0px;
     padding-top: 50px;
   }

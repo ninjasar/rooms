@@ -41,7 +41,7 @@ const AppName = (props) => {
                 </Link>
               </div>
               <div className="userContain normalCol">
-                <Dropdown></Dropdown>
+                <Dropdown link1='Reserve a Room' link2='My Reservation' link3='Log Out'></Dropdown>
                   <div className="usersName">
                     {props.uName ? 'Welcome, ' + props.uName : ''}
                   </div>

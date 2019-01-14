@@ -3,7 +3,12 @@
   align-items: center;
   margin-bottom: 30px;
   margin-top: 10px;
+  border: none;
 
+}
+
+.bldg {
+  margin-top: -10px;
 }
 
 .checkB {
@@ -105,6 +110,9 @@ select.form-control:active, select.form-control:focus {
   border-radius: 0px;
   border-bottom: 2px solid #DEDEDE;
   align-self: center;
+  border-top: none;
+  border-right: none;
+  border-left: none;
 }
 
 .noBo {

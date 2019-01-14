@@ -38,8 +38,16 @@ input {
   color: #182952;
 }
 
-.lightMauve {
+.silver {
   background-color: #c7c1c1;
+}
+
+.lightPurpBrdr {
+  border: 1px solid #beb3e8 !important;
+}
+
+.tomato {
+  background-color: #fa7268;
 }
 
 

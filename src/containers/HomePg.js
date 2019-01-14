@@ -102,7 +102,7 @@ class HomePg extends React.Component {
                 <br/>
                 <br/>
                 <div className="srchBtnDv">
-                  <NavLink to='/advancedSearch' className="srchBtn pink">
+                  <NavLink to='/advancedSearch' className="srchBtn purple lightPurpBrdr ">
                     Advanced Search
                   </NavLink>
                 </div>

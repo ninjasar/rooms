@@ -13,7 +13,7 @@ const handleClick = () =>  {
 var TimeBtn = (props) => {
   return (
   <div>
-    <button className={"timeBtn pink" + (props.btnSelected ? " btnSelected purpleBckgd purpleBrdr" : " ")} onClick={props.onClick}> {props.startTime ? dateFormat(props.startTime, "shortTime") : ' '}</button>
+    <button className={"timeBtn lightPurpBrdr purple" + (props.btnSelected ? " btnSelected  tomato" : " ")} onClick={props.onClick}> {props.startTime ? dateFormat(props.startTime, "shortTime") : ' '}</button>
   </div>
   )
 };

@@ -289,9 +289,9 @@ class Filter extends Card {
           <Card bigTitle={'Filter'} clear={true} clrFilter={this.resetFilter.bind(this)} style={{}} isFltr={true}>
 
             <form onSubmit={this.handleSubmit}>
-              <div className="line"></div>
+
               {this.props.search && (
-                <Card title="Campus" className="filterbx" style={{'.title' : {fontSize: '20px'}}}>
+                <Card title="Campus" className="filterbx bldg" style={{'.title' : {fontSize: '20px'}}}>
                   <span className="title">Campus</span>
                   <br/>
                   <br/>
@@ -309,7 +309,7 @@ class Filter extends Card {
                 <span className="title">Duration</span>
                 <br/>
                 <br/>
-                <div className="ddcontainer lightMauve borderHack">
+                <div className="ddcontainer silver borderHack">
                   <FormGroup controlId="formControlsSelect" >
                    <FormControl componentClass="select" placeholder="select" defaultValue={2} name="duration" onChange={this.durationOnChange.bind(this)}>
                      <option className="op" value=".5" name=".5" >0.5 hours</option>
@@ -329,7 +329,7 @@ class Filter extends Card {
                 <span className="title">Occupants</span>
                 <br/>
                 <br/>
-                <div className="ddcontainer lightMauve borderHack">
+                <div className="ddcontainer silver borderHack">
                   <FormGroup controlId="formControlsSelect">
                    <FormControl componentClass="select" placeholder="select" defaultValue={1} name="occupants" onChange={this.handleChange}>
                      <option value="1" name="1" onChange={this.handleChange}>1 person</option>
@@ -354,7 +354,7 @@ class Filter extends Card {
                 <span className="title">Select Date</span>
                 <br/>
                 <br/>
-                <div className="calendarContainer lightMauve borderHack">
+                <div className="calendarContainer silver borderHack">
                   <Calendar onChange={this.calendarOnChange}
                     value={this.state.openTime.toDate()}
                     defaultValue={this.state.openTime.toDate()}
@@ -375,7 +375,7 @@ class Filter extends Card {
                 <br/>
                 <br/>
                 <div className="rangeSelectDv ">
-                  <div className="ddcontainer timeRange lightMauve borderHack">
+                  <div className="ddcontainer timeRange silver borderHack">
                     <FormGroup controlId="formControlsSelect" key={this.state.random}>
                      <FormControl componentClass="select"
                        placeholder="select"
@@ -390,7 +390,7 @@ class Filter extends Card {
                    <div>
                     <span >to</span>
                   </div>
-                  <div className="ddcontainer timeRange lightMauve borderHack">
+                  <div className="ddcontainer timeRange silver borderHack">
                     <FormGroup controlId="formControlsSelect">
                      <FormControl componentClass="select"
                        placeholder="select"

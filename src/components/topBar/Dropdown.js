@@ -47,9 +47,9 @@ class Dropdown extends React.Component {
       <div className="oval gradient" onClick={this.toggle}>
         <div className={this.state.hidden ? "hidedd" : "dropdown"}>
           <div id="myDropdown" className="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+            <a href="#">{this.props.link1}</a>
+            <a href="#">{this.props.link2}</a>
+            <a href="#">{this.props.link3}</a>
           </div>
         </div>
       </div>
