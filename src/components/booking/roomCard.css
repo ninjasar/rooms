@@ -9,7 +9,23 @@
   justify-self: flex-end;
   display: flex;
   flex-direction: row;
-  width: 50%;
+  width: 20%;
+}
+
+.attDv {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 90%;
+
+}
+
+.attribute {
+  padding: 5px 25px 0px 10px;
+}
+
+.att {
+  font-weight: bold;
 }
 
 .roomRec3 {
@@ -33,7 +49,7 @@
 }
 
 .mapImg {
-  width: 100px;
+  width: 140px;
   border-radius: 5px;
   border: 2px solid #afa8ef;
   opacity: 0.7;
@@ -54,7 +70,7 @@
   font-weight: bold;
   font-size: 18px;
   z-index: 100 !important;
-  margin-left: 2px;
+  margin-left: 5px;
 }
 
 .cancel {
@@ -63,6 +79,7 @@
   border-radius: 5px;
   color: #a9a9a9;
   padding: 4px 20px 4px 20px;
+  align-self: flex-end;
 }
 
 .cancel .cancelTxt {
@@ -92,7 +109,20 @@
   opacity: 1;
 }
 
+.currDate {
+  font-size: 15px;
+  font-weight: bold;
+  color: #182952;
+  margin-right: 10px;
+}
 
+.currLine {
+  border-right: 1px solid #e5e3f4;
+  margin-right: 10px;
+  height: 100px;
+  align-self: center;
+  justify-self: center;
+}
 
 .recImg {
   width: 100px;
@@ -115,6 +145,22 @@
   line-height: 20px;
   font-size: 13px;
   padding-left: 10px;
+  width: 100%;
+}
+
+.icon {
+  width: 20px;
+}
+
+.amenityDv {
+  align-self: flex-start;
+  justify-self: flex-start;
+  margin-right: 6rem;
+
+}
+
+.attA {
+  margin: 0px 10px 0px 10px;
 }
 
 .recTitle {
@@ -139,7 +185,6 @@
   font-weight: bold;
   margin-bottom: 10px;
   width: 100%;
-  margin-left: -10px;
 }
 
 .time {
@@ -188,6 +233,8 @@
 
 .medRecImgDv1 {
   margin: 10px;
+  align-self: center;
+  text-align: center;
 }
 .medTime {
   align-self: flex-start;
@@ -199,27 +246,30 @@
 }
 .medRoomRec3 {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
-.medTopSide{
-  align-self: center;
+.medCurrLeft{
+  display: flex;
+  flex-direction: row;
 }
 .medRecImgDv {
   text-align: center;
   padding: 10px;
+  align-self: center;
 }
 .medRecImg {
-  max-width: 200px;
+  max-width: 150px;
 }
 .medRoomInfo {
   padding: 10px;
+  width: 100%;
 }
 .medRoomTitle {
   font-size: 16px;
-  text-align: center;
+  text-align: left;
   padding: 10px;
   font-weight: bold;
 }
@@ -228,19 +278,18 @@
   flex-direction: column;
 }
 .medMap {
-  width: 100%;
+  width: 120px;
   z-index: 0 !important;
   background-color: #f4f4f4 !important;
   border-radius: 5px;
   padding: 0px;
   text-align: center;
-  height: 48px;
+  align-self: center;
   margin-bottom: 10px;
   margin-top: 10px;
 }
 .medMapImg {
-  width: 100%;
-  height: 50px;
+  max-width: 120px;
   opacity: .5;
   border-radius: 5px;
   border: 2px solid #afa8ef;
@@ -264,16 +313,34 @@
   font-variant: small-caps;
 }
 
+.medCancel {
+  align-self: center;
+}
+
+.medAtt {
+  font-weight: bold;
+}
+
+.medAttA
+
 
 @media (max-width: 1200px) {
   .rrBorder {
     margin: auto;
   }
+  .attDv {
+    width: 100%;
+  }
+  .roomInfo {
+    width: 100%;
+  }
   .recImgDv {
     padding-left: 0px;
+    align-self: center;
+    text-align: center;
   }
   .recImg {
-    width: 150px;
+    width: 100px;
   }
   .roomTitle {
     font-size: 14px;

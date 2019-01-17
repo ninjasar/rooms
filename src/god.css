@@ -56,9 +56,6 @@ input {
   padding: 2px;
 }
 
-.attribute {
-  font-weight: bold;
-}
 
 .gradient {
   /* background: linear-gradient(to right, #681996 0%, #e255c1 40%, #f575ad 60%, #ffc99b 100%); */

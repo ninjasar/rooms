@@ -36,7 +36,7 @@ const AppName = (props) => {
               </Link>
                 <Link to="/currentReservation" onClick={props.setNav} className={'reserve normalCol ' + (props.curr && ' active purple' )}>
                   <div >
-                     &nbsp;&nbsp;Current Reservation
+                     &nbsp;&nbsp;My Reservation
                   </div>
                 </Link>
               </div>

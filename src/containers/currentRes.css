@@ -1,5 +1,5 @@
 .biggerContain {
-  margin-top: 30px;
+  margin-top: 20px;
   width: 94%;
   margin-left: auto;
   margin-right: auto;
@@ -22,22 +22,23 @@
 .sortRes {
   margin-left: auto;
   margin-right: auto;
-  color: #9a57d9;
+  color: #604c8d;
   padding: 0px;
   width: 200px;
   height: 50px;
+  font-size: 12px;
   border-radius: 1px;
-  border: 1.5px solid #9a57d9;
+  border: 1.5px solid #604c8d;
   font-weight: bold;
 }
 
 .sortRes:hover {
-  background-color: #9a57d9;
+  background-color: #604c8d;
   color: white;
 }
 
 .sRActive {
-  background-color: #9a57d9;
+  background-color: #604c8d;
   color: white;
 }
 
@@ -46,6 +47,7 @@
   text-align: left;
   margin-left: auto;
   margin-right: auto;
+  width: 80%;
   padding: 20px;
   display: flex;
   flex-direction: column;

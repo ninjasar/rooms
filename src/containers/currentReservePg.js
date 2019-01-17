@@ -109,7 +109,6 @@ class currentReservePg extends React.Component {
           </button>
         </div>
         <div className='currResContain' key={this.state.key}>
-
           {this.roomCards}
         </div>
       </div>
