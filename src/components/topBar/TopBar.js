@@ -41,7 +41,7 @@ const AppName = (props) => {
                 </Link>
               </div>
               <div className="userContain normalCol">
-                <Dropdown link1='Reserve a Room' link2='My Reservation' link3='Log Out'></Dropdown>
+                <Dropdown link1='Reserve a Room' link1Href='/home' link2='My Reservation' link2Href='/currentReservation' link3='Log Out' link3Href='#'></Dropdown>
                   <div className="usersName">
                     {props.uName ? 'Welcome, ' + props.uName : ''}
                   </div>
@@ -53,7 +53,7 @@ const AppName = (props) => {
                 {props.url !== '/home' && props.url !== '/home/' && props.url !== '/' && props.url !== '/' && <BackButton/>}
               <div className="logArr">
                 <Logo/>
-                <Arrows/>
+                <Dropdown mobile={true} link1='Reserve a Room' link1Href='/home' link2='My Reservation' link2Href='/currentReservation' link3='Log Out' link3Href='#'></Dropdown>
               </div>
             </div>
           </div>

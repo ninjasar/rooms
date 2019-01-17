@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Arrows from './Arrows.js';
 import "./dropdown.css";
 import '../../god.css';
 
@@ -21,6 +22,8 @@ class Dropdown extends React.Component {
 
 
   toggle() {
+    console.log('yooooo');
+    console.log(this.props.mobile);
     this.setState({
       hidden: !this.state.hidden
     });
@@ -42,18 +45,32 @@ class Dropdown extends React.Component {
     if(this.state.hidden == false){
       window.addEventListener('click', this.close);
     }
-
-    return (
-      <div className="oval gradient" onClick={this.toggle}>
-        <div className={this.state.hidden ? "hidedd" : "dropdown"}>
-          <div id="myDropdown" className="dropdown-content">
-            <a href="#">{this.props.link1}</a>
-            <a href="#">{this.props.link2}</a>
-            <a href="#">{this.props.link3}</a>
+    if(this.props.mobile) {
+      return(
+        <Arrows onClick={this.toggle}>
+          <div className={this.state.hidden ? "hidedd" : "dropdown"}>
+            <div id="myDropdown" className="dropdown-content">
+              <Link to={this.props.link1Href}>{this.props.link1}</Link>
+              <Link to={this.props.link2Href}>{this.props.link2}</Link>
+              <Link to={this.props.link3Href}>{this.props.link3}</Link>
+            </div>
+          </div>
+        </Arrows>
+      )
+    }else {
+      return (
+        <div className="oval gradient" onClick={this.toggle}>
+          <div className={this.state.hidden ? "hidedd" : "dropdown"}>
+            <div id="myDropdown" className="dropdown-content">
+              <Link to={this.props.link1Href}>{this.props.link1}</Link>
+              <Link to={this.props.link2Href}>{this.props.link2}</Link>
+              <Link to={this.props.link3Href}>{this.props.link3}</Link>
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
+
   }
 
 }

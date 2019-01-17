@@ -10,9 +10,12 @@ import API from '../../utils';
 import TimeBtn from './TimeBtn';
 import '../../god.css';
 import './roomCard.css';
-import Coffee from './coffee.svg';
-import Printer from './printer.png';
-import Projector from './projector.svg';
+import Marker from './icons/location.svg';
+import People from './icons/people.svg';
+import Clock from './icons/clock.svg';
+import Coffee from './icons/coffee.svg';
+import Printer from './icons/printer.svg';
+import Projector from './icons/projector.svg';
 import CurrentReservePg from '../../containers/CurrentReservePg';
 import Map from './map.png';
 
@@ -236,9 +239,9 @@ class RoomCard extends Card {
                     </div>
                     <br/>
                     <div className='attDv'>
-                      <div className='attribute'>
-                        <span className="medAtt">Date</span> : {this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, "shortDate") : dateFormat(this.props.startTime, "shortDate")}
-                      </div>
+                    <div className='attribute'>
+                      <span className="att">Duration</span> : {this.props.duration ? this.props.duration : ' '} hour(s)
+                    </div>
 
                       <div className='medAmenityDv'>
                         <span className="medAttA">{this.props.amenities}<img src={Coffee} title="Coffee"/> </span>
@@ -283,21 +286,21 @@ class RoomCard extends Card {
                     </div>
                     <div className='attDv'>
                       <div className='attribute'>
-                        <span className="att">Location</span> : {this.jsUcfirst()}
+                        <span className="att"><img src={Marker}/></span> &nbsp;&nbsp;{this.jsUcfirst()}
                       </div>
+
                       <div className='attribute'>
-                        <span className="att">Capacity</span> : {this.props.capacity} person(s)
-                      </div>
-                      <div className='attribute'>
-                        <span className="att">Date</span> : {this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, "shortDate") : dateFormat(this.props.startTime, "shortDate")}
+                        <span className="att"><img src={Clock}/></span>  &nbsp;&nbsp;{this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, "shortDate") : dateFormat(this.props.startTime, "shortDate")}
+
+                          &nbsp; for &nbsp; {this.props.duration ? this.props.duration : ' '} hour(s)
                       </div>
                     </div>
                     <br/>
                     <div className='attDv'>
-
                       <div className='attribute'>
-                        <span className="att">Duration</span> : {this.props.duration ? this.props.duration : ' '} hour(s)
+                        <span className="att"><img src={People}/></span> &nbsp;&nbsp; {this.props.capacity} person(s)
                       </div>
+
                       <div className='amenityDv'>
                         <span className="attA">{this.props.amenities}<img src={Coffee} title="Coffee"/> </span>
                         <span className="attA">{this.props.amenities}<img className='icon' src={Printer} title="Coffee"/> </span>
@@ -355,13 +358,13 @@ class RoomCard extends Card {
                         </div>
                         <div className='attDv'>
                           <div className='attribute'>
-                            <span className="att">Location</span>: {this.jsUcfirst()}
+                            <span className="att"><img src={Marker}/></span> {this.jsUcfirst()}
                           </div>
                           <div className='attribute'>
-                            <span className="att">Capacity</span>: {this.props.capacity} person(s)
+                            <span className="att"><img src={People}/></span> {this.props.capacity} person(s)
                           </div>
                           <div className='attribute'>
-                            <span className="att">Time</span>: {this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, "shortTime") : dateFormat(this.props.startTime, "shortDate")}
+                            <span className="att"><img src={Clock}/></span> {this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, "shortTime") : dateFormat(this.props.startTime, "shortDate")}
                           </div>
                         </div>
                         <br/>
@@ -411,23 +414,22 @@ class RoomCard extends Card {
                         </div>
                         <div className='attDv'>
                           <div className='attribute'>
-                            <span className="att">Location</span> : {this.jsUcfirst()}
+                            <span className="att"><img src={Marker}/></span> {this.jsUcfirst()}
                           </div>
                           <div className='attribute'>
-                            <span className="att">Capacity</span> : {this.props.capacity} person(s)
+                            <span className="att"><img src={People}/></span>  {this.props.capacity} person(s)
                           </div>
-                          <div className='attribute'>
-                            <span className="att">Time</span> : {this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, "shortTime") +'-'+
-                            dateFormat(moment(this.props.startTimes[0]).add(this.props.duration, 'hours').toDate(), "shortTime") : dateFormat(this.props.startTime, "shortTime") +'-'+
-                            dateFormat(moment(this.props.startTime).add(this.props.duration, 'hours').toDate(), "shortTime")}
-                            {console.log(moment(this.props.startTime).add(this.props.duration, 'hours').toDate())}
-                          </div>
+
                         </div>
                         <br/>
                         <div className='attDv'>
 
                           <div className='attribute'>
-                            <span className="att">Duration</span> : {this.props.duration ? this.props.duration : ' '} hour(s)
+                          <span className="att"><img src={Clock}/></span>  {this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, "shortTime") +'-'+
+                          dateFormat(moment(this.props.startTimes[0]).add(this.props.duration, 'hours').toDate(), "shortTime") : dateFormat(this.props.startTime, "shortTime") +'-'+
+                          dateFormat(moment(this.props.startTime).add(this.props.duration, 'hours').toDate(), "shortTime")}
+                          {console.log(moment(this.props.startTime).add(this.props.duration, 'hours').toDate())}
+                             &nbsp;&nbsp;for {this.props.duration ? this.props.duration : ' '} hour(s)
                           </div>
                           <div className='amenityDv'>
                             <span className="attA">{this.props.amenities}<img src={Coffee} title="Coffee"/> </span>

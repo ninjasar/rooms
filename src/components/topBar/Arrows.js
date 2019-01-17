@@ -2,6 +2,7 @@ import React from 'react';
 
 
 import './topBar.css';
+import Dropdown from './Dropdown.js';
 import down from './down.svg';
 import up from './upIcon.svg';
 
@@ -33,8 +34,11 @@ class Arrows extends React.Component {
 
   render() {
     return (
-     <div className="arrowContainer" key={this.state.key} onClick={() => {this.switchArrows()}}>
+     <div className="arrowContainer" key={this.state.key} onClick={() => {this.switchArrows(); this.props.onClick()}}>
          <img src={this.dir} alt="arrow" className="arrow"/>
+         <div>
+          {this.props.children}
+         </div>
      </div>
    );
   }
