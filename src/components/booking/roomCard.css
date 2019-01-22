@@ -49,6 +49,10 @@
     padding: -2px;
 }
 
+.currMD {
+  font-size: 20px;
+}
+
 .mapImg {
   width: 140px;
   border-radius: 5px;
@@ -115,6 +119,7 @@
   font-weight: bold;
   color: #182952;
   margin-right: 10px;
+  text-align: center;
 }
 
 .currLine {
