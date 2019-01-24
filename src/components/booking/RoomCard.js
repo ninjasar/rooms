@@ -220,7 +220,7 @@ class RoomCard extends Card {
           matches ? (
 
           <div className='rrBorder borderHack' key={this.state.key}>
-            <div className="medRoomRec3"  img={this.props.img}>
+            <div className="medRoomRec2"  img={this.props.img}>
                 <div className="medTopSide1">
                   <div className="medRecImgDv1">
                     {this.props.img && <img src={this.props.img} className="medRecImg" alt="a room"/>}
@@ -229,18 +229,17 @@ class RoomCard extends Card {
                     <div className="roomTitle purple">
                       {this.jsUcfirst() + ' ' + this.props.roomNumber}
                     </div>
-                    <div className='attDv'>
+                    <div className='medAttDv'>
                       <div className='attribute'>
-                        <span className="medAtt">Location</span>  {this.jsUcfirst()}
+                        <span className="medAtt"><img src={Marker}/></span> &nbsp;&nbsp; {this.jsUcfirst()}
                       </div>
                       <div className='attribute'>
-                        <span className="medAtt">Capacity</span>  {this.props.capacity} person(s)
+                        <span className="medAtt"><img src={People}/></span>  {this.props.capacity} person(s)
                       </div>
                     </div>
-                    <br/>
-                    <div className='attDv'>
+                    <div className='medAttDv'>
                     <div className='attribute'>
-                      <span className="medAtt">Duration</span>  {this.props.duration ? this.props.duration : ' '} hour(s)
+                      <span className="medAtt"><img src={Clock}/></span> &nbsp;&nbsp; {this.props.duration ? this.props.duration : ' '} hour(s)
                     </div>
 
                       <div className='medAmenityDv'>
@@ -260,7 +259,7 @@ class RoomCard extends Card {
                 </div>
               {this.props.children}
               </div>
-              <div className='line2'></div>
+              {/*<div className='line2'></div>*/}
               <form onSubmit={this.reserve}>
                 {(this.state.locationData.length !== 0) ? (
                   <div>
@@ -275,7 +274,7 @@ class RoomCard extends Card {
             </div>
         ): (
           <div className='rrBorder borderHack' key={this.state.key}>
-            <div className="roomRec2"  img={this.props.img}>
+            <div className="roomRec"  img={this.props.img}>
                 <div className="topCard">
                   <div className="recImgDv">
                     {this.props.img && <img src={this.props.img} className="recImg" alt="a room"/>}
@@ -318,7 +317,7 @@ class RoomCard extends Card {
                 </div>
               {this.props.children}
               </div>
-              <div className='line2'></div>
+              {/*<div className='line2'></div>*/}
               <form onSubmit={this.reserve}>
                 {(this.state.locationData.length !== 0) ? (
                   <div>
@@ -341,11 +340,12 @@ class RoomCard extends Card {
           {matches =>
             matches ? (
               <div className='medrrBorder ' key={this.state.key}>
-                <div className="medRoomRec3"  img={this.props.img}>
+                <div className="medRoomRec2"  img={this.props.img}>
 
                     <div className="medCurrLeft">
-                      <div className='medMap'>
-                        {this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, "shortDate") : dateFormat(this.props.startTime, "shortDate")}
+                      <div className='medCurrDate'>
+                      <div className='currMD'>{this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, 'MM-DD') : dateFormat(this.props.startTime, "mm/dd")}</div>
+                      {this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, 'yyyy') : dateFormat(this.props.startTime, "yyyy")}
                       </div>
                       <div className='medMap'>
                         <a href={mapsUrl+this.props.address} className="medMapLink" target='_blank'>
@@ -390,12 +390,12 @@ class RoomCard extends Card {
                   </div>
                   {this.props.children}
                   <br/>
-                  <div className='line2'></div>
+                  {/*<div className='line2'></div>*/}
                 </div>
 
             ) : (
               <div className='rrBorder ' key={this.state.key}>
-                <div className="roomRec3"  img={this.props.img}>
+                <div className="roomRec2"  img={this.props.img}>
 
                     <div className="topCard">
                       <div className='currDate'>
@@ -454,7 +454,7 @@ class RoomCard extends Card {
                   </div>
                   {this.props.children}
                   <br/>
-                  <div className='line2'></div>
+                  {/*<div className='line2'></div>*/}
                 </div>
               )
             }

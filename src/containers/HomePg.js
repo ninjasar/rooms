@@ -98,14 +98,14 @@ class HomePg extends React.Component {
               <Card bigTitle={ <span>&nbsp;&nbsp;&nbsp; Recommended Rooms</span>}>
                 <br/>
                  {/*&nbsp;&nbsp;&nbsp;<span className="recTitle purple">Recommended Rooms</span> */}
-                <span className="typeOfR">&nbsp;&nbsp;&nbsp;Individual</span>
+                <div className="typeOfR">&nbsp;&nbsp;&nbsp;Individual</div>
                 <br/>
                 <RoomCard bigTitle={true} img={recImg} bldg={this.state.locationOfRoom1} isRoomRec={true}
                     roomNumber={this.state.roomNumber1} capacity={this.state.capacity1} id={this.state.roomId1} history={this.props.history} startTime={this.state.openTime1} duration={this.state.duration1}>
                 </RoomCard>
                 <br/>
                 <br/>
-                <span className="typeOfR">&nbsp;&nbsp;&nbsp;Group</span>
+                <div className="typeOfR">&nbsp;&nbsp;&nbsp;Group</div>
                 <br/>
               <RoomCard bigTitle={true} img={recImg} bldg={this.state.locationOfRoom2} isRoomRec={true}
                 roomNumber={this.state.roomNumber2} capacity={this.state.capacity2} id={this.state.roomId2} history={this.props.history} startTime={this.state.openTime2} duration={this.state.duration2}>
@@ -148,14 +148,14 @@ class HomePg extends React.Component {
               <Card bigTitle={ <span>&nbsp;&nbsp;&nbsp; Recommended Rooms</span>}>
                 <br/>
                  {/*&nbsp;&nbsp;&nbsp;<span className="recTitle purple">Recommended Rooms</span> */}
-                <span className="typeOfR">&nbsp;&nbsp;&nbsp;Individual</span>
+                <div className="typeOfR">&nbsp;&nbsp;&nbsp;Individual</div>
                 <br/>
                 <RoomCard bigTitle={true} img={recImg} bldg={this.state.locationOfRoom1} isRoomRec={true}
                     roomNumber={this.state.roomNumber1} capacity={this.state.capacity1} id={this.state.roomId1} history={this.props.history} startTime={this.state.openTime1} duration={this.state.duration1}>
                 </RoomCard>
                 <br/>
                 <br/>
-                <span className="typeOfR">&nbsp;&nbsp;&nbsp;Group</span>
+                <div className="typeOfR">&nbsp;&nbsp;&nbsp;Group</div>
                 <br/>
               <RoomCard bigTitle={true} img={recImg} bldg={this.state.locationOfRoom2} isRoomRec={true}
                 roomNumber={this.state.roomNumber2} capacity={this.state.capacity2} id={this.state.roomId2} history={this.props.history} startTime={this.state.openTime2} duration={this.state.duration2}>

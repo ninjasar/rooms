@@ -23,6 +23,7 @@
   color: #604c8d;
   padding: 0px;
   width: 200px;
+  background-color: #f8f8f8;
   height: 50px;
   font-size: 12px;
   /* border-radius: 1px;
@@ -36,8 +37,7 @@
 }
 
 .sRActive {
-  /* background-color: #604c8d;
-  color: white; */
+  border-bottom: 1.5px solid #604c8d;
 }
 
 

@@ -15,6 +15,7 @@
   border: 1px solid #E5CCF5;
   align-self: center;
   justify-self: flex-end;
+  cursor: pointer;
 }
 
 .oval:focus .dropdown {
