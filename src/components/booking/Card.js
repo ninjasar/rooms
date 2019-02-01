@@ -33,7 +33,7 @@ class Card extends React.Component {
 
     return (
       <div className={'base ' + (this.lastItem && ' lastItem ' ) + ' ' + (this.isRoomRec && ' roomRec' )+ ' ' + (this.props.className)} onClick={this.props.onClick}>
-        <div className={this.props.bigTitle ? 'title2 tGradient' : ' '}>{this.props.bigTitle}
+        <div className={this.props.bigTitle ? 'title2 gradient' : ' '}>{this.props.bigTitle}
         {this.props.clear ? (
           <span className="clear">
             <button onClick={this.props.clrFilter}>

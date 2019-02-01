@@ -115,7 +115,14 @@ class HomePg extends React.Component {
               </Card>
 
             </div>
-
+            <div>
+              <button>
+                Filter
+              </button>
+              <button>
+                Advanced Search
+              </button>
+            </div>
               {!this.props.loggedIn && <LandingPg loginClicked={this.props.login}/>}
           </div>
         ):(

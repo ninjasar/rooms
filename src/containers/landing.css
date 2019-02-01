@@ -103,7 +103,8 @@
 
 #landingPg {
   position: absolute;
-
+  z-index: 900;
+  background-color: white;
   height: 100%;
   padding: 10px;
   font-size: 3rem;

@@ -250,18 +250,35 @@ class SearchPg extends React.Component {
 
 
     return (
-
-      <div className='container' key={this.state.key}>
-        <div className="leftContain2">
-          <Filter duration={this.state.duration} homePg={true} apply={this.applySearch} search={true}/>
-        </div>
-            <div className="roomRecContain2">
-              <Card bigTitle='Results:'>
-              {/*<span className="recTitle purple">Results:</span>*/}
-                {(this.srchCmp.length !== 0) ? (this.srchCmp) : this.instantRes}
-              </Card>
+      <Media query="max-width: 1200px">
+      {matches =>
+        matches ? (
+          <div className='container' key={this.state.key}>
+            <div className="leftContain2">
+              <Filter duration={this.state.duration} homePg={true} apply={this.applySearch} search={true}/>
             </div>
-      </div>
+                <div className="roomRecContain2">
+                  <Card bigTitle='Results:'>
+                  {/*<span className="recTitle purple">Results:</span>*/}
+                    {(this.srchCmp.length !== 0) ? (this.srchCmp) : this.instantRes}
+                  </Card>
+                </div>
+          </div>
+        ): (
+          <div className='container' key={this.state.key}>
+            <div className="leftContain2">
+              <Filter duration={this.state.duration} homePg={true} apply={this.applySearch} search={true}/>
+            </div>
+                <div className="roomRecContain2">
+                  <Card bigTitle='Results:'>
+                  {/*<span className="recTitle purple">Results:</span>*/}
+                    {(this.srchCmp.length !== 0) ? (this.srchCmp) : this.instantRes}
+                  </Card>
+                </div>
+          </div>
+        )}
+      </Media>
+
     )
 
   }

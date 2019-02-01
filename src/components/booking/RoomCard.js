@@ -226,7 +226,7 @@ class RoomCard extends Card {
                     {this.props.img && <img src={this.props.img} className="medRecImg" alt="a room"/>}
                   </div>
                   <div className="roomInfo">
-                    <div className="roomTitle purple">
+                    <div className="medRoomTitle purple">
                       {this.jsUcfirst() + ' ' + this.props.roomNumber}
                     </div>
                     <div className='medAttDv'>
@@ -297,7 +297,7 @@ class RoomCard extends Card {
                     <br/>
                     <div className='attDv'>
                       <div className='attribute'>
-                        <span className="att"><img src={People}/></span> &nbsp;&nbsp; {this.props.capacity} person(s)
+                        <span className="att"><img src={People}/></span> {this.props.capacity} person(s)
                       </div>
 
                       <div className='amenityDv'>

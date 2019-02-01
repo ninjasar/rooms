@@ -59,12 +59,14 @@ input {
 
 .gradient {
   /* background: linear-gradient(to right, #681996 0%, #e255c1 40%, #f575ad 60%, #ffc99b 100%); */
-  background: linear-gradient(79deg, #604c8d, #fb5dbc);
+  /* background: linear-gradient(79deg, #604c8d, #fb5dbc); */
+  background-image:  linear-gradient(to right, #604c8d, #a343a8, #ff5a59);
 
 }
 
 .tGradient {
-  background: linear-gradient(79deg, #604c8d, #fb5dbc);
+  /*background: linear-gradient(79deg, #604c8d, #fb5dbc);*/
+   background-image: linear-gradient(to right, #604c8d, #a8439f, #ff5a59 );
 }
 
 .pink {

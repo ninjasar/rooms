@@ -94,21 +94,27 @@ class App extends React.Component {
     const logFrm = () => <LoginForm loginClicked={loginFn} />;
 
     return (
-      <div className="everyContain">
-          <Navbar className="topBar">
-            <div className="flexy">
-              <TopBar
-                uName={this.state.currentUser}
-                loggedIn={this.state.loggedIn}
-                url={currentRoute}
-                curr={currentRoute === '/currentReservation'}
-                setNav={setNav}
-                newRs={currentRoute !== '/currentReservation'}
-              />
-            </div>
-          </Navbar>
 
-        <div className="rts">
+      <div className="everyContain">
+          {(this.state.loggedIn) ? (
+            <Navbar className="topBar">
+              <div className="flexy">
+                <TopBar
+                  uName={this.state.currentUser}
+                  loggedIn={this.state.loggedIn}
+                  url={currentRoute}
+                  curr={currentRoute === '/currentReservation'}
+                  setNav={setNav}
+                  newRs={currentRoute !== '/currentReservation'}
+                />
+              </div>
+            </Navbar>
+          ): (
+            <div></div>
+          )}
+
+
+        <div className={this.state.loggedIn ? ("rts") : ('rtsLanding')}>
           {this.state.eMessage && (
             <div className="error">{this.state.eMessage}</div>
           )}

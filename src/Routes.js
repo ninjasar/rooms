@@ -14,7 +14,7 @@ export default (props) =>
     <Route path="/home" component={props.homecmp}/>
     <Route path="/login"  render={() => (
             props.loggedIn ? (
-          <Redirect to="/home"/>
+          <Redirect to="/homePg"/>
         ) : (
           props.logcmp()
         )
