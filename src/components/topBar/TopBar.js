@@ -19,6 +19,7 @@ const AppName = (props) => {
       {matches =>
         matches ? (
           <div id="topBar">
+
               {props.url !== '/home' && props.url !== '/home/' && props.url !== '/' && props.url !== '/' && <BackButton/>}
             <div className="vertLine">
             </div>
@@ -49,7 +50,9 @@ const AppName = (props) => {
           </div>
         ) : (
           <div id="topBar">
+
             <div className="medTB gradient">
+            <div id="pgDescrip"> {props.url == '/home' && 'Recommended Room'}</div>
                 {props.url !== '/home' && props.url !== '/home/' && props.url !== '/' && props.url !== '/' && <BackButton/>}
               <div className="logArr">
                 <Logo/>

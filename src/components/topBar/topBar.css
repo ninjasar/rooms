@@ -36,6 +36,12 @@
 
   order: 3;
 }
+#pgDescrip {
+  font-size: 20px;
+  background-color: none;
+  color: white;
+  width: 50%;
+}
 
 .back {
   background-color: transparent;

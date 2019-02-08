@@ -37,7 +37,7 @@ class HomePg extends React.Component {
 
     if(event !== 1)
       event.preventDefault();
-      //must call twice because closest only returns one room at a time
+      //must call api closest() twice because closest only returns one room at a time
       //call once for individual and make occupants 1
     for(var a = 0; a<2; a++) {
       API.closest(this.state.userLocation, duration, this.state.occupants)
