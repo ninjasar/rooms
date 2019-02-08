@@ -69,6 +69,11 @@ class RoomCard extends Card {
     this.reservationSuccessful='';
     this.getTimeBtns = this.getTimeBtns.bind(this);
     this.getRsrveFm = this.getRsrveFm.bind(this);
+    // this.realOpen = this.props.startTimes ? (this.props.startTimes[0].openTime) : (this.props.startTime);
+    this.realOpen2 = moment().add(3, 'hours').toISOString();
+    this.realClose2 = moment().add(4, 'hours').toISOString();
+    // this.realClose = this.props.startTimes ? (moment(this.props.startTimes[0].openTime).add(this.props.duration, 'hours').toISOString()) : (moment(this.props.startTime).add(this.props.duration, 'hours').toISOString());
+    this.calLink = `https://calendar.google.com/calendar/r/eventedit?text=${this.jsUcfirst()+' room reservation'}&dates=${this.realOpen2}/${this.realClose2}`;
   }
 
   static contextTypes = {
@@ -239,7 +244,7 @@ class RoomCard extends Card {
                     </div>
                     <div className='medAttDv'>
                     <div className='attribute'>
-                      <span className="medAtt"><img src={Clock}/></span> &nbsp;&nbsp; {this.props.duration ? this.props.duration : ' '} hour(s)
+                      <span className="medAtt"><img src={Clock}/></span> &nbsp;&nbsp;&nbsp;{this.props.duration ? this.props.duration : ' '} hour(s)
                     </div>
 
                       <div className='medAmenityDv'>
@@ -297,7 +302,7 @@ class RoomCard extends Card {
                     <br/>
                     <div className='attDv'>
                       <div className='attribute'>
-                        <span className="att"><img src={People}/></span> {this.props.capacity} person(s)
+                        <span className="att"><img src={People}/></span> &nbsp;{this.props.capacity} person(s)
                       </div>
 
                       <div className='amenityDv'>
@@ -415,7 +420,7 @@ class RoomCard extends Card {
                         </div>
                         <div className='attDv'>
                           <div className='attribute'>
-                            <span className="att"><img src={Marker}/></span>&nbsp; {this.jsUcfirst()}
+                            <span className="att"><img src={Marker}/></span>&nbsp; &nbsp;{this.jsUcfirst()}
                           </div>
                           <div className='attribute'>
                             <span className="att"><img src={Clock}/></span>  &nbsp;{this.props.startTimes ? dateFormat(this.props.startTimes[0].openTime, "shortTime") +'-'+
@@ -446,10 +451,14 @@ class RoomCard extends Card {
 
 
                       <button className="cancel" >
-                      <p className="cancelTxt">Cancel feature coming soon!</p>
-                      <FontAwesomeIcon icon="times" className='ex' />&nbsp;&nbsp;
+                        <p className="cancelTxt">Cancel feature coming soon!</p>
+                        <FontAwesomeIcon icon="times" className='ex' />&nbsp;&nbsp;
                           Cancel
                       </button>
+                      <a href={this.calLink} className="addToC purple purpleBrdr">
+                        <FontAwesomeIcon icon="calendar" className='calendar' />&nbsp;&nbsp;
+                        Add to Calendar
+                      </a>
                     </div>
                   </div>
                   {this.props.children}

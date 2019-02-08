@@ -95,11 +95,14 @@ select.form-control:active, select.form-control:focus {
 
 .clear {
   font-size: 11px;
-  color: #805CA2;
+  color: white;
   float: right;
   margin-top: 2px;
   margin-right: 12px;
-  background-color: white;
+  background-color: inherit;
+}
+.clear button {
+  background-color: inherit;
 }
 
 .form-group {

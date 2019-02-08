@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar } from 'react-bootstrap';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStroopwafel, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faStroopwafel, faTimes, faCalendar } from '@fortawesome/free-solid-svg-icons';
 
 import './App.css';
 import './index.css';
@@ -14,6 +14,7 @@ import LoginForm from './containers/LoginForm.js';
 
 library.add(faStroopwafel);
 library.add(faTimes);
+library.add(faCalendar);
 
 class App extends React.Component {
   constructor(props) {

@@ -124,6 +124,7 @@ button:focus {
   height: 20px;
   justify-self: flex-end;
   order: 200;
+  background: inherit;
 }
 
 .usersName {
@@ -217,10 +218,6 @@ button:focus {
       max-width: 100%;
     }
 
-    .medTB {
-      justify-content: space-between;
-    }
-
     .mediaBack {
 
     }
@@ -233,6 +230,7 @@ button:focus {
     .logoContainer {
       order: 1;
       width: 70px;
+      overflow-y: hidden;
     }
     #appNameContainer {
       justify-content: flex-end;

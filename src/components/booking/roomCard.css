@@ -10,8 +10,10 @@
 .rightSide {
   justify-self: flex-end;
   display: flex;
-  flex-direction: row;
-  width: 20%;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+  width: 30%;
 }
 
 .attDv {
@@ -81,13 +83,19 @@
   margin-left: 5px;
 }
 
+
+.addToC {
+  margin: 10px;
+  border-radius: 5px;
+  padding: 8px 20px 8px 20px;
+}
+
 .cancel {
   border: 2px solid #a9a9a9;
   margin: 10px;
   border-radius: 5px;
   color: #a9a9a9;
   padding: 4px 20px 4px 20px;
-  align-self: flex-end;
 }
 
 .cancel .cancelTxt {
@@ -307,7 +315,7 @@
 .medAttDv {
   display: flex;
   flex-direction: column;
-
+  align-items: flex-start;
 }
 
 .medMap {

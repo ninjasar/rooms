@@ -49,7 +49,7 @@ const AppName = (props) => {
           </div>
         ) : (
           <div id="topBar">
-            <div className="medTB">
+            <div className="medTB gradient">
                 {props.url !== '/home' && props.url !== '/home/' && props.url !== '/' && props.url !== '/' && <BackButton/>}
               <div className="logArr">
                 <Logo/>
