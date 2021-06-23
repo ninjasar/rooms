@@ -46,7 +46,7 @@ class RoomCard extends Card {
     this.className = this.className + ' roomRec2';
     this.timeBtn = React.createRef();
     this.btnArr = [];
-    this.rd;
+    // this.rd;
     this.history = this.props.history;
     this.state = {
       duration: 2,

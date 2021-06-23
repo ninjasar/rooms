@@ -11,7 +11,7 @@ import recImg from './recImg.png';
 import './currentRes.css';
 import '../god.css';
 
-class currentReservePg extends React.Component {
+class CurrentReservePg extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -120,7 +120,7 @@ class currentReservePg extends React.Component {
 
 }
 
-export default currentReservePg;
+export default CurrentReservePg;
 
 
 /*
